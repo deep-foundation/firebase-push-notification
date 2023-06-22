@@ -1,7 +1,9 @@
 {
   "name": "@deep-foundation/firebase-push-notification",
-  "keywords": [],
-  "version": "0.0.1",
+  "keywords": [
+    "deep-package"
+  ],
+  "version": "4.0.0",
   "description": "",
   "repository": {
     "type": "git",
@@ -19,14 +21,16 @@
     "./deep.json"
   ],
   "dependencies": {
-    "@deep-foundation/core": "^0.0.2"
+    "@deep-foundation/core": "^0.0.2",
+    "@deep-foundation/device": "~1.0.1",
+    "@deep-foundation/notification": "~1.0.1"
   },
   "devDependencies": {
     "@atao60/fse-cli": "^0.1.7",
-    "@deep-foundation/npm-automation": "^1.0.3",
-    "@types/fs-extra": "^11.0.1",
-    "@types/node": "^20.2.4",
     "fs-extra": "^11.1.1",
+    "@types/fs-extra": "^11.0.1",
+    "@deep-foundation/npm-release": "~0.0.16",
+    "@types/node": "^20.2.4",
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
