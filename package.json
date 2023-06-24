@@ -28,15 +28,15 @@
   },
   "devDependencies": {
     "@atao60/fse-cli": "^0.1.7",
-    "fs-extra": "^11.1.1",
+    "@deep-foundation/npm-automation": "^1.0.3",
     "@types/fs-extra": "^11.0.1",
-    "@deep-foundation/npm-release": "~0.0.16",
     "@types/node": "^20.2.4",
+    "fs-extra": "^11.1.1",
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
+    "@capacitor/push-notifications": "^5.0.4",
     "@deep-foundation/deeplinks": "~0.0.164",
-    "@firebase/messaging": "^0.12.4",
-    "@capacitor/push-notifications": "^5.0.4"
+    "@firebase/messaging": "^0.12.4"
   }
 }
