@@ -10,7 +10,8 @@
     "url": "https://github.com/deep-foundation/firebase-push-notification"
   },
   "scripts": {
-    "build": "fse remove dist && tsc",
+    "build": "tsc && fse copy src/schema.json dist/schema.json",
+    "clean-build": "fse remove dist && npm run build",
     "npm-pull": "npm-pull",
     "npm-release": "npm-release"
   },
@@ -34,6 +35,8 @@
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
-    "@deep-foundation/deeplinks": "~0.0.164"
+    "@deep-foundation/deeplinks": "~0.0.164",
+    "@firebase/messaging": "^0.12.4",
+    "@capacitor/push-notifications": "^5.0.4"
   }
 }
