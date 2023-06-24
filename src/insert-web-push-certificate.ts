@@ -7,7 +7,7 @@ import { FirebasePushNotificationContains } from './contains';
  */
 export async function insertWebPushCertificate(
   param: InsertWebPushCertificateParam
-) {
+): Promise<InsertWebPushCertificateResult> {
   const { deep, webPushCertificate, shouldMakeActive = false } = param;
   const containTypeLinkId = await deep.id('@deep-foundation/core', 'Contain');
   const webPushCertificateTypeLinkId = await deep.id(
@@ -36,7 +36,7 @@ export async function insertWebPushCertificate(
     });
   }
 
-  await deep.insert({
+  const {data: [{id: webPushCertificateLinkId}]} =  await deep.insert({
     type_id: webPushCertificateTypeLinkId,
     string: {
       data: {
@@ -68,6 +68,8 @@ export async function insertWebPushCertificate(
       ],
     },
   });
+
+  return {webPushCertificateLinkId}
 }
 
 export interface InsertWebPushCertificateParam {
@@ -86,4 +88,11 @@ export interface InsertWebPushCertificateParam {
    * You can have multiple web push certificate and only one can be active. It is made active when UsesServiceAccount is pointing to it
    */
   shouldMakeActive?: boolean;
+}
+
+export interface InsertWebPushCertificateResult {
+  /**
+   * Web Push Certificate Link Id
+   */
+  webPushCertificateLinkId: number;
 }
