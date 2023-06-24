@@ -37,6 +37,7 @@
   "peerDependencies": {
     "@capacitor/push-notifications": "^5.0.4",
     "@deep-foundation/deeplinks": "~0.0.164",
-    "@firebase/messaging": "^0.12.4"
+    "@firebase/messaging": "^0.12.4",
+    "@capacitor/device": "^5.0.4"
   }
 }
