@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "target": "es5",
     "jsx": "react-jsx",
-    "module": "commonjs",
+    "module": "ESNext",
     "rootDir": "./src",
     "resolveJsonModule": true,
     "declaration": true,
@@ -10,7 +10,8 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "moduleResolution": "Node"
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
