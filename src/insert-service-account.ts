@@ -11,7 +11,7 @@ import { FirebasePushNotificationContains } from './contains';
 const { serviceAccountLinkId } = await insertServiceAccount({
   deep,
   serviceAccount,
-  makeActive,
+  shouldMakeActive,
 })
 ```
  */
