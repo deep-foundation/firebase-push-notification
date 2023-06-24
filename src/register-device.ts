@@ -9,6 +9,15 @@ import { FirebasePushNotificationContains } from './contains';
 
 /**
  * Registers device
+ * 
+ * @example
+```ts
+await registerDevice({
+  deep,
+  deviceLinkId,
+  firebaseMessaging,
+})
+```
  */
 export async function registerDevice({
   deep,
