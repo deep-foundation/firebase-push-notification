@@ -6,7 +6,7 @@ import { FirebasePushNotificationContains } from './contains';
 /**
  * Inserts service account
  */
-export async function insertServiceAccount(param: InsertServiceAccountParam) {
+export async function insertServiceAccount(param: InsertServiceAccountParam): Promise<InsertServiceAccountResult> {
   const {
     deep,
     serviceAccount,
@@ -39,7 +39,7 @@ export async function insertServiceAccount(param: InsertServiceAccountParam) {
     });
   }
 
-  await deep.insert({
+  const {data: [{id: serviceAccountLinkId}]} = await deep.insert({
     type_id: serviceAccountTypeLinkId,
     object: {
       data: {
@@ -71,6 +71,8 @@ export async function insertServiceAccount(param: InsertServiceAccountParam) {
       ],
     },
   });
+
+  return {serviceAccountLinkId}
 }
 
 export interface InsertServiceAccountParam {
@@ -92,4 +94,11 @@ export interface InsertServiceAccountParam {
    * You can have multiple service account and only one can be active. It is made active when UsesServiceAccount is pointing to it
    */
   makeActive?: boolean;
+}
+
+export interface InsertServiceAccountResult {
+  /**
+   * Service Account Link Id
+   */
+  serviceAccountLinkId: number;
 }
