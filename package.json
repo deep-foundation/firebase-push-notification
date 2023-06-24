@@ -10,7 +10,7 @@
     "url": "https://github.com/deep-foundation/firebase-push-notification"
   },
   "scripts": {
-    "build": "tsc && fse copy src/schema.json dist/schema.json",
+    "build": "tsc",
     "clean-build": "fse remove dist && npm run build",
     "npm-pull": "npm-pull",
     "npm-release": "npm-release"
