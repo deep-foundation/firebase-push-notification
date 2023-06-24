@@ -2,6 +2,9 @@ import { DeepClient } from '@deep-foundation/deeplinks/imports/client';
 import { FIREBASE_PUSH_NOTIFICATION_PACKAGE_NAME } from './package-name';
 import { FirebasePushNotificationContains } from './contains';
 
+/**
+ * Inserts web push sertificate
+ */
 export async function insertWebPushCertificate(
   param: InsertWebPushCertificateParam
 ) {
@@ -68,7 +71,19 @@ export async function insertWebPushCertificate(
 }
 
 export interface InsertWebPushCertificateParam {
+  /**
+   * Deep Client
+   */
   deep: DeepClient;
+  /**
+   * Web Push Certificate
+   */
   webPushCertificate: string;
+  /**
+   * Is this web push certificate should be made active
+   * 
+   * @remarks
+   * You can have multiple web push certificate and only one can be active. It is made active when UsesServiceAccount is pointing to it
+   */
   shouldMakeActive?: boolean;
 }

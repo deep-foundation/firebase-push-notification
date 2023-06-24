@@ -1,4 +1,4 @@
-import { DeviceInfo } from '@capacitor/device';
+import { Device } from '@capacitor/device';
 import { PushNotifications } from '@capacitor/push-notifications';
 import { DeepClient } from '@deep-foundation/deeplinks/imports/client';
 import { BoolExpLink } from '@deep-foundation/deeplinks/imports/client_types';
@@ -7,13 +7,16 @@ import { insertDeviceRegistrationToken } from './insert-device-registration-toke
 import { FIREBASE_PUSH_NOTIFICATION_PACKAGE_NAME } from './package-name';
 import { FirebasePushNotificationContains } from './contains';
 
+/**
+ * Registers device
+ */
 export async function registerDevice({
   deep,
   deviceLinkId,
-  platform,
   firebaseMessaging,
   callback,
 }: RegisterDeviceParam) {
+  const {platform} = await Device.getInfo();
   if (platform === 'web') {
     const serviceWorkerRegistration = await navigator.serviceWorker.register(
       './firebase-messaging-sw.js',
@@ -72,13 +75,15 @@ export async function registerDevice({
   }: {
     value: string;
   }) {
-    const { deviceRegistrationTokenLinkId } =
-      await insertDeviceRegistrationToken({
-        deep,
-        deviceRegistrationToken,
-        deviceLinkId,
-      });
-    callback({ deviceRegistrationTokenLinkId, deviceRegistrationToken });
+      if(callback) {
+        callback({deviceRegistrationToken})
+      } else {
+        await insertDeviceRegistrationToken({
+          deep,
+          deviceRegistrationToken,
+          deviceLinkId,
+        });
+      }
   }
 }
 
@@ -162,15 +167,24 @@ async function getPushCertificateLink({ deep }: { deep: DeepClient }) {
 }
 
 export interface RegisterDeviceParam {
+  /**
+   * Deep Client
+   */
   deep: DeepClient;
+  /**
+   * Device link id
+   */
   deviceLinkId: number;
-  platform: DeviceInfo['platform'];
+  /**
+   * Firebase Messaging
+   */
   firebaseMessaging: Messaging;
+  /**
+   * Callback to be called when device registration token is received
+   */
   callback: ({
-    deviceRegistrationTokenLinkId,
     deviceRegistrationToken,
   }: {
-    deviceRegistrationTokenLinkId: number;
     deviceRegistrationToken: string;
   }) => void;
 }

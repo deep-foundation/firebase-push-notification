@@ -4,6 +4,9 @@ import { FIREBASE_PUSH_NOTIFICATION_PACKAGE_NAME } from "./package-name";
 import { PushNotification } from './push-notification';
 import { FirebasePushNotificationContains } from './contains';
 
+/**
+ * Inserts push notification
+ */
 export async function insertPushNotification(param: InsertPushNotificationParam) {
   const {deep, pushNotification, containerLinkId = deep.linkId} = param
   const pushNotificationTypeLinkId = await deep.id(
@@ -126,4 +129,17 @@ export async function insertPushNotification(param: InsertPushNotificationParam)
 
 }
 
-export interface InsertPushNotificationParam {deep: DeepClient, pushNotification: PushNotification, containerLinkId?: number | undefined}
+export interface InsertPushNotificationParam {
+  /**
+   * Deep Client
+   */
+  deep: DeepClient, 
+  /**
+   * Push notification
+   */
+  pushNotification: PushNotification, 
+  /**
+   * Id of a link where links will be contained
+   */
+  containerLinkId?: number | undefined
+}

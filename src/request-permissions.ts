@@ -1,6 +1,10 @@
 import { Device } from "@capacitor/device";
 import { PushNotifications } from "@capacitor/push-notifications";
 
+/**
+ * Requiests notification permissions
+ * @returns 
+ */
 export async function requestPermissions(): Promise<boolean>{
   const { platform } = await Device.getInfo();
   let isPermissionsGranted: boolean;

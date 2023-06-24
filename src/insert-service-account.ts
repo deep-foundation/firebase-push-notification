@@ -3,6 +3,9 @@ import { BoolExpLink } from '@deep-foundation/deeplinks/imports/client_types';
 import { FIREBASE_PUSH_NOTIFICATION_PACKAGE_NAME } from './package-name';
 import { FirebasePushNotificationContains } from './contains';
 
+/**
+ * Inserts service account
+ */
 export async function insertServiceAccount(param: InsertServiceAccountParam) {
   const {
     deep,
@@ -71,7 +74,22 @@ export async function insertServiceAccount(param: InsertServiceAccountParam) {
 }
 
 export interface InsertServiceAccountParam {
+  /**
+   * Deep Client
+   */
   deep: DeepClient;
+  /**
+   * Service Account
+   * 
+   * @remarks
+   * You can find it in firebase console under project settings
+   */
   serviceAccount: object;
+  /**
+   * Is this service account should be made active
+   * 
+   * @remarks
+   * You can have multiple service account and only one can be active. It is made active when UsesServiceAccount is pointing to it
+   */
   makeActive?: boolean;
 }

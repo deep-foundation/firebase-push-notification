@@ -3,6 +3,12 @@ import { FIREBASE_PUSH_NOTIFICATION_PACKAGE_NAME } from './package-name';
 import { PushNotification } from './push-notification';
 import { FirebasePushNotificationContains } from './contains';
 
+/**
+ * Gets push notification from deep
+ * 
+ * @throws {Error} If title is not found
+ * @throws {Error} If body is not found
+ */
 export async function getPushNotification({
   deep,
   pushNotificationLinkId,
@@ -84,6 +90,12 @@ export async function getPushNotification({
 }
 
 export interface GetPushNotificationParam {
+  /**
+   * Deep Client
+   */
   deep: DeepClient;
+  /**
+   * Link id of push notification
+   */
   pushNotificationLinkId: number;
 }
