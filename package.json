@@ -9,11 +9,13 @@
     "type": "git",
     "url": "https://github.com/deep-foundation/firebase-push-notification"
   },
+  "type": "module",
   "scripts": {
     "build": "tsc",
     "clean-build": "fse remove dist && npm run build",
     "npm-pull": "npm-pull",
-    "npm-release": "npm-release"
+    "npm-release": "npm-release",
+    "generate-schema": "ts-node-esm --project='./tsconfig.json' ./automation/generate-schema.ts -- --interface-file-path=\"./src/push-notification.ts\" --interface-name=\"NotificationPayload\" --output-json-file-path=\"./src/schema.json\""
   },
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
@@ -29,15 +31,19 @@
   "devDependencies": {
     "@atao60/fse-cli": "^0.1.7",
     "@deep-foundation/npm-automation": "^1.0.3",
+    "@freephoenix888/deep-map-object": "^3.0.1",
     "@types/fs-extra": "^11.0.1",
+    "@types/lodash": "^4.14.195",
     "@types/node": "^20.2.4",
     "fs-extra": "^11.1.1",
-    "typescript": "^4.9.5"
+    "lodash": "^4.17.21",
+    "typescript": "^4.9.5",
+    "typescript-json-schema": "^0.57.0"
   },
   "peerDependencies": {
+    "@capacitor/device": "^5.0.4",
     "@capacitor/push-notifications": "^5.0.4",
     "@deep-foundation/deeplinks": "~0.0.164",
-    "@firebase/messaging": "^0.12.4",
-    "@capacitor/device": "^5.0.4"
+    "@firebase/messaging": "^0.12.4"
   }
 }
