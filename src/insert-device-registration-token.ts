@@ -7,6 +7,15 @@ import { FirebasePushNotificationContains } from "./contains";
  * 
  * @remarks
  * Device registration token will be contained in device
+ * 
+ * @example
+```ts
+const { deviceRegistrationTokenLinkId } = await insertDeviceRegistrationToken({
+  deep,
+  deviceRegistrationToken,
+  deviceLinkId,
+})
+```
  */
 export async function insertDeviceRegistrationToken({
   deep, deviceRegistrationToken, deviceLinkId

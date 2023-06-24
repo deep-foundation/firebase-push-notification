@@ -8,6 +8,14 @@ import { FirebasePushNotificationContains } from './contains';
  * 
  * @throws {Error} If title is not found
  * @throws {Error} If body is not found
+ * 
+ * @example
+```ts
+const pushNotification = await getPushNotification({
+  deep,
+  pushNotificationLinkId,
+})
+```
  */
 export async function getPushNotification({
   deep,

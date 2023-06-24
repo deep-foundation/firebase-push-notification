@@ -6,6 +6,14 @@ import { FirebasePushNotificationContains } from './contains';
 
 /**
  * Inserts push notification
+ * 
+ * @example
+```ts
+const { pushNotificationLinkId } = await insertPushNotification({
+  deep,
+  pushNotification,
+})
+```
  */
 export async function insertPushNotification(param: InsertPushNotificationParam): Promise<InsertPushNotificationResult> {
   const {deep, pushNotification, containerLinkId = deep.linkId} = param
