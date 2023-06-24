@@ -3,6 +3,11 @@ import { PushNotifications } from "@capacitor/push-notifications";
 
 /**
  * Requiests notification permissions
+ * 
+ * @example
+```ts
+await requestPermissions()
+```
  */
 export async function requestPermissions(): Promise<boolean>{
   const { platform } = await Device.getInfo();
