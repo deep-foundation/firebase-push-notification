@@ -4,6 +4,8 @@
 
 Provides links for working with @firebase/messaging
 
+[Documentation](https://deep-foundation.github.io/firebase-push-notification/)
+
 # Overview
 - PushNotification
 - PushNotificationTitle
@@ -17,7 +19,7 @@ Provides links for working with @firebase/messaging
 Insert ServiceAccount (you can find it in firebase console in settings of your project)
 Insert WebPushCertificate (you can find it in firebase console in settings of your project)
 Insert Device (this type is located in `@deep-foundation/capacitor-device` and it is recommended to use its library)
-Insert DeviceRegistrationToken (it is recommended to use registerDevice and insertDeviceRegistrationToken)
+Insert DeviceRegistrationToken (it is recommended to use [registerDevice](https://deep-foundation.github.io/firebase-push-notification/functions/registerDevice.html) with [insertDeviceRegistrationToken](https://deep-foundation.github.io/firebase-push-notification/functions/insertDeviceRegistrationToken.html))
 Insert PushNotification  
 Insert SyncTextFile or any other link that can hold string value and put string value that contains title for push notification  
 Insert PushNotificationTitle from PushNotification to SyncTextFile that contains title for push notification  
