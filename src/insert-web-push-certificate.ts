@@ -4,6 +4,15 @@ import { FirebasePushNotificationContains } from './contains';
 
 /**
  * Inserts web push sertificate
+ * 
+ * @example
+```ts
+const { webPushCertificateLinkId } = await insertWebPushCertificate({
+  deep,
+  webPushCertificate,
+  shouldMakeActive,
+})
+```
  */
 export async function insertWebPushCertificate(
   param: InsertWebPushCertificateParam
