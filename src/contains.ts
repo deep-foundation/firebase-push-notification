@@ -5,7 +5,7 @@
 ```ts
 const notifyTypeLinkId = await deep.id(
    PACKAGE_NAME,
-   FirebasePushNotificationContains[FirebasePushNotificationContains.Notify]
+   LinkName[LinkName.Notify]
 )
 ```
  */
