@@ -15,22 +15,42 @@
 <div class="tsd-panel tsd-typography"><p><a href="https://www.npmjs.com/package/@deep-foundation/firebase-push-notification"><img src="https://img.shields.io/npm/v/@deep-foundation/firebase-push-notification.svg" alt="npm"></a> 
 <a href="https://gitpod.io/#https://github.com/deep-foundation/firebase-push-notification"><img src="https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod" alt="Gitpod"></a> 
 <a href="https://discord.gg/deep-foundation"><img src="https://badgen.net/badge/icon/discord?icon=discord&label&color=purple" alt="Discord"></a></p>
-<p>Provides links for working with @firebase/messaging</p>
-<p><a href="https://deep-foundation.github.io/firebase-push-notification/">Documentation</a></p>
-<a id="md:overview" class="tsd-anchor"></a><h1><a href="#md:overview">Overview</a></h1><ul>
-<li>PushNotification</li>
-<li>PushNotificationTitle</li>
-<li>PushNotificationBody</li>
-<li>PushNotificationImageUrl</li>
-<li>PushNotificationIconUrl</li>
-<li>Notify</li>
-<li>NotifyInsertHandler</li>
+<p>Provides links for working with <a href="https://www.npmjs.com/package/@firebase/messaging"><code>@firebase/messaging</code></a></p>
+<p><a href="https://deep-foundation.github.io/firebase-push-notification/"><strong>Documentation</strong></a></p>
+<p><a href="https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html"><strong>List of links</strong></a></p>
+<!-- # Overview
+- PushNotification
+- PushNotificationTitle
+- PushNotificationBody
+- PushNotificationImageUrl
+- PushNotificationIconUrl
+- Notify
+- NotifyInsertHandler -->
+
+<a id="md:usage" class="tsd-anchor"></a><h1><a href="#md:usage">Usage</a></h1><a id="md:setup" class="tsd-anchor"></a><h2><a href="#md:setup">Setup</a></h2><a id="md:service-account" class="tsd-anchor"></a><h3><a href="#md:service-account">Service Account</a></h3><ul>
+<li>Insert <a href="https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#ServiceAccount"><code>ServiceAccount</code></a> with string value<br>You can find it in firebase console in settings of your project</li>
+<li>(optional) Insert <a href="https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#UsesServiceAccount"><code>UsesServiceAccount</code></a> from <code>User</code> to <a href="https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#ServiceAccount"><code>ServiceAccount</code></a> to make it active</li>
 </ul>
-<a id="md:usage" class="tsd-anchor"></a><h1><a href="#md:usage">Usage</a></h1><p>Insert ServiceAccount (you can find it in firebase console in settings of your project)
-Insert WebPushCertificate (you can find it in firebase console in settings of your project)
-Insert Device (this type is located in <code>@deep-foundation/capacitor-device</code> and it is recommended to use its library)
-Insert DeviceRegistrationToken (it is recommended to use <a href="https://deep-foundation.github.io/firebase-push-notification/functions/registerDevice.html">registerDevice</a> with <a href="https://deep-foundation.github.io/firebase-push-notification/functions/insertDeviceRegistrationToken.html">insertDeviceRegistrationToken</a>)
-Insert PushNotification<br>Insert SyncTextFile or any other link that can hold string value and put string value that contains title for push notification<br>Insert PushNotificationTitle from PushNotification to SyncTextFile that contains title for push notification<br>Do the above two steps for PushNotificationBody and optionally for PushNotificationImageUrl, PushNotificationIconUrl<br>Insert Notify from PushNotification to Device<br>See push notification on your device :)</p>
+<a id="md:web-push-certificate" class="tsd-anchor"></a><h3><a href="#md:web-push-certificate">Web Push Certificate</a></h3><ul>
+<li>Insert <a href="https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#WebPushCertificate"><code>WebPushCertificate</code></a> with string value<br>You can find it in firebase console in settings of your project</li>
+<li>(optional) Insert <a href="https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#UsesWebPushCertificate"><code>UsesWebPushCertificate</code></a> from <code>User</code> to <a href="https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#WebPushCertificate"><code>WebPushCertificate</code></a> to make it active</li>
+</ul>
+<a id="md:device" class="tsd-anchor"></a><h3><a href="#md:device">Device</a></h3><ul>
+<li>Insert <a href="https://deep-foundation.github.io/capacitor-device/enums/CapacitorDeviceContains.html#Device"><code>Device</code></a> 
+This type is located in the <a href="https://www.npmjs.com/package/@deep-foundation/capacitor-device"><code>@deep-foundation/capacitor-device</code></a> package and it is recommended to use its library</li>
+<li>Insert <a href="https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#DeviceRegistrationToken"><code>DeviceRegistrationToken</code></a>
+It is recommended to use <a href="https://deep-foundation.github.io/firebase-push-notification/functions/registerDevice.html">registerDevice</a> with <a href="https://deep-foundation.github.io/firebase-push-notification/functions/insertDeviceRegistrationToken.html">insertDeviceRegistrationToken</a></li>
+</ul>
+<a id="md:push-notification" class="tsd-anchor"></a><h2><a href="#md:push-notification">Push Notification</a></h2><ul>
+<li>Insert <a href="https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#PushNotification"><code>PushNotification</code></a></li>
+<li>Insert any link with string value that contains title for yout push notification<br>You can use <code>SyncTextFile</code> from <a href="https://www.npmjs.com/package/@deep-foundation/core"><code>@deep-foundation/core</code></a> to do it.</li>
+<li>Insert <a href="https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#PushNotification"><code>PushNotification</code></a> from <a href="https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#PushNotificationTitle"><code>PushNotificationTitle</code></a> to <code>SyncTextFile</code> that contains title for push notification  </li>
+<li>Do the above two steps for <a href="https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#PushNotificationBody"><code>PushNotificationBody</code></a> and optionally for <a href="https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#PushNotificationImageUrl"><code>PushNotificationImageUrl</code></a>, <a href="https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#PushNotificationIconUrl"><code>PushNotificationIconUrl</code></a></li>
+</ul>
+<a id="md:notify" class="tsd-anchor"></a><h2><a href="#md:notify">Notify</a></h2><ul>
+<li>Insert <a href="https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#Notify"><code>Notify</code></a> from <a href="https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#PushNotification"><code>PushNotification</code></a> to <a href="https://deep-foundation.github.io/capacitor-device/enums/CapacitorDeviceContains.html#Device"><code>Device</code></a>  </li>
+<li>See push notification on your device :)</li>
+</ul>
 </div></div>
 <div class="col-sidebar">
 <div class="page-menu">
@@ -53,8 +73,17 @@ Insert PushNotification<br>Insert SyncTextFile or any other link that can hold s
 <ul>
 <li>
 <ul>
-<li><a href="#md:overview"><span>Overview</span></a></li>
-<li><a href="#md:usage"><span>Usage</span></a></li></ul></li></ul></div></details></div>
+<li><a href="#md:usage"><span>Usage</span></a></li>
+<li>
+<ul>
+<li><a href="#md:setup"><span>Setup</span></a></li>
+<li>
+<ul>
+<li><a href="#md:service-account"><span>Service <wbr/>Account</span></a></li>
+<li><a href="#md:web-push-certificate"><span>Web <wbr/>Push <wbr/>Certificate</span></a></li>
+<li><a href="#md:device"><span>Device</span></a></li></ul></li>
+<li><a href="#md:push-notification"><span>Push <wbr/>Notification</span></a></li>
+<li><a href="#md:notify"><span>Notify</span></a></li></ul></li></ul></li></ul></div></details></div>
 <div class="site-menu">
 <nav class="tsd-navigation"><a href="modules.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-4"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-namespace)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.33 16V7.24H10.77L13.446 14.74C13.43 14.54 13.41 14.296 13.386 14.008C13.37 13.712 13.354 13.404 13.338 13.084C13.33 12.756 13.326 12.448 13.326 12.16V7.24H14.37V16H12.93L10.266 8.5C10.282 8.692 10.298 8.936 10.314 9.232C10.33 9.52 10.342 9.828 10.35 10.156C10.366 10.476 10.374 10.784 10.374 11.08V16H9.33Z" fill="var(--color-text)"></path></g></svg><span>@deep-<wbr/>foundation/firebase-<wbr/>push-<wbr/>notification</span></a>
 <ul class="tsd-small-nested-navigation">
