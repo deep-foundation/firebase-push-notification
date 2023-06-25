@@ -5,7 +5,7 @@ import { BoolExpLink } from '@deep-foundation/deeplinks/imports/client_types';
 import { getToken, Messaging, onMessage } from '@firebase/messaging';
 import { insertDeviceRegistrationToken } from './insert-device-registration-token';
 import { PACKAGE_NAME } from './package-name';
-import { LinkName } from './contains';
+import { LinkName } from './link-name';
 
 /**
  * Registers device

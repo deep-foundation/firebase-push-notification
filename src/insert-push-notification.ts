@@ -2,7 +2,7 @@ import {NotificationPayload} from '@firebase/messaging';
 import { DeepClient } from "@deep-foundation/deeplinks/imports/client";
 import { PACKAGE_NAME } from "./package-name";
 import { PushNotification } from './push-notification';
-import { LinkName } from './contains';
+import { LinkName } from './link-name';
 
 /**
  * Inserts push notification

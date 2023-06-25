@@ -1,7 +1,7 @@
 import { DeepClient } from '@deep-foundation/deeplinks/imports/client';
 import { PACKAGE_NAME } from './package-name';
 import { PushNotification } from './push-notification';
-import { LinkName } from './contains';
+import { LinkName } from './link-name';
 
 /**
  * Gets push notification from deep

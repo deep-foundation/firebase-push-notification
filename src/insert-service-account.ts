@@ -1,7 +1,7 @@
 import { DeepClient } from '@deep-foundation/deeplinks/imports/client';
 import { BoolExpLink } from '@deep-foundation/deeplinks/imports/client_types';
 import { PACKAGE_NAME } from './package-name';
-import { LinkName } from './contains';
+import { LinkName } from './link-name';
 
 /**
  * Inserts service account
