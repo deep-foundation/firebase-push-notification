@@ -19,7 +19,7 @@ const { deviceRegistrationTokenLinkId } = await insertDeviceRegistrationToken({
  */
 export async function insertDeviceRegistrationToken({
   deep, deviceRegistrationToken, deviceLinkId
-}: InsertDeviceRegistrationTokenParam): Promise<{ deviceRegistrationTokenLinkId: number }> {
+}: InsertDeviceRegistrationTokenParam): Promise<InsertDeviceRegistrationTokenResult> {
   const deviceRegistrationTokenTypeLinkId = await deep.id(
     FIREBASE_PUSH_NOTIFICATION_PACKAGE_NAME,
     FirebasePushNotificationContains[FirebasePushNotificationContains.DeviceRegistrationToken]
@@ -64,3 +64,10 @@ export interface InsertDeviceRegistrationTokenParam {
    */
   deviceLinkId: number;
 }
+
+export interface InsertDeviceRegistrationTokenResult { 
+  /**
+   * Device registration token link id
+   */
+  deviceRegistrationTokenLinkId: number
+ }

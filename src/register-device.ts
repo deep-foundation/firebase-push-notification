@@ -10,6 +10,9 @@ import { FirebasePushNotificationContains } from './contains';
 /**
  * Registers device
  * 
+ * @remarks
+ * This function also handle onMessage event
+ * 
  * @example
 ```ts
 await registerDevice({

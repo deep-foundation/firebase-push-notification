@@ -9,7 +9,7 @@ import { PushNotifications } from "@capacitor/push-notifications";
 await requestPermissions()
 ```
  */
-export async function requestPermissions(): Promise<boolean>{
+export async function requestPermissions(): Promise<RequestPermissionsResult>{
   const { platform } = await Device.getInfo();
   let isPermissionsGranted: boolean;
   if (platform === 'web') {
@@ -22,3 +22,5 @@ export async function requestPermissions(): Promise<boolean>{
   }
   return isPermissionsGranted
 }
+
+export type RequestPermissionsResult = boolean;

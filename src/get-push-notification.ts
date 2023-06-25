@@ -20,7 +20,7 @@ const pushNotification = await getPushNotification({
 export async function getPushNotification({
   deep,
   pushNotificationLinkId,
-}: GetPushNotificationParam): Promise<PushNotification> {
+}: GetPushNotificationParam): Promise<GetPushNotificationResult> {
   const titleTypeLinkId = await deep.id(
     FIREBASE_PUSH_NOTIFICATION_PACKAGE_NAME,
     FirebasePushNotificationContains[
@@ -107,3 +107,5 @@ export interface GetPushNotificationParam {
    */
   pushNotificationLinkId: number;
 }
+
+export type GetPushNotificationResult = PushNotification;
