@@ -24,7 +24,7 @@ async function main () {
     skipLibCheck: true
   };
   
-  const definitionFilePath = require.resolve(parsedArguments.interfaceFilePath);
+  const definitionFilePath = path.resolve(parsedArguments.interfaceFilePath);
   
   const program = TJS.getProgramFromFiles([definitionFilePath], compilerOptions);
   
