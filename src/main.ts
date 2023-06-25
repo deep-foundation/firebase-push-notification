@@ -4,7 +4,7 @@ export {insertDeviceRegistrationToken, type InsertDeviceRegistrationTokenParam, 
 export {insertPushNotification, type InsertPushNotificationParam, type InsertPushNotificationResult} from './insert-push-notification'
 export {insertServiceAccount, type InsertServiceAccountParam, type InsertServiceAccountResult} from './insert-service-account'
 export {insertWebPushCertificate, type InsertWebPushCertificateParam, type InsertWebPushCertificateResult} from './insert-web-push-certificate'
-export {FIREBASE_PUSH_NOTIFICATION_PACKAGE_NAME} from './package-name'
+export {PACKAGE_NAME} from './package-name'
 export {PushNotification} from './push-notification'
 export {registerDevice, type RegisterDeviceParam} from './register-device'
 export {requestPermissions, type RequestPermissionsResult} from './request-permissions'

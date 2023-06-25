@@ -1,5 +1,5 @@
 import { DeepClient } from '@deep-foundation/deeplinks/imports/client';
-import { FIREBASE_PUSH_NOTIFICATION_PACKAGE_NAME } from './package-name';
+import { PACKAGE_NAME } from './package-name';
 import { PushNotification } from './push-notification';
 import { FirebasePushNotificationContains } from './contains';
 
@@ -22,31 +22,31 @@ export async function getPushNotification({
   pushNotificationLinkId,
 }: GetPushNotificationParam): Promise<GetPushNotificationResult> {
   const titleTypeLinkId = await deep.id(
-    FIREBASE_PUSH_NOTIFICATION_PACKAGE_NAME,
+    PACKAGE_NAME,
     FirebasePushNotificationContains[
       FirebasePushNotificationContains.PushNotificationTitle
     ]
   );
   const bodyTypeLinkId = await deep.id(
-    FIREBASE_PUSH_NOTIFICATION_PACKAGE_NAME,
+    PACKAGE_NAME,
     FirebasePushNotificationContains[
       FirebasePushNotificationContains.PushNotificationBody
     ]
   );
   const imageUrlTypeLinkId = await deep.id(
-    FIREBASE_PUSH_NOTIFICATION_PACKAGE_NAME,
+    PACKAGE_NAME,
     FirebasePushNotificationContains[
       FirebasePushNotificationContains.PushNotificationImageUrl
     ]
   );
   const iconUrlTypeLinkId = await deep.id(
-    FIREBASE_PUSH_NOTIFICATION_PACKAGE_NAME,
+    PACKAGE_NAME,
     FirebasePushNotificationContains[
       FirebasePushNotificationContains.PushNotificationIconUrl
     ]
   );
   const pushNotificationTreeLinkId = await deep.id(
-    FIREBASE_PUSH_NOTIFICATION_PACKAGE_NAME,
+    PACKAGE_NAME,
     FirebasePushNotificationContains[
       FirebasePushNotificationContains.PushNotificationTree
     ]

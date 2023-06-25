@@ -1,5 +1,5 @@
 import { DeepClient } from '@deep-foundation/deeplinks/imports/client';
-import { FIREBASE_PUSH_NOTIFICATION_PACKAGE_NAME } from './package-name';
+import { PACKAGE_NAME } from './package-name';
 import { FirebasePushNotificationContains } from './contains';
 
 /**
@@ -20,13 +20,13 @@ export async function insertWebPushCertificate(
   const { deep, webPushCertificate, shouldMakeActive = false } = param;
   const containTypeLinkId = await deep.id('@deep-foundation/core', 'Contain');
   const webPushCertificateTypeLinkId = await deep.id(
-    FIREBASE_PUSH_NOTIFICATION_PACKAGE_NAME,
+    PACKAGE_NAME,
     FirebasePushNotificationContains[
       FirebasePushNotificationContains.WebPushCertificate
     ]
   );
   const usesWebPushCertificateTypeLinkId = await deep.id(
-    FIREBASE_PUSH_NOTIFICATION_PACKAGE_NAME,
+    PACKAGE_NAME,
     FirebasePushNotificationContains[
       FirebasePushNotificationContains.UsesWebPushCertificate
     ]
