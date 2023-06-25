@@ -6,7 +6,7 @@ Provides links for working with [`@firebase/messaging`](https://www.npmjs.com/pa
 
 [**Documentation**](https://deep-foundation.github.io/firebase-push-notification/)
 
-[**List of links**](https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html)
+[**List of links**](https://deep-foundation.github.io/firebase-push-notification/enums/LinkName.html)
 
 <!-- # Overview
 - PushNotification
@@ -44,15 +44,15 @@ You can use `SyncTextFile` from [`@deep-foundation/core`](https://www.npmjs.com/
 - Insert [`Notify`] from [`PushNotification`] to [`Device`]  
 - See push notification on your device :)
 
-[`ServiceAccount`]: https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#ServiceAccount
-[`UsesServiceAccount`]: https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#UsesServiceAccount
-[`WebPushCertificate`]: https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#WebPushCertificate
-[`UsesWebPushCertificate`]: https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#UsesWebPushCertificate
+[`ServiceAccount`]: https://deep-foundation.github.io/firebase-push-notification/enums/LinkName.html#ServiceAccount
+[`UsesServiceAccount`]: https://deep-foundation.github.io/firebase-push-notification/enums/LinkName.html#UsesServiceAccount
+[`WebPushCertificate`]: https://deep-foundation.github.io/firebase-push-notification/enums/LinkName.html#WebPushCertificate
+[`UsesWebPushCertificate`]: https://deep-foundation.github.io/firebase-push-notification/enums/LinkName.html#UsesWebPushCertificate
 [`Device`]: https://deep-foundation.github.io/capacitor-device/enums/CapacitorDeviceContains.html#Device
-[`DeviceRegistrationToken`]: https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#DeviceRegistrationToken
-[`PushNotification`]: https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#PushNotification
-[`PushNotificationTitle`]: https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#PushNotificationTitle
-[`PushNotificationBody`]: https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#PushNotificationBody
-[`PushNotificationImageUrl`]: https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#PushNotificationImageUrl
-[`PushNotificationIconUrl`]: https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#PushNotificationIconUrl
-[`Notify`]: https://deep-foundation.github.io/firebase-push-notification/enums/FirebasePushNotificationContains.html#Notify
+[`DeviceRegistrationToken`]: https://deep-foundation.github.io/firebase-push-notification/enums/LinkName.html#DeviceRegistrationToken
+[`PushNotification`]: https://deep-foundation.github.io/firebase-push-notification/enums/LinkName.html#PushNotification
+[`PushNotificationTitle`]: https://deep-foundation.github.io/firebase-push-notification/enums/LinkName.html#PushNotificationTitle
+[`PushNotificationBody`]: https://deep-foundation.github.io/firebase-push-notification/enums/LinkName.html#PushNotificationBody
+[`PushNotificationImageUrl`]: https://deep-foundation.github.io/firebase-push-notification/enums/LinkName.html#PushNotificationImageUrl
+[`PushNotificationIconUrl`]: https://deep-foundation.github.io/firebase-push-notification/enums/LinkName.html#PushNotificationIconUrl
+[`Notify`]: https://deep-foundation.github.io/firebase-push-notification/enums/LinkName.html#Notify
