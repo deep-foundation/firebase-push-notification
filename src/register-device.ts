@@ -5,7 +5,7 @@ import { BoolExpLink } from '@deep-foundation/deeplinks/imports/client_types';
 import { getToken, Messaging, onMessage } from '@firebase/messaging';
 import { insertDeviceRegistrationToken } from './insert-device-registration-token';
 import { PACKAGE_NAME } from './package-name';
-import { FirebasePushNotificationContains } from './contains';
+import { LinkName } from './contains';
 
 /**
  * Registers device
@@ -102,14 +102,14 @@ export async function registerDevice({
 async function getPushCertificateLink({ deep }: { deep: DeepClient }) {
   const webPushCertificateTypeLinkId = await deep.id(
     PACKAGE_NAME,
-    FirebasePushNotificationContains[
-      FirebasePushNotificationContains.WebPushCertificate
+    LinkName[
+      LinkName.WebPushCertificate
     ]
   );
   const usesWebPushCertificateTypeLinkId = await deep.id(
     PACKAGE_NAME,
-    FirebasePushNotificationContains[
-      FirebasePushNotificationContains.UsesWebPushCertificate
+    LinkName[
+      LinkName.UsesWebPushCertificate
     ]
   );
   const containTypeLinkId = await deep.id('@deep-foundation/core', 'Contain');

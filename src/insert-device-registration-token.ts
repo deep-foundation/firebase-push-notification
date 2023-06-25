@@ -1,6 +1,6 @@
 import { DeepClient } from "@deep-foundation/deeplinks/imports/client";
 import { PACKAGE_NAME } from "./package-name";
-import { FirebasePushNotificationContains } from "./contains";
+import { LinkName } from "./contains";
 
 /**
  * Inserts device registration token
@@ -22,7 +22,7 @@ export async function insertDeviceRegistrationToken({
 }: InsertDeviceRegistrationTokenParam): Promise<InsertDeviceRegistrationTokenResult> {
   const deviceRegistrationTokenTypeLinkId = await deep.id(
     PACKAGE_NAME,
-    FirebasePushNotificationContains[FirebasePushNotificationContains.DeviceRegistrationToken]
+    LinkName[LinkName.DeviceRegistrationToken]
   );
   const containTypeLinkId = await deep.id(
     '@deep-foundation/core',

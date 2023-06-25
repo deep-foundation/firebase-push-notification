@@ -1,7 +1,7 @@
 import { DeepClient } from '@deep-foundation/deeplinks/imports/client';
 import { BoolExpLink } from '@deep-foundation/deeplinks/imports/client_types';
 import { PACKAGE_NAME } from './package-name';
-import { FirebasePushNotificationContains } from './contains';
+import { LinkName } from './contains';
 
 /**
  * Inserts service account
@@ -24,14 +24,14 @@ export async function insertServiceAccount(param: InsertServiceAccountParam): Pr
   const containTypeLinkId = await deep.id('@deep-foundation/core', 'Contain');
   const serviceAccountTypeLinkId = await deep.id(
     PACKAGE_NAME,
-    FirebasePushNotificationContains[
-      FirebasePushNotificationContains.ServiceAccount
+    LinkName[
+      LinkName.ServiceAccount
     ]
   );
   const usesServiceAccountTypeLinkId = await deep.id(
     PACKAGE_NAME,
-    FirebasePushNotificationContains[
-      FirebasePushNotificationContains.UsesServiceAccount
+    LinkName[
+      LinkName.UsesServiceAccount
     ]
   );
 

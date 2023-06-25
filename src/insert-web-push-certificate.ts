@@ -1,6 +1,6 @@
 import { DeepClient } from '@deep-foundation/deeplinks/imports/client';
 import { PACKAGE_NAME } from './package-name';
-import { FirebasePushNotificationContains } from './contains';
+import { LinkName } from './contains';
 
 /**
  * Inserts web push sertificate
@@ -21,14 +21,14 @@ export async function insertWebPushCertificate(
   const containTypeLinkId = await deep.id('@deep-foundation/core', 'Contain');
   const webPushCertificateTypeLinkId = await deep.id(
     PACKAGE_NAME,
-    FirebasePushNotificationContains[
-      FirebasePushNotificationContains.WebPushCertificate
+    LinkName[
+      LinkName.WebPushCertificate
     ]
   );
   const usesWebPushCertificateTypeLinkId = await deep.id(
     PACKAGE_NAME,
-    FirebasePushNotificationContains[
-      FirebasePushNotificationContains.UsesWebPushCertificate
+    LinkName[
+      LinkName.UsesWebPushCertificate
     ]
   );
 

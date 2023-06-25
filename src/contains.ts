@@ -9,7 +9,7 @@ const notifyTypeLinkId = await deep.id(
 )
 ```
  */
-export enum FirebasePushNotificationContains {
+export enum LinkName {
    DeviceRegistrationToken,
    PushNotification,
    PushNotificationBody,

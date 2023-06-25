@@ -2,7 +2,7 @@ import {NotificationPayload} from '@firebase/messaging';
 import { DeepClient } from "@deep-foundation/deeplinks/imports/client";
 import { PACKAGE_NAME } from "./package-name";
 import { PushNotification } from './push-notification';
-import { FirebasePushNotificationContains } from './contains';
+import { LinkName } from './contains';
 
 /**
  * Inserts push notification
@@ -19,11 +19,11 @@ export async function insertPushNotification(param: InsertPushNotificationParam)
   const {deep, pushNotification, containerLinkId = deep.linkId} = param
   const pushNotificationTypeLinkId = await deep.id(
     PACKAGE_NAME,
-    FirebasePushNotificationContains[FirebasePushNotificationContains.PushNotification]
+    LinkName[LinkName.PushNotification]
   );
-  const titleTypeLinkId = await deep.id(PACKAGE_NAME, FirebasePushNotificationContains[FirebasePushNotificationContains.PushNotificationTitle]);
-  const bodyTypeLinkId = await deep.id(PACKAGE_NAME, FirebasePushNotificationContains[FirebasePushNotificationContains.PushNotificationBody]);
-  const imageUrlTypeLinkId = await deep.id(PACKAGE_NAME, FirebasePushNotificationContains[FirebasePushNotificationContains.PushNotificationImageUrl]);
+  const titleTypeLinkId = await deep.id(PACKAGE_NAME, LinkName[LinkName.PushNotificationTitle]);
+  const bodyTypeLinkId = await deep.id(PACKAGE_NAME, LinkName[LinkName.PushNotificationBody]);
+  const imageUrlTypeLinkId = await deep.id(PACKAGE_NAME, LinkName[LinkName.PushNotificationImageUrl]);
   const syncTextFileTypeLinkId = await deep.id(
     '@deep-foundation/core',
     'SyncTextFile'

@@ -1,4 +1,4 @@
-export {FirebasePushNotificationContains} from './contains'
+export {LinkName as Contains} from './contains'
 export {getPushNotification, type GetPushNotificationParam, type  GetPushNotificationResult} from './get-push-notification'
 export {insertDeviceRegistrationToken, type InsertDeviceRegistrationTokenParam, type InsertDeviceRegistrationTokenResult} from './insert-device-registration-token'
 export {insertPushNotification, type InsertPushNotificationParam, type InsertPushNotificationResult} from './insert-push-notification'
