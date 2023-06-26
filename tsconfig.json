@@ -11,7 +11,8 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
+    "strictNullChecks": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
