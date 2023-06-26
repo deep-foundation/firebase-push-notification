@@ -1,5 +1,5 @@
 /**
- * Contains names of all contains of this package
+ * Contains the names of all links within this package. 
  * 
  * @example
 ```ts
