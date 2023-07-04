@@ -49,9 +49,10 @@ export async function getWebPushCertificateInsertSerialOperations(
     webPushCertificate,
     containValue,
     containerLinkId,
+    shouldMakeActive = false
   } = param;
-  const { containLinkId, webPushCertificateLinkId } = await getReservedLinkIds();
-  const { containTypeLinkId, webPushCertificateTypeLinkId } = await getTypeLinkIds();
+  const { containLinkId, webPushCertificateLinkId , usesWebPushCertificateLinkId} = await getReservedLinkIds();
+  const { containTypeLinkId, webPushCertificateTypeLinkId, usesWebPushCertificateTypeLinkId } = await getTypeLinkIds();
   const serialOperations = [];
   const webPushCertificateInsertSerialOperation = createSerialOperation({
     type: 'insert',
@@ -93,6 +94,19 @@ export async function getWebPushCertificateInsertSerialOperations(
     serialOperations.push(valueOfContainInsertSerialOperation);
   }
 
+  if(shouldMakeActive) {
+    const usesWebPushCertificateInsertSerialOperation = createSerialOperation({
+      type: 'insert',
+      table: 'links',
+      objects: {
+        id: usesWebPushCertificateLinkId,
+        type_id: usesWebPushCertificateTypeLinkId,
+        from_id: deep.linkId,
+        to_id: webPushCertificateLinkId,
+      },
+    })
+  }
+
   return serialOperations;
 
   type GetReservedLinkIdsResult = Required<
@@ -106,6 +120,7 @@ export async function getWebPushCertificateInsertSerialOperations(
     let result: GetReservedLinkIdsResult = {
       containLinkId: 0,
       webPushCertificateLinkId: 0,
+      usesWebPushCertificateLinkId: 0
     };
     const linksToReserveCount =
       Object.keys(result).length -
@@ -117,6 +132,8 @@ export async function getWebPushCertificateInsertSerialOperations(
         param.reservedLinkIds?.containLinkId ?? reservedLinkIds.pop()!,
       webPushCertificateLinkId:
         param.reservedLinkIds?.webPushCertificateLinkId ?? reservedLinkIds.pop()!,
+      usesWebPushCertificateLinkId:
+        param.reservedLinkIds?.usesWebPushCertificateLinkId ?? reservedLinkIds.pop()!,
     };
     return result;
   }
@@ -133,6 +150,9 @@ export async function getWebPushCertificateInsertSerialOperations(
       webPushCertificateTypeLinkId:
         param.typeLinkIds?.webPushCertificateTypeLinkId ||
         (await deep.id(PACKAGE_NAME, LinkName[LinkName.WebPushCertificate])),
+      usesWebPushCertificateTypeLinkId:
+        param.typeLinkIds?.usesWebPushCertificateTypeLinkId ||
+        (await deep.id(PACKAGE_NAME, LinkName[LinkName.UsesWebPushCertificate])),
     };
     return result;
   }
@@ -151,6 +171,10 @@ export interface GetWebPushCertificateInsertSerialOperationsParam {
      * Reserved link id for the contain
      */
     containLinkId?: number;
+    /**
+     * Reserved link id for the usesWebPushCertificate
+     */
+    usesWebPushCertificateLinkId?: number;
   };
   /**
    * Link ids of types that will be used in the serial operations
@@ -164,6 +188,10 @@ export interface GetWebPushCertificateInsertSerialOperationsParam {
      * Link id of the webPushCertificate type
      */
     webPushCertificateTypeLinkId?: number;
+    /**
+     * Link id of the usesWebPushCertificate type
+     */
+    usesWebPushCertificateTypeLinkId?: number;
   };
   /**
    * Deep Client
@@ -188,4 +216,10 @@ export interface GetWebPushCertificateInsertSerialOperationsParam {
    * If {@link GetWebPushCertificateInsertSerialOperationsParam.containerLinkId} is null, this will be ignored
    */
   containValue?: string | undefined;
+  /**
+   * If true, the link will be made active by creating a {@link LinkName.UsesServiceAccount} link pointing to it
+   * 
+   * @defaultValue false
+   */
+  shouldMakeActive?: boolean;
 }
