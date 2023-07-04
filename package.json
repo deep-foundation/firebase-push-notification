@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@atao60/fse-cli": "^0.1.7",
-    "@deep-foundation/npm-automation": "^1.0.3",
+    "@deep-foundation/npm-automation": "^3.1.16",
     "@freephoenix888/deep-map-object": "^3.0.1",
     "@types/fs-extra": "^11.0.1",
     "@types/lodash": "^4.14.195",
