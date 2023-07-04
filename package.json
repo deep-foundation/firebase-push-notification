@@ -3,7 +3,7 @@
   "keywords": [
     "deep-package"
   ],
-  "version": "11.0.0-dev.0",
+  "version": "12.0.0-dev.0",
   "description": "Provides links for working with @firebase/messaging",
   "repository": {
     "type": "git",
