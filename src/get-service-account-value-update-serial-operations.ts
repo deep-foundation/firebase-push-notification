@@ -14,7 +14,7 @@ import { Link } from '@deep-foundation/deeplinks/imports/minilinks';
    * @example
    * #### Update {@link LinkName.ServiceAccount}
   ```ts
-  const serialOperations = await getServiceAccountValueUpdateSerialOperations({
+  const {serialOperations, linkIds} = await getServiceAccountValueUpdateSerialOperations({
     deep,
     serviceAccount: {
       title,
@@ -33,7 +33,7 @@ import { Link } from '@deep-foundation/deeplinks/imports/minilinks';
 
    const serviceAccountLink = await getServiceAccountLink();
  
-   const serialOperations = await getSerialOperations({
+   const {serialOperations, linkIds} = await getSerialOperations({
      serviceAccountLink,
      value: serviceAccount,
    });

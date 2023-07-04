@@ -12,7 +12,7 @@ import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql';
   * @example
   * #### Insert {@link LinkName.WebPushCertificate}
  ```ts
- const serialOperations = await getWebPushCertificateInsertSerialOperations({
+ const {serialOperations, linkIds} = await getWebPushCertificateInsertSerialOperations({
    deep
  });
  await deep.serial({
@@ -25,7 +25,7 @@ import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql';
   const webPushCertificateLinkId = reservedLinkIds.pop();
   const containLinkId = reservedLinkIds.pop();
   
-  const serialOperations = await getWebPushCertificateInsertSerialOperations({
+  const {serialOperations, linkIds} = await getWebPushCertificateInsertSerialOperations({
     deep,
     webPushCertificate: {
       title,
