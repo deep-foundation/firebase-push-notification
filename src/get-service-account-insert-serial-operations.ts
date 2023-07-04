@@ -49,7 +49,7 @@ export async function getServiceAccountInsertSerialOperations(
     serviceAccount,
     containValue,
     containerLinkId,
-    shouldMakeActive
+    shouldMakeActive = false
   } = param;
   const { containLinkId, serviceAccountLinkId ,usesServiceAccountLinkId} = await getReservedLinkIds();
   const { containTypeLinkId, serviceAccountTypeLinkId ,usesServiceAccountTypeLinkId} = await getTypeLinkIds();
