@@ -33,7 +33,7 @@ import { Link } from '@deep-foundation/deeplinks/imports/minilinks';
 
    const webPushCertificateLink = await getWebPushCertificateLink();
  
-   const {serialOperations, linkIds} = await getSerialOperations({
+   const serialOperations = await getSerialOperations({
      webPushCertificateLink,
      value: webPushCertificate,
    });

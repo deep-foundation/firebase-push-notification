@@ -33,7 +33,7 @@ import { Link } from '@deep-foundation/deeplinks/imports/minilinks';
 
    const serviceAccountLink = await getServiceAccountLink();
  
-   const {serialOperations, linkIds} = await getSerialOperations({
+   const serialOperations = await getSerialOperations({
      serviceAccountLink,
      value: serviceAccount,
    });

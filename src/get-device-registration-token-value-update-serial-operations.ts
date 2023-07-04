@@ -33,7 +33,7 @@ import { Link } from '@deep-foundation/deeplinks/imports/minilinks';
 
    const deviceRegistrationTokenLink = await getDeviceRegistrationTokenLink();
  
-   const {serialOperations, linkIds} = await getSerialOperations({
+   const serialOperations = await getSerialOperations({
      deviceRegistrationTokenLink,
      value: deviceRegistrationToken,
    });

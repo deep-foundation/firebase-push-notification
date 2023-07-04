@@ -39,7 +39,7 @@ import { PushNotification } from './push-notification';
      data: pushNotification,
    });
  
-   const {serialOperations, linkIds} = await getSerialOperations({
+   const serialOperations = await getSerialOperations({
      pushNotificationLink,
      value,
    });
