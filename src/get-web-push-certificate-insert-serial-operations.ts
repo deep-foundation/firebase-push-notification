@@ -87,15 +87,18 @@ export async function getWebPushCertificateInsertSerialOperations(
       },
     });
     serialOperations.push(containInsertSerialOperation);
-    const valueOfContainInsertSerialOperation = createSerialOperation({
-      type: 'insert',
-      table: 'strings',
-      objects: {
-        link_id: containLinkId,
-        value: valueForContainForWebPushCertificate,
-      },
-    });
-    serialOperations.push(valueOfContainInsertSerialOperation);
+    
+    if(valueForContainForWebPushCertificate) {
+      const valueForContainInsertSerialOperation = createSerialOperation({
+        type: 'insert',
+        table: 'strings',
+        objects: {
+          link_id: containLinkId,
+          value: valueForContainForWebPushCertificate,
+        },
+      });
+      serialOperations.push(valueForContainInsertSerialOperation);
+    }
   }
 
   if(shouldMakeActive) {
