@@ -48,11 +48,11 @@ export async function getWebPushCertificateInsertSerialOperations(
     deep,
     webPushCertificate,
     containValue,
-    containerLinkId,
     shouldMakeActive = false
   } = param;
+  const containerLinkId = param.containerLinkId !== null ? param.containerLinkId ?? deep.linkId : null;
   const reservedLinkIds = await getReservedLinkIds();
-  const { containLinkId, webPushCertificateLinkId, usesWebPushCertificateLinkId } = reservedLinkIds;
+  const { containForWebPushCertificateLinkId: containLinkId, webPushCertificateLinkId, usesWebPushCertificateLinkId,containForUsesWebPushCertificateLinkId } = reservedLinkIds;
   const typeLinkIds = await getTypeLinkIds();
   const { containTypeLinkId, webPushCertificateTypeLinkId ,usesWebPushCertificateTypeLinkId} = typeLinkIds;
   const serialOperations = [];
@@ -81,7 +81,7 @@ export async function getWebPushCertificateInsertSerialOperations(
       objects: {
         id: containLinkId,
         type_id: containTypeLinkId,
-        from_id: containerLinkId || deep.linkId,
+        from_id: containerLinkId,
         to_id: webPushCertificateLinkId,
       },
     });
@@ -109,6 +109,19 @@ export async function getWebPushCertificateInsertSerialOperations(
       },
     })
     serialOperations.push(usesWebPushCertificateInsertSerialOperation);
+    if(containerLinkId !== null) {
+      const containForUsesWebPushCertificateInsertSerialOperation = createSerialOperation({
+        type: 'insert',
+        table: 'links',
+        objects: {
+          id: containForUsesWebPushCertificateLinkId,
+          type_id: containTypeLinkId,
+          from_id: containerLinkId,
+          to_id: usesWebPushCertificateLinkId,
+        }
+      })
+      serialOperations.push(containForUsesWebPushCertificateInsertSerialOperation);
+    }
   }
 
   return {
@@ -125,9 +138,10 @@ export async function getWebPushCertificateInsertSerialOperations(
 
   async function getReservedLinkIds(): Promise<GetReservedLinkIdsResult> {
     let result: GetReservedLinkIdsResult = {
-      containLinkId: 0,
+      containForWebPushCertificateLinkId: 0,
       webPushCertificateLinkId: 0,
-      usesWebPushCertificateLinkId: 0
+      usesWebPushCertificateLinkId: 0,
+      containForUsesWebPushCertificateLinkId: 0
     };
     const linksToReserveCount =
       Object.keys(result).length -
@@ -135,12 +149,14 @@ export async function getWebPushCertificateInsertSerialOperations(
     const reservedLinkIds: number[] =
       linksToReserveCount > 0 ? await deep.reserve(linksToReserveCount) : [];
     result = {
-      containLinkId:
-        param.reservedLinkIds?.containLinkId ?? reservedLinkIds.pop()!,
+      containForWebPushCertificateLinkId:
+        param.reservedLinkIds?.containForWebPushCertificateLinkId ?? reservedLinkIds.pop()!,
       webPushCertificateLinkId:
         param.reservedLinkIds?.webPushCertificateLinkId ?? reservedLinkIds.pop()!,
       usesWebPushCertificateLinkId:
         param.reservedLinkIds?.usesWebPushCertificateLinkId ?? reservedLinkIds.pop()!,
+      containForUsesWebPushCertificateLinkId:
+        param.reservedLinkIds?.containForUsesWebPushCertificateLinkId ?? reservedLinkIds.pop()!,
     };
     return result;
   }
@@ -177,11 +193,15 @@ export interface GetWebPushCertificateInsertSerialOperationsParam {
     /**
      * Reserved link id for the contain
      */
-    containLinkId?: number;
+    containForWebPushCertificateLinkId?: number;
     /**
      * Reserved link id for the usesWebPushCertificate
      */
     usesWebPushCertificateLinkId?: number;
+    /**
+     * Reserved link id for the contain for usesServiceAccount 
+     */
+    containForUsesWebPushCertificateLinkId?: number;
   };
   /**
    * Link ids of types that will be used in the serial operations

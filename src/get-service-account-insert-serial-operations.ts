@@ -48,11 +48,11 @@ export async function getServiceAccountInsertSerialOperations(
     deep,
     serviceAccount,
     containValue,
-    containerLinkId,
     shouldMakeActive = false
   } = param;
+  const containerLinkId = param.containerLinkId !== null ? param.containerLinkId ?? deep.linkId : null;
   const reservedLinkIds = await getReservedLinkIds();
-  const { containLinkId, serviceAccountLinkId, usesServiceAccountLinkId } = reservedLinkIds;
+  const { containForServiceAccountLinkId: containLinkId, serviceAccountLinkId, usesServiceAccountLinkId,containForUsesServiceAccountLinkId } = reservedLinkIds;
   const typeLinkIds = await getTypeLinkIds();
   const { containTypeLinkId, serviceAccountTypeLinkId ,usesServiceAccountTypeLinkId} = typeLinkIds;
   const serialOperations = [];
@@ -81,7 +81,7 @@ export async function getServiceAccountInsertSerialOperations(
       objects: {
         id: containLinkId,
         type_id: containTypeLinkId,
-        from_id: containerLinkId || deep.linkId,
+        from_id: containerLinkId,
         to_id: serviceAccountLinkId,
       },
     });
@@ -109,6 +109,19 @@ export async function getServiceAccountInsertSerialOperations(
       },
     });
     serialOperations.push(usesServiceAccountInsertSerialOperation);
+    if(containerLinkId !== null) {
+      const containForUsesServiceAccountInsertSerialOperation = createSerialOperation({
+        type: 'insert',
+        table: 'links',
+        objects: {
+          id: containForUsesServiceAccountLinkId,
+          type_id: containTypeLinkId,
+          from_id: containerLinkId,
+          to_id: usesServiceAccountLinkId,
+        }
+      })
+      serialOperations.push(containForUsesServiceAccountInsertSerialOperation);
+    }
   }
 
   return {
@@ -125,9 +138,10 @@ export async function getServiceAccountInsertSerialOperations(
 
   async function getReservedLinkIds(): Promise<GetReservedLinkIdsResult> {
     let result: GetReservedLinkIdsResult = {
-      containLinkId: 0,
+      containForServiceAccountLinkId: 0,
       serviceAccountLinkId: 0,
-      usesServiceAccountLinkId: 0
+      usesServiceAccountLinkId: 0,
+      containForUsesServiceAccountLinkId: 0
     };
     const linksToReserveCount =
       Object.keys(result).length -
@@ -135,12 +149,14 @@ export async function getServiceAccountInsertSerialOperations(
     const reservedLinkIds: number[] =
       linksToReserveCount > 0 ? await deep.reserve(linksToReserveCount) : [];
     result = {
-      containLinkId:
-        param.reservedLinkIds?.containLinkId ?? reservedLinkIds.pop()!,
+      containForServiceAccountLinkId:
+        param.reservedLinkIds?.containForServiceAccountLinkId ?? reservedLinkIds.pop()!,
       serviceAccountLinkId:
         param.reservedLinkIds?.serviceAccountLinkId ?? reservedLinkIds.pop()!,
       usesServiceAccountLinkId:
         param.reservedLinkIds?.usesServiceAccountLinkId ?? reservedLinkIds.pop()!,
+      containForUsesServiceAccountLinkId:
+        param.reservedLinkIds?.containForUsesServiceAccountLinkId ?? reservedLinkIds.pop()!,
     };
     return result;
   }
@@ -177,11 +193,15 @@ export interface GetServiceAccountInsertSerialOperationsParam {
     /**
      * Reserved link id for the contain
      */
-    containLinkId?: number;
+    containForServiceAccountLinkId?: number;
     /**
      * Reserved link id for the usesServiceAccount
      */
     usesServiceAccountLinkId?: number;
+    /**
+     * Reserved link id for the contain for usesServiceAccount 
+     */
+    containForUsesServiceAccountLinkId?: number;
   };
   /**
    * Link ids of types that will be used in the serial operations
