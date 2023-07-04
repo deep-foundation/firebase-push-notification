@@ -47,12 +47,13 @@ export async function getServiceAccountInsertSerialOperations(
   const {
     deep,
     serviceAccount,
-    containValue,
+    valueForContainForServiceAccount,
+    valueForContainForUsesServiceAccount,
     shouldMakeActive = false
   } = param;
   const containerLinkId = param.containerLinkId !== null ? param.containerLinkId ?? deep.linkId : null;
   const reservedLinkIds = await getReservedLinkIds();
-  const { containForServiceAccountLinkId: containLinkId, serviceAccountLinkId, usesServiceAccountLinkId,containForUsesServiceAccountLinkId } = reservedLinkIds;
+  const { containForServiceAccountLinkId, serviceAccountLinkId, usesServiceAccountLinkId,containForUsesServiceAccountLinkId } = reservedLinkIds;
   const typeLinkIds = await getTypeLinkIds();
   const { containTypeLinkId, serviceAccountTypeLinkId ,usesServiceAccountTypeLinkId} = typeLinkIds;
   const serialOperations = [];
@@ -79,7 +80,7 @@ export async function getServiceAccountInsertSerialOperations(
       type: 'insert',
       table: 'links',
       objects: {
-        id: containLinkId,
+        id: containForServiceAccountLinkId,
         type_id: containTypeLinkId,
         from_id: containerLinkId,
         to_id: serviceAccountLinkId,
@@ -90,8 +91,8 @@ export async function getServiceAccountInsertSerialOperations(
       type: 'insert',
       table: 'objects',
       objects: {
-        link_id: containLinkId,
-        value: containValue,
+        link_id: containForServiceAccountLinkId,
+        value: valueForContainForServiceAccount,
       },
     });
     serialOperations.push(valueOfContainInsertSerialOperation);
@@ -121,6 +122,16 @@ export async function getServiceAccountInsertSerialOperations(
         }
       })
       serialOperations.push(containForUsesServiceAccountInsertSerialOperation);
+
+      const valueForContainInsertSerialOperation = createSerialOperation({
+        type: 'insert',
+        table: 'objects',
+        objects: {
+          link_id: containForUsesServiceAccountLinkId,
+          value: valueForContainForUsesServiceAccount,
+        },
+      });
+      serialOperations.push(valueForContainInsertSerialOperation);
     }
   }
 
@@ -237,12 +248,19 @@ export interface GetServiceAccountInsertSerialOperationsParam {
    */
   containerLinkId?: number | undefined | null;
   /**
-   * Value of the contain link
+   * Value for the contain link for {@link LinkName.ServiceAccount}
    *
    * @remarks
    * If {@link GetServiceAccountInsertSerialOperationsParam.containerLinkId} is null, this will be ignored
    */
-  containValue?: string | undefined;
+  valueForContainForServiceAccount?: string | undefined;
+  /**
+   * Value for the contain link for {@link LinkName.UsesServiceAccount}
+   *
+   * @remarks
+   * If {@link GetServiceAccountInsertSerialOperationsParam.containerLinkId} is null, this will be ignored
+   */
+  valueForContainForUsesServiceAccount?: string | undefined;
   /**
    * If true, the link will be made active by creating a {@link LinkName.UsesServiceAccount} link pointing to it
    * 

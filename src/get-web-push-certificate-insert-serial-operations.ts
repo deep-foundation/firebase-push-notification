@@ -47,7 +47,8 @@ export async function getWebPushCertificateInsertSerialOperations(
   const {
     deep,
     webPushCertificate,
-    containValue,
+    valueForContainForWebPushCertificate,
+    valueForContainForUsesWebPushCertificate,
     shouldMakeActive = false
   } = param;
   const containerLinkId = param.containerLinkId !== null ? param.containerLinkId ?? deep.linkId : null;
@@ -91,7 +92,7 @@ export async function getWebPushCertificateInsertSerialOperations(
       table: 'strings',
       objects: {
         link_id: containLinkId,
-        value: containValue,
+        value: valueForContainForWebPushCertificate,
       },
     });
     serialOperations.push(valueOfContainInsertSerialOperation);
@@ -121,6 +122,16 @@ export async function getWebPushCertificateInsertSerialOperations(
         }
       })
       serialOperations.push(containForUsesWebPushCertificateInsertSerialOperation);
+
+      const valueForContainInsertSerialOperation = createSerialOperation({
+        type: 'insert',
+        table: 'objects',
+        objects: {
+          link_id: containForUsesWebPushCertificateLinkId,
+          value: valueForContainForUsesWebPushCertificate,
+        },
+      });
+      serialOperations.push(valueForContainInsertSerialOperation);
     }
   }
 
@@ -242,7 +253,14 @@ export interface GetWebPushCertificateInsertSerialOperationsParam {
    * @remarks
    * If {@link GetWebPushCertificateInsertSerialOperationsParam.containerLinkId} is null, this will be ignored
    */
-  containValue?: string | undefined;
+  valueForContainForWebPushCertificate?: string | undefined;
+  /**
+   * Value of the contain link
+   *
+   * @remarks
+   * If {@link GetWebPushCertificateInsertSerialOperationsParam.containerLinkId} is null, this will be ignored
+   */
+  valueForContainForUsesWebPushCertificate?: string | undefined;
   /**
    * If true, the link will be made active by creating a {@link LinkName.UsesServiceAccount} link pointing to it
    * 
