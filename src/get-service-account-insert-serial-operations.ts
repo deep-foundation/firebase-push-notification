@@ -12,7 +12,7 @@ import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql';
   * @example
   * #### Insert {@link LinkName.ServiceAccount}
  ```ts
- const serialOperations = await getServiceAccountInsertSerialOperations({
+ const {serialOperations, linkIds} = await getServiceAccountInsertSerialOperations({
    deep
  });
  await deep.serial({
@@ -25,7 +25,7 @@ import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql';
   const serviceAccountLinkId = reservedLinkIds.pop();
   const containLinkId = reservedLinkIds.pop();
   
-  const serialOperations = await getServiceAccountInsertSerialOperations({
+  const {serialOperations, linkIds} = await getServiceAccountInsertSerialOperations({
     deep,
     serviceAccount: {
       title,
@@ -43,7 +43,7 @@ import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql';
   */
 export async function getServiceAccountInsertSerialOperations(
   param: GetServiceAccountInsertSerialOperationsParam
-): Promise<Array<SerialOperation>> {
+): Promise<GetServiceAccountInsertSerialOperationsResult> {
   const {
     deep,
     serviceAccount,
@@ -51,8 +51,10 @@ export async function getServiceAccountInsertSerialOperations(
     containerLinkId,
     shouldMakeActive = false
   } = param;
-  const { containLinkId, serviceAccountLinkId ,usesServiceAccountLinkId} = await getReservedLinkIds();
-  const { containTypeLinkId, serviceAccountTypeLinkId ,usesServiceAccountTypeLinkId} = await getTypeLinkIds();
+  const reservedLinkIds = await getReservedLinkIds();
+  const { containLinkId, serviceAccountLinkId, usesServiceAccountLinkId } = reservedLinkIds;
+  const typeLinkIds = await getTypeLinkIds();
+  const { containTypeLinkId, serviceAccountTypeLinkId ,usesServiceAccountTypeLinkId} = typeLinkIds;
   const serialOperations = [];
   const serviceAccountInsertSerialOperation = createSerialOperation({
     type: 'insert',
@@ -109,7 +111,10 @@ export async function getServiceAccountInsertSerialOperations(
     serialOperations.push(usesServiceAccountInsertSerialOperation);
   }
 
-  return serialOperations;
+  return {
+    serialOperations,
+    linkIds: reservedLinkIds
+  };
 
   type GetReservedLinkIdsResult = Required<
     Exclude<
@@ -224,4 +229,9 @@ export interface GetServiceAccountInsertSerialOperationsParam {
    * @defaultValue false
    */
   shouldMakeActive?: boolean;
+}
+
+export interface GetServiceAccountInsertSerialOperationsResult {
+  serialOperations: Array<SerialOperation>,
+  linkIds: Required<Exclude<GetServiceAccountInsertSerialOperationsParam['reservedLinkIds'], undefined>>,
 }

@@ -14,7 +14,7 @@ import { Link } from '@deep-foundation/deeplinks/imports/minilinks';
    * @example
    * #### Update {@link LinkName.ServiceAccount}
   ```ts
-  const serialOperations = await getServiceAccountValueInsertSerialOperations({
+  const serialOperations = await getServiceAccountValueUpdateSerialOperations({
     deep,
     serviceAccount: {
       title,
@@ -26,7 +26,7 @@ import { Link } from '@deep-foundation/deeplinks/imports/minilinks';
   })
   ```
    */
- export async function getServiceAccountValueInsertSerialOperations(
+ export async function getServiceAccountValueUpdateSerialOperations(
    param: GetServiceAccountValueUpdateSerialOperationsParam
  ): Promise<Array<SerialOperation>> {
    const { deep, serviceAccount } = param;

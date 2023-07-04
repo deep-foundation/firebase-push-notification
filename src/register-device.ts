@@ -90,7 +90,7 @@ export async function registerDevice({
       if(callback) {
         callback({deviceRegistrationToken})
       } else {
-        const serialOperations = await getDeviceRegistrationTokenInsertSerialOperations({
+        const {serialOperations} = await getDeviceRegistrationTokenInsertSerialOperations({
           deep,
           deviceRegistrationToken,
           containerLinkId: deviceLinkId,

@@ -43,7 +43,7 @@ import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql';
   */
 export async function getWebPushCertificateInsertSerialOperations(
   param: GetWebPushCertificateInsertSerialOperationsParam
-): Promise<Array<SerialOperation>> {
+): Promise<GetWebPushCertificateInsertSerialOperationsResult> {
   const {
     deep,
     webPushCertificate,
@@ -51,8 +51,10 @@ export async function getWebPushCertificateInsertSerialOperations(
     containerLinkId,
     shouldMakeActive = false
   } = param;
-  const { containLinkId, webPushCertificateLinkId , usesWebPushCertificateLinkId} = await getReservedLinkIds();
-  const { containTypeLinkId, webPushCertificateTypeLinkId, usesWebPushCertificateTypeLinkId } = await getTypeLinkIds();
+  const reservedLinkIds = await getReservedLinkIds();
+  const { containLinkId, webPushCertificateLinkId, usesWebPushCertificateLinkId } = reservedLinkIds;
+  const typeLinkIds = await getTypeLinkIds();
+  const { containTypeLinkId, webPushCertificateTypeLinkId ,usesWebPushCertificateTypeLinkId} = typeLinkIds;
   const serialOperations = [];
   const webPushCertificateInsertSerialOperation = createSerialOperation({
     type: 'insert',
@@ -106,9 +108,13 @@ export async function getWebPushCertificateInsertSerialOperations(
         to_id: webPushCertificateLinkId,
       },
     })
+    serialOperations.push(usesWebPushCertificateInsertSerialOperation);
   }
 
-  return serialOperations;
+  return {
+    serialOperations,
+    linkIds: reservedLinkIds
+  };
 
   type GetReservedLinkIdsResult = Required<
     Exclude<
@@ -223,4 +229,9 @@ export interface GetWebPushCertificateInsertSerialOperationsParam {
    * @defaultValue false
    */
   shouldMakeActive?: boolean;
+}
+
+export interface GetWebPushCertificateInsertSerialOperationsResult {
+  serialOperations: Array<SerialOperation>,
+  linkIds: Required<Exclude<GetWebPushCertificateInsertSerialOperationsParam['reservedLinkIds'], undefined>>,
 }

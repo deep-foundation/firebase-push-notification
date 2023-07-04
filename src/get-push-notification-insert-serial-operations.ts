@@ -13,7 +13,7 @@ import { PushNotification } from './push-notification';
   * @example
   * #### Insert {@link LinkName.PushNotification}
  ```ts
- const serialOperations = await getPushNotificationInsertSerialOperations({
+ const {serialOperations, linkIds} = await getPushNotificationInsertSerialOperations({
    deep
  });
  await deep.serial({
@@ -26,7 +26,7 @@ import { PushNotification } from './push-notification';
   const pushNotificationLinkId = reservedLinkIds.pop();
   const containLinkId = reservedLinkIds.pop();
   
-  const serialOperations = await getPushNotificationInsertSerialOperations({
+  const {serialOperations, linkIds} = await getPushNotificationInsertSerialOperations({
     deep,
     pushNotification: {
       title,
@@ -44,15 +44,17 @@ import { PushNotification } from './push-notification';
   */
 export async function getPushNotificationInsertSerialOperations(
   param: GetPushNotificationInsertSerialOperationsParam
-): Promise<Array<SerialOperation>> {
+): Promise<GetPushNotificationInsertSerialOperationsResult> {
   const {
     deep,
     pushNotification,
     containValue,
     containerLinkId,
   } = param;
-  const { containLinkId, pushNotificationLinkId } = await getReservedLinkIds();
-  const { containTypeLinkId, pushNotificationTypeLinkId } = await getTypeLinkIds();
+  const reservedLinkIds = await getReservedLinkIds();
+  const { containLinkId, pushNotificationLinkId } = reservedLinkIds;
+  const typeLinkIds = await getTypeLinkIds();
+  const { containTypeLinkId, pushNotificationTypeLinkId } = typeLinkIds;
   const serialOperations = [];
   const pushNotificationInsertSerialOperation = createSerialOperation({
     type: 'insert',
@@ -94,7 +96,10 @@ export async function getPushNotificationInsertSerialOperations(
     serialOperations.push(valueOfContainInsertSerialOperation);
   }
 
-  return serialOperations;
+  return {
+    serialOperations,
+    linkIds: reservedLinkIds
+  };
 
   type GetReservedLinkIdsResult = Required<
     Exclude<
@@ -189,4 +194,9 @@ export interface GetPushNotificationInsertSerialOperationsParam {
    * If {@link GetPushNotificationInsertSerialOperationsParam.containerLinkId} is null, this will be ignored
    */
   containValue?: string | undefined;
+}
+
+export interface GetPushNotificationInsertSerialOperationsResult {
+  serialOperations: Array<SerialOperation>,
+  linkIds: Required<Exclude<GetPushNotificationInsertSerialOperationsParam['reservedLinkIds'], undefined>>,
 }

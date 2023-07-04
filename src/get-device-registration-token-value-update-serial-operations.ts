@@ -14,7 +14,7 @@ import { Link } from '@deep-foundation/deeplinks/imports/minilinks';
    * @example
    * #### Update {@link LinkName.DeviceRegistrationToken}
   ```ts
-  const serialOperations = await getDeviceRegistrationTokenValueInsertSerialOperations({
+  const serialOperations = await getDeviceRegistrationTokenValueUpdateSerialOperations({
     deep,
     deviceRegistrationToken: {
       title,
@@ -26,7 +26,7 @@ import { Link } from '@deep-foundation/deeplinks/imports/minilinks';
   })
   ```
    */
- export async function getDeviceRegistrationTokenValueInsertSerialOperations(
+ export async function getDeviceRegistrationTokenValueUpdateSerialOperations(
    param: GetDeviceRegistrationTokenValueUpdateSerialOperationsParam
  ): Promise<Array<SerialOperation>> {
    const { deep, deviceRegistrationToken } = param;

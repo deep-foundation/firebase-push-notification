@@ -12,7 +12,7 @@ import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql';
   * @example
   * #### Insert {@link LinkName.DeviceRegistrationToken}
  ```ts
- const serialOperations = await getDeviceRegistrationTokenInsertSerialOperations({
+ const {serialOperations, linkIds} = await getDeviceRegistrationTokenInsertSerialOperations({
    deep
  });
  await deep.serial({
@@ -25,7 +25,7 @@ import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql';
   const deviceRegistrationTokenLinkId = reservedLinkIds.pop();
   const containLinkId = reservedLinkIds.pop();
   
-  const serialOperations = await getDeviceRegistrationTokenInsertSerialOperations({
+  const {serialOperations, linkIds} = await getDeviceRegistrationTokenInsertSerialOperations({
     deep,
     deviceRegistrationToken: {
       title,
@@ -43,15 +43,17 @@ import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql';
   */
 export async function getDeviceRegistrationTokenInsertSerialOperations(
   param: GetDeviceRegistrationTokenInsertSerialOperationsParam
-): Promise<Array<SerialOperation>> {
+): Promise<GetDeviceRegistrationTokenInsertSerialOperationsResult> {
   const {
     deep,
     deviceRegistrationToken,
     containValue,
     containerLinkId,
   } = param;
-  const { containLinkId, deviceRegistrationTokenLinkId } = await getReservedLinkIds();
-  const { containTypeLinkId, deviceRegistrationTokenTypeLinkId } = await getTypeLinkIds();
+  const reservedLinkIds = await getReservedLinkIds();
+  const { containLinkId, deviceRegistrationTokenLinkId } = reservedLinkIds;
+  const typeLinkIds = await getTypeLinkIds();
+  const { containTypeLinkId, deviceRegistrationTokenTypeLinkId } = typeLinkIds;
   const serialOperations = [];
   const deviceRegistrationTokenInsertSerialOperation = createSerialOperation({
     type: 'insert',
@@ -93,7 +95,10 @@ export async function getDeviceRegistrationTokenInsertSerialOperations(
     serialOperations.push(valueOfContainInsertSerialOperation);
   }
 
-  return serialOperations;
+  return {
+    serialOperations,
+    linkIds: reservedLinkIds
+  };
 
   type GetReservedLinkIdsResult = Required<
     Exclude<
@@ -188,4 +193,9 @@ export interface GetDeviceRegistrationTokenInsertSerialOperationsParam {
    * If {@link GetDeviceRegistrationTokenInsertSerialOperationsParam.containerLinkId} is null, this will be ignored
    */
   containValue?: string | undefined;
+}
+
+export interface GetDeviceRegistrationTokenInsertSerialOperationsResult {
+  serialOperations: Array<SerialOperation>,
+  linkIds: Required<Exclude<GetDeviceRegistrationTokenInsertSerialOperationsParam['reservedLinkIds'], undefined>>,
 }

@@ -15,7 +15,7 @@ import { PushNotification } from './push-notification';
    * @example
    * #### Update {@link LinkName.PushNotification}
   ```ts
-  const serialOperations = await getPushNotificationValueInsertSerialOperations({
+  const serialOperations = await getPushNotificationValueUpdateSerialOperations({
     deep,
     pushNotification: {
       title,
@@ -27,7 +27,7 @@ import { PushNotification } from './push-notification';
   })
   ```
    */
- export async function getPushNotificationValueInsertSerialOperations(
+ export async function getPushNotificationValueUpdateSerialOperations(
    param: GetPushNotificationValueUpdateSerialOperationsParam
  ): Promise<Array<SerialOperation>> {
    const { deep, pushNotification } = param;

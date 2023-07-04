@@ -14,7 +14,7 @@ import { Link } from '@deep-foundation/deeplinks/imports/minilinks';
    * @example
    * #### Update {@link LinkName.WebPushCertificate}
   ```ts
-  const serialOperations = await getWebPushCertificateValueInsertSerialOperations({
+  const serialOperations = await getWebPushCertificateValueUpdateSerialOperations({
     deep,
     webPushCertificate: {
       title,
@@ -26,7 +26,7 @@ import { Link } from '@deep-foundation/deeplinks/imports/minilinks';
   })
   ```
    */
- export async function getWebPushCertificateValueInsertSerialOperations(
+ export async function getWebPushCertificateValueUpdateSerialOperations(
    param: GetWebPushCertificateValueUpdateSerialOperationsParam
  ): Promise<Array<SerialOperation>> {
    const { deep, webPushCertificate } = param;
