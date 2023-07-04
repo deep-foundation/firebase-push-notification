@@ -123,15 +123,17 @@ export async function getServiceAccountInsertSerialOperations(
       })
       serialOperations.push(containForUsesServiceAccountInsertSerialOperation);
 
-      const valueForContainInsertSerialOperation = createSerialOperation({
-        type: 'insert',
-        table: 'objects',
-        objects: {
-          link_id: containForUsesServiceAccountLinkId,
-          value: valueForContainForUsesServiceAccount,
-        },
-      });
-      serialOperations.push(valueForContainInsertSerialOperation);
+      if(valueForContainForUsesServiceAccount) {
+        const valueForContainInsertSerialOperation = createSerialOperation({
+          type: 'insert',
+          table: 'objects',
+          objects: {
+            link_id: containForUsesServiceAccountLinkId,
+            value: valueForContainForUsesServiceAccount,
+          },
+        });
+        serialOperations.push(valueForContainInsertSerialOperation);
+      }
     }
   }
 

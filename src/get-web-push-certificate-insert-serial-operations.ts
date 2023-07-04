@@ -123,15 +123,17 @@ export async function getWebPushCertificateInsertSerialOperations(
       })
       serialOperations.push(containForUsesWebPushCertificateInsertSerialOperation);
 
-      const valueForContainInsertSerialOperation = createSerialOperation({
-        type: 'insert',
-        table: 'objects',
-        objects: {
-          link_id: containForUsesWebPushCertificateLinkId,
-          value: valueForContainForUsesWebPushCertificate,
-        },
-      });
-      serialOperations.push(valueForContainInsertSerialOperation);
+      if(valueForContainForUsesWebPushCertificate) {
+        const valueForContainInsertSerialOperation = createSerialOperation({
+          type: 'insert',
+          table: 'objects',
+          objects: {
+            link_id: containForUsesWebPushCertificateLinkId,
+            value: valueForContainForUsesWebPushCertificate,
+          },
+        });
+        serialOperations.push(valueForContainInsertSerialOperation);
+      }
     }
   }
 
