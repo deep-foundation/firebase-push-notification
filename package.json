@@ -25,7 +25,7 @@
   ],
   "dependencies": {
     "@deep-foundation/core": "^0.0.2",
-    "@deep-foundation/device": "~1.0.1",
+    "@deep-foundation/capacitor-device": "~10.0.1",
     "@deep-foundation/notification": "~1.0.1",
     "@freephoenix888/object-to-links-async-converter": "^0.0.10"
   },

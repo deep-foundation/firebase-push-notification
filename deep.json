@@ -264,8 +264,8 @@
       "version": "1.0.1"
     },
     {
-      "name": "@deep-foundation/device",
-      "version": "1.0.1"
+      "name": "@deep-foundation/capacitor-device",
+      "version": "10.0.1"
     },
     {
       "name": "@freephoenix888/object-to-links-async-converter",
