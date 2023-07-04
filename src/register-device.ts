@@ -3,9 +3,9 @@ import { PushNotifications } from '@capacitor/push-notifications';
 import { DeepClient } from '@deep-foundation/deeplinks/imports/client';
 import { BoolExpLink } from '@deep-foundation/deeplinks/imports/client_types';
 import { getToken, Messaging, onMessage } from '@firebase/messaging';
-import { insertDeviceRegistrationToken } from './insert-device-registration-token';
 import { PACKAGE_NAME } from './package-name';
 import { LinkName } from './link-name';
+import { getDeviceRegistrationTokenInsertSerialOperations } from './get-device-registration-token-insert-serial-operations';
 
 /**
  * Registers device
@@ -90,11 +90,14 @@ export async function registerDevice({
       if(callback) {
         callback({deviceRegistrationToken})
       } else {
-        await insertDeviceRegistrationToken({
+        const serialOperations = await getDeviceRegistrationTokenInsertSerialOperations({
           deep,
           deviceRegistrationToken,
-          deviceLinkId,
+          containerLinkId: deviceLinkId,
         });
+        await deep.serial({
+          operations: serialOperations,
+        })
       }
   }
 }
