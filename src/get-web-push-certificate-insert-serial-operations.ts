@@ -77,6 +77,7 @@ export async function getWebPushCertificateInsertSerialOperations(
       type: 'insert',
       table: 'links',
       objects: {
+        id: containLinkId,
         type_id: containTypeLinkId,
         from_id: containerLinkId || deep.linkId,
         to_id: webPushCertificateLinkId,
