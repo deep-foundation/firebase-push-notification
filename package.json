@@ -27,8 +27,7 @@
     "@deep-foundation/capacitor-device": "~10.0.1",
     "@deep-foundation/core": "~0.0.2",
     "@deep-foundation/notification": "~1.0.1",
-    "@freephoenix888/object-to-links-async-converter": "~0.0.10",
-    "debug": "^4.3.4"
+    "@freephoenix888/object-to-links-async-converter": "~0.0.10"
   },
   "devDependencies": {
     "@atao60/fse-cli": "^0.1.7",
@@ -44,6 +43,7 @@
     "typescript-json-schema": "^0.57.0"
   },
   "peerDependencies": {
+    "debug": "^4.3.4",
     "@capacitor/device": "^5.0.4",
     "@capacitor/push-notifications": "^5.0.4",
     "@deep-foundation/deeplinks": "~0.0.164",
