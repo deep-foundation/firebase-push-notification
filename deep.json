@@ -1,41 +1,41 @@
 {
   "package": {
     "name": "@deep-foundation/firebase-push-notification",
-    "version": "14.0.3-dev.0"
+    "version": "14.0.4"
   },
   "data": [
     {
       "package": {
         "dependencyId": 0,
-        "containValue": "Type"
+        "containValue": "Handler"
       },
       "id": 1
     },
     {
       "package": {
         "dependencyId": 0,
-        "containValue": "Value"
+        "containValue": "dockerSupportsJs"
       },
       "id": 2
     },
     {
       "package": {
         "dependencyId": 0,
-        "containValue": "Object"
+        "containValue": "Value"
       },
       "id": 3
     },
     {
       "package": {
         "dependencyId": 0,
-        "containValue": "User"
+        "containValue": "String"
       },
       "id": 4
     },
     {
       "package": {
         "dependencyId": 0,
-        "containValue": "String"
+        "containValue": "Type"
       },
       "id": 5
     },
@@ -63,7 +63,7 @@
     {
       "package": {
         "dependencyId": 0,
-        "containValue": "Tree"
+        "containValue": "HandleInsert"
       },
       "id": 9
     },
@@ -84,88 +84,68 @@
     {
       "package": {
         "dependencyId": 0,
-        "containValue": "SyncTextFile"
-      },
-      "id": 12
-    },
-    {
-      "package": {
-        "dependencyId": 0,
-        "containValue": "Handler"
-      },
-      "id": 13
-    },
-    {
-      "package": {
-        "dependencyId": 0,
-        "containValue": "dockerSupportsJs"
-      },
-      "id": 14
-    },
-    {
-      "package": {
-        "dependencyId": 0,
-        "containValue": "HandleInsert"
-      },
-      "id": 15
-    },
-    {
-      "package": {
-        "dependencyId": 0,
         "containValue": "HandleUpdate"
       },
-      "id": 16
+      "id": 12
     },
     {
       "package": {
         "dependencyId": 3,
         "containValue": "UpdateHandler"
       },
+      "id": 13
+    },
+    {
+      "package": {
+        "dependencyId": 0,
+        "containValue": "Object"
+      },
+      "id": 14
+    },
+    {
+      "package": {
+        "dependencyId": 0,
+        "containValue": "User"
+      },
+      "id": 15
+    },
+    {
+      "package": {
+        "dependencyId": 0,
+        "containValue": "SyncTextFile"
+      },
+      "id": 16
+    },
+    {
+      "package": {
+        "dependencyId": 0,
+        "containValue": "Tree"
+      },
       "id": 17
     },
     {
-      "id": "ServiceAccount",
-      "type": 1
-    },
-    {
-      "id": "TypeOfValueOfServiceAccount",
-      "type": 2,
-      "from": "ServiceAccount",
-      "to": 3
-    },
-    {
-      "id": "UsesServiceAccount",
+      "id": "PushNotificationNotifyInsertHandler",
       "type": 1,
-      "from": 4,
-      "to": "ServiceAccount"
-    },
-    {
-      "id": "PushNotification",
-      "type": 1
-    },
-    {
-      "id": "PushNotificationBody",
-      "type": 1,
-      "from": "PushNotification",
-      "to": "PushNotification"
+      "from": 2,
+      "to": "PushNotificationNotifyInsertHandlerCode"
     },
     {
       "id": "TypeOfValueOfPushNotificationBody",
-      "type": 2,
+      "type": 3,
       "from": "PushNotificationBody",
-      "to": 5
+      "to": 4
     },
     {
       "id": "PushNotificationTitle",
-      "type": 1,
+      "type": 5,
       "from": "PushNotification",
       "to": "PushNotification"
     },
     {
       "id": "TypeOfValueOfPushNotificationTitle",
-      "type": 2,
+      "type": 3,
       "from": "PushNotificationTitle",
-      "to": 5
+      "to": 4
     },
     {
       "id": "Notify",
@@ -180,28 +160,10 @@
       "to": 7
     },
     {
-      "id": "WebPushCertificate",
-      "type": 1
-    },
-    {
-      "id": "UsesWebPushCertificate",
-      "type": 1,
-      "from": 4,
-      "to": "WebPushCertificate"
-    },
-    {
-      "id": "TypeOfValueOfWebPushCertificate",
-      "type": 2,
-      "from": "WebPushCertificate",
-      "to": 5
-    },
-    {
-      "id": "DeviceRegistrationToken",
-      "type": 1
-    },
-    {
-      "id": "PushNotificationTree",
-      "type": 9
+      "id": "HandlePushNotificationNotifyInsert",
+      "type": 9,
+      "from": "Notify",
+      "to": "PushNotificationNotifyInsertHandler"
     },
     {
       "id": "TreeIncludeFromCurrentPushNotificationBody",
@@ -222,35 +184,73 @@
       "to": "PushNotification"
     },
     {
-      "id": "PushNotificationNotifyInsertHandlerCode",
-      "type": 12,
-      "value": {
-        "value": "async ({ require, deep, data: { newLink: notifyLink, triggeredByLinkId } }) => {\n  const firebaseAdmin = require('firebase-admin');\n\n  const notificationLinkId = notifyLink.from_id;\n  const deviceLinkId = notifyLink.to_id;\n\n  const containTypeLinkId = await deep.id('@deep-foundation/core', 'Contain');\n\n  const serviceAccount = await getServiceAccount({\n    containTypeLinkId,\n    triggeredByLinkId,\n  });\n\n  const firebaseApplication = await getFirebaseApplication({\n    firebaseAdmin,\n    serviceAccount,\n  });\n  const deviceRegistrationToken = await getDeviceRegistrationToken({\n    containTypeLinkId,\n    deviceLinkId,\n  });\n  const pushNotificationData = await getPushNotificationData({\n    containTypeLinkId,\n    deviceRegistrationToken,\n    notificationLinkId,\n  });\n\n  await firebaseAdmin.messaging(firebaseApplication).send(pushNotificationData);\n  await deep.insert({\n    type_id: await deep.id(deep.linkId, 'Notified'),\n    in: {\n      data: {\n        type_id: containTypeLinkId,\n        from_id: triggeredByLinkId,\n      },\n    },\n    from_id: notifyLink.id,\n    to_id: deviceLinkId,\n  });\n\n  async function getServiceAccount({ containTypeLinkId, triggeredByLinkId }) {\n    const serviceAccountTypeLinkId = await deep.id(\n      deep.linkId,\n      'ServiceAccount'\n    );\n    const usesServiceAccountTypeLinkId = await deep.id(\n      deep.linkId,\n      'UsesServiceAccount'\n    );\n    const selectData = {\n      _or: [\n        {\n          type_id: serviceAccountTypeLinkId,\n          in: {\n            type_id: containTypeLinkId,\n            from_id: triggeredByLinkId,\n          },\n        },\n        {\n          type_id: usesServiceAccountTypeLinkId,\n          from_id: triggeredByLinkId,\n        },\n      ],\n    };\n    const { data } = await deep.select(selectData);\n    if (data.length === 0) {\n      throw new Error(\n        `Select with data ${JSON.stringify(selectData)} returned empty result`\n      );\n    }\n    let serviceAccountLink;\n    const usesServiceAccountLinks = data.filter(\n      (link) => link.type_id === usesServiceAccountTypeLinkId\n    );\n    if (usesServiceAccountLinks.length > 1) {\n      throw new Error(\n        `There must be only one link of type ${usesServiceAccountTypeLinkId} and from ${triggeredByLinkId}, instead there are ${usesServiceAccountLinks\n          .map((link) => `##${link.id}`)\n          .join(', ')}`\n      );\n    } else if (usesServiceAccountLinks.length === 1) {\n      const usesServiceAccountLink = usesServiceAccountLinks[0];\n      serviceAccountLink = data.find(\n        (link) => link.id === usesServiceAccountLink.to_id\n      );\n    } else if (usesServiceAccountLinks.length === 0) {\n      const serviceAccountLinks = data.filter(\n        (link) => link.type_id === serviceAccountTypeLinkId\n      );\n      if (serviceAccountLinks.length > 1) {\n        throw new Error(\n          `There must be only one link of type ##${serviceAccountTypeLinkId} and contained by ##${triggeredByLinkId}, instead there are ${serviceAccountLinks\n            .map((link) => `##${link.id}`)\n            .join(', ')}`\n        );\n      } else if (serviceAccountLinks.length === 1) {\n        serviceAccountLink = serviceAccountLinks[0];\n      } else if (serviceAccountLinks.length === 0) {\n        throw new Error(\n          `A link of type ##${serviceAccountTypeLinkId} and contained by ##${triggeredByLinkId} is not found`\n        );\n      }\n    }\n    if (!serviceAccountLink) {\n      throw new Error(\n        `A link of type ##${usesServiceAccountTypeLinkId} and from ##${triggeredByLinkId} is not found`\n      );\n    }\n    if (!serviceAccountLink.value?.value) {\n      throw new Error(`##${serviceAccountLink.id} must have value`);\n    }\n    return serviceAccountLink.value.value;\n  }\n\n  async function getDeviceRegistrationToken({\n    containTypeLinkId,\n    deviceLinkId,\n  }) {\n    const deviceRegistrationTokenTypeLinkId = await deep.id(\n      deep.linkId,\n      'DeviceRegistrationToken'\n    );\n    const selectData = {\n      type_id: deviceRegistrationTokenTypeLinkId,\n      in: {\n        type_id: containTypeLinkId,\n        from_id: deviceLinkId,\n      },\n    };\n    const {\n      data: [deviceRegistrationTokenLink],\n    } = await deep.select(selectData);\n    if (!deviceRegistrationTokenLink) {\n      throw new Error(\n        `##${deviceLinkId} must have contained a link of type ##${deviceRegistrationTokenTypeLinkId}. Select with data ${JSON.stringify(\n          selectData\n        )} returned empty result`\n      );\n    }\n    if (!deviceRegistrationTokenLink.value?.value) {\n      throw new Error(`##${deviceRegistrationTokenLink.id} must have value`);\n    }\n    return deviceRegistrationTokenLink.value.value;\n  }\n\n  async function getPushNotificationImageUrl({\n    containTypeLinkId,\n    notificationLinkId,\n  }) {\n    const notificationImageUrlTypeLinkId = await deep.id(\n      deep.linkId,\n      'PushNotificationImageUrl'\n    );\n    const selectData = {\n      type_id: notificationImageUrlTypeLinkId,\n      in: {\n        type_id: containTypeLinkId,\n        from_id: notificationLinkId,\n      },\n    };\n    const {\n      data: [linkWithPushNotificationImageUrlString],\n    } = await deep.select(selectData);\n    if (!linkWithPushNotificationImageUrlString) {\n      return undefined;\n    }\n    if (!linkWithPushNotificationImageUrlString.value?.value) {\n      throw new Error(\n        `##${linkWithPushNotificationImageUrlString.id} must have value`\n      );\n    }\n    return linkWithPushNotificationImageUrlString.value.value;\n  }\n\n  async function getPushNotificationBody({ notificationLinkId }) {\n    const notificationBodyTypeLinkId = await deep.id(\n      deep.linkId,\n      'PushNotificationBody'\n    );\n    const selectData = {\n      in: {\n        type_id: notificationBodyTypeLinkId,\n        from_id: notificationLinkId,\n      },\n    };\n    const {\n      data: [linkWithPushNotificationBodyString],\n    } = await deep.select(selectData);\n    if (!linkWithPushNotificationBodyString) {\n      throw new Error(\n        `A link of type ##${notificationBodyTypeLinkId} must exist`\n      );\n    }\n    if (!linkWithPushNotificationBodyString.value?.value) {\n      throw new Error(\n        `##${linkWithPushNotificationBodyString.id} must have value`\n      );\n    }\n    return linkWithPushNotificationBodyString.value.value;\n  }\n\n  async function getPushNotificationTitle({ notificationLinkId }) {\n    const notificationTitleTypeLinkId = await deep.id(\n      deep.linkId,\n      'PushNotificationTitle'\n    );\n    const selectData = {\n      in: {\n        type_id: {\n          _eq: notificationTitleTypeLinkId,\n        },\n        from_id: {\n          _eq: notificationLinkId,\n        },\n      },\n    };\n    const {\n      data: [linkWithPushNotificationTitleString],\n    } = await deep.select(selectData);\n    if (!linkWithPushNotificationTitleString) {\n      throw new Error(\n        `A link of type ${notificationTitleTypeLinkId} must exist`\n      );\n    }\n    if (!linkWithPushNotificationTitleString.value?.value) {\n      throw new Error(\n        `##${linkWithPushNotificationTitleString.id} must have value`\n      );\n    }\n    return linkWithPushNotificationTitleString.value.value;\n  }\n\n  async function getPushNotificationData({\n    notificationLinkId,\n    containTypeLinkId,\n    deviceRegistrationToken,\n  }) {\n    const pushNotificationData = {\n      token: deviceRegistrationToken,\n      notification: {\n        title: await getPushNotificationTitle({ notificationLinkId }),\n        body: await getPushNotificationBody({ notificationLinkId }),\n      },\n    };\n    const imageUrl = await getPushNotificationImageUrl({\n      containTypeLinkId,\n      notificationLinkId,\n    });\n    if (imageUrl) {\n      pushNotificationData.imageUrl = imageUrl;\n    }\n    return pushNotificationData;\n  }\n\n  async function getFirebaseApplication({ firebaseAdmin, serviceAccount }) {\n    return firebaseAdmin.apps.length === 0\n      ? firebaseAdmin.initializeApp({\n          credential: firebaseAdmin.credential.cert(serviceAccount),\n        })\n      : firebaseAdmin.app();\n  }\n};\n"
-      }
-    },
-    {
-      "id": "PushNotificationNotifyInsertHandler",
-      "type": 13,
-      "from": 14,
-      "to": "PushNotificationNotifyInsertHandlerCode"
-    },
-    {
-      "id": "HandlePushNotificationNotifyInsert",
-      "type": 15,
-      "from": "Notify",
-      "to": "PushNotificationNotifyInsertHandler"
-    },
-    {
       "id": "HandleUpdateOfPushNotification",
-      "type": 16,
+      "type": 12,
       "from": "PushNotification",
-      "to": 17
+      "to": 13
+    },
+    {
+      "id": "ServiceAccount",
+      "type": 5
+    },
+    {
+      "id": "TypeOfValueOfServiceAccount",
+      "type": 3,
+      "from": "ServiceAccount",
+      "to": 14
+    },
+    {
+      "id": "UsesServiceAccount",
+      "type": 5,
+      "from": 15,
+      "to": "ServiceAccount"
+    },
+    {
+      "id": "PushNotification",
+      "type": 5
+    },
+    {
+      "id": "PushNotificationBody",
+      "type": 5,
+      "from": "PushNotification",
+      "to": "PushNotification"
     },
     {
       "id": "TypeOfValueOfPushNotification",
-      "type": 2,
+      "type": 3,
       "from": "PushNotification",
-      "to": 3
+      "to": 14
+    },
+    {
+      "id": "WebPushCertificate",
+      "type": 5
+    },
+    {
+      "id": "UsesWebPushCertificate",
+      "type": 5,
+      "from": 15,
+      "to": "WebPushCertificate"
+    },
+    {
+      "id": "TypeOfValueOfWebPushCertificate",
+      "type": 3,
+      "from": "WebPushCertificate",
+      "to": 4
+    },
+    {
+      "id": "DeviceRegistrationToken",
+      "type": 5
+    },
+    {
+      "id": "PushNotificationNotifyInsertHandlerCode",
+      "type": 16,
+      "value": {
+        "value": "async ({ require, deep, data: { newLink: notifyLink, triggeredByLinkId } }) => {\n  const firebaseAdmin = require('firebase-admin');\n\n  const notificationLinkId = notifyLink.from_id;\n  const {data: [notificationLink]} = await deep.select(notificationLinkId)\n  if(!notificationLink.value?.value) {\n    throw new Error(`##${notificationLinkId} must have value`)\n  }\n  const title = notificationLink.value.value.title;\n  if(!title) {\n    throw new Error(`Object value of ##${notificationLinkId} must have title property`)\n  }\n   \n  const body = notificationLink.value.value.body;\n  if(!body) {\n    throw new Error(`Object value of ##${notificationLinkId} must have body property`)\n  }\n\n  const deviceLinkId = notifyLink.to_id;\n\n  const containTypeLinkId = await deep.id('@deep-foundation/core', 'Contain');\n\n  const serviceAccount = await getServiceAccount({\n    containTypeLinkId,\n    triggeredByLinkId,\n  });\n\n  const firebaseApplication = await getFirebaseApplication({\n    firebaseAdmin,\n    serviceAccount,\n  });\n\n  const deviceRegistrationToken = await getDeviceRegistrationToken({\n    containTypeLinkId,\n    deviceLinkId,\n  });\n  \n  const pushNotificationData = {\n    token: deviceRegistrationToken,\n    notification: {\n      title: title,\n      body: body,\n    },\n  };\n\n  await firebaseAdmin.messaging(firebaseApplication).send(pushNotificationData);\n  await deep.insert({\n    type_id: await deep.id(deep.linkId, 'Notified'),\n    in: {\n      data: {\n        type_id: containTypeLinkId,\n        from_id: triggeredByLinkId,\n      },\n    },\n    from_id: notifyLink.id,\n    to_id: deviceLinkId,\n  });\n\n  async function getServiceAccount({ containTypeLinkId, triggeredByLinkId }) {\n    const serviceAccountTypeLinkId = await deep.id(\n      deep.linkId,\n      'ServiceAccount'\n    );\n    const usesServiceAccountTypeLinkId = await deep.id(\n      deep.linkId,\n      'UsesServiceAccount'\n    );\n    const selectData = {\n      _or: [\n        {\n          type_id: serviceAccountTypeLinkId,\n          in: {\n            type_id: containTypeLinkId,\n            from_id: triggeredByLinkId,\n          },\n        },\n        {\n          type_id: usesServiceAccountTypeLinkId,\n          from_id: triggeredByLinkId,\n        },\n      ],\n    };\n    const { data } = await deep.select(selectData);\n    if (data.length === 0) {\n      throw new Error(\n        `Select with data ${JSON.stringify(selectData)} returned empty result`\n      );\n    }\n    let serviceAccountLink;\n    const usesServiceAccountLinks = data.filter(\n      (link) => link.type_id === usesServiceAccountTypeLinkId\n    );\n    if (usesServiceAccountLinks.length > 1) {\n      throw new Error(\n        `There must be only one link of type ${usesServiceAccountTypeLinkId} and from ${triggeredByLinkId}, instead there are ${usesServiceAccountLinks\n          .map((link) => `##${link.id}`)\n          .join(', ')}`\n      );\n    } else if (usesServiceAccountLinks.length === 1) {\n      const usesServiceAccountLink = usesServiceAccountLinks[0];\n      serviceAccountLink = data.find(\n        (link) => link.id === usesServiceAccountLink.to_id\n      );\n    } else if (usesServiceAccountLinks.length === 0) {\n      const serviceAccountLinks = data.filter(\n        (link) => link.type_id === serviceAccountTypeLinkId\n      );\n      if (serviceAccountLinks.length > 1) {\n        throw new Error(\n          `There must be only one link of type ##${serviceAccountTypeLinkId} and contained by ##${triggeredByLinkId}, instead there are ${serviceAccountLinks\n            .map((link) => `##${link.id}`)\n            .join(', ')}`\n        );\n      } else if (serviceAccountLinks.length === 1) {\n        serviceAccountLink = serviceAccountLinks[0];\n      } else if (serviceAccountLinks.length === 0) {\n        throw new Error(\n          `A link of type ##${serviceAccountTypeLinkId} and contained by ##${triggeredByLinkId} is not found`\n        );\n      }\n    }\n    if (!serviceAccountLink) {\n      throw new Error(\n        `A link of type ##${usesServiceAccountTypeLinkId} and from ##${triggeredByLinkId} is not found`\n      );\n    }\n    if (!serviceAccountLink.value?.value) {\n      throw new Error(`##${serviceAccountLink.id} must have value`);\n    }\n    return serviceAccountLink.value.value;\n  }\n\n  async function getDeviceRegistrationToken({\n    containTypeLinkId,\n    deviceLinkId,\n  }) {\n    const deviceRegistrationTokenTypeLinkId = await deep.id(\n      deep.linkId,\n      'DeviceRegistrationToken'\n    );\n    const selectData = {\n      type_id: deviceRegistrationTokenTypeLinkId,\n      in: {\n        type_id: containTypeLinkId,\n        from_id: deviceLinkId,\n      },\n    };\n    const {\n      data: [deviceRegistrationTokenLink],\n    } = await deep.select(selectData);\n    if (!deviceRegistrationTokenLink) {\n      throw new Error(\n        `##${deviceLinkId} must have contained a link of type ##${deviceRegistrationTokenTypeLinkId}. Select with data ${JSON.stringify(\n          selectData\n        )} returned empty result`\n      );\n    }\n    if (!deviceRegistrationTokenLink.value?.value) {\n      throw new Error(`##${deviceRegistrationTokenLink.id} must have value`);\n    }\n    return deviceRegistrationTokenLink.value.value;\n  }\n\n  async function getFirebaseApplication({ firebaseAdmin, serviceAccount }) {\n    return firebaseAdmin.apps.length === 0\n      ? firebaseAdmin.initializeApp({\n          credential: firebaseAdmin.credential.cert(serviceAccount),\n        })\n      : firebaseAdmin.app();\n  }\n};\n"
+      }
+    },
+    {
+      "id": "PushNotificationTree",
+      "type": 17
     }
   ],
   "errors": [],
