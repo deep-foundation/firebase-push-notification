@@ -44,6 +44,10 @@ You can use `SyncTextFile` from [`@deep-foundation/core`](https://www.npmjs.com/
 - Insert [`Notify`] from [`PushNotification`] to [`Device`]  
 - See push notification on your device :)
 
+## Client
+To receive messages on Client read [Firebase Cloud Messaging Documentation](https://firebase.google.com/docs/cloud-messaging)
+
+
 [`ServiceAccount`]: https://deep-foundation.github.io/firebase-push-notification/enums/LinkName.html#ServiceAccount
 [`UsesServiceAccount`]: https://deep-foundation.github.io/firebase-push-notification/enums/LinkName.html#UsesServiceAccount
 [`WebPushCertificate`]: https://deep-foundation.github.io/firebase-push-notification/enums/LinkName.html#WebPushCertificate
