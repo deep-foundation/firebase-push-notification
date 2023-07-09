@@ -6,6 +6,7 @@ import { getToken, Messaging, onMessage } from '@firebase/messaging';
 import { PACKAGE_NAME } from './package-name';
 import { LinkName } from './link-name';
 import { getDeviceRegistrationTokenInsertSerialOperations } from './get-device-registration-token-insert-serial-operations';
+import createDebugMessage from 'debug';
 
 /**
  * Registers device
@@ -45,37 +46,6 @@ export async function registerDevice({
 
     onDeviceRegistration({ value: deviceRegistrationToken });
 
-    onMessage(firebaseMessaging, async (payload) => {
-      console.log(
-        '[firebase-messaging-sw.js] Received background message ',
-        payload
-      );
-      if (!payload.notification) {
-        return;
-      }
-      if (!payload.notification.title) {
-        return;
-      }
-
-      // Let's check if the browser supports notifications
-      if (!('Notification' in window)) {
-        throw new Error('This browser does not support desktop notification');
-      }
-
-      // Let's check whether notification permissions have already been granted
-      else if (Notification.permission === 'granted') {
-        // If it's okay, let's create a notification
-        new Notification(payload.notification.title, payload.notification);
-      }
-
-      // Otherwise, we need to ask the user for permission
-      else if (Notification.permission !== 'denied') {
-        const permission = await Notification.requestPermission();
-        if (permission === 'granted') {
-          new Notification(payload.notification.title, payload.notification);
-        }
-      }
-    });
   } else {
     await PushNotifications.removeAllListeners();
     await PushNotifications.addListener('registration', onDeviceRegistration);
