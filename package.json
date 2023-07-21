@@ -11,8 +11,8 @@
   },
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "clean-build": "fse remove dist && npm run build",
+    "package:build": "tsc",
+    "clean-build": "fse remove dist && npm run package:build",
     "npm-pull": "npm-pull",
     "npm-release": "npm-release",
     "generate-schema": "ts-node-esm --project='./tsconfig.json' ./automation/generate-schema.ts --interface-file-path=\"./src/push-notification.ts\" --interface-name=\"NotificationPayload\" --output-json-file-path=\"./src/schema.json\""
