@@ -35,4 +35,4 @@ jobs:
           git push origin main
         fi
         
-        npx typedoc ./src/main.ts
+        npx typedoc@0.24.8 ./src/main.ts
