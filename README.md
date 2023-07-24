@@ -4,8 +4,12 @@
 
 Provides links for working with [`@firebase/messaging`](https://www.npmjs.com/package/@firebase/messaging)
 
-[**Documentation**](https://deep-foundation.github.io/firebase-push-notification/)
+# Table Of Contents
+<!-- TABLE_OF_CONTENTS_START -->
+<!-- TABLE_OF_CONTENTS_END -->
+
 # Usage
+
 ## Setup
 ### Service Account
 
@@ -48,3 +52,7 @@ To receive messages on Client read [Firebase Cloud Messaging Documentation](http
 [`PushNotificationImageUrl`]: https://deep-foundation.github.io/firebase-push-notification/classes/Package.html#PushNotificationImageUrl
 [`PushNotificationIconUrl`]: https://deep-foundation.github.io/firebase-push-notification/classes/Package.html#PushNotificationIconUrl
 [`Notify`]: https://deep-foundation.github.io/firebase-push-notification/classes/Package.html#Notify
+
+# Library
+## Library Usage
+See [Documentation] for examples and API
