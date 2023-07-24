@@ -56,3 +56,5 @@ To receive messages on Client read [Firebase Cloud Messaging Documentation](http
 # Library
 ## Library Usage
 See [Documentation] for examples and API
+
+[Documentation]: https://deep-foundation.github.io/firebase-push-notification/
