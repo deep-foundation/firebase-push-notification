@@ -8,15 +8,6 @@ Provides links for working with [`@firebase/messaging`](https://www.npmjs.com/pa
 
 [**List of links**](https://deep-foundation.github.io/firebase-push-notification/enums/LinkName.html)
 
-<!-- # Overview
-- PushNotification
-- PushNotificationTitle
-- PushNotificationBody
-- PushNotificationImageUrl
-- PushNotificationIconUrl
-- Notify
-- NotifyInsertHandler -->
-
 # Usage
 ## Setup
 ### Service Account
