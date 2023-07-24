@@ -18,4 +18,21 @@ jobs:
       build-command: "npm run build"
       test-command: "echo 'Tests are temporarily disabled'"
       should-generate-documentation: true
-      generate-documentation-command: "npx typedoc ./src/main.ts --out ./docs"
+      generate-documentation-command: |
+        table_of_contents=$(npx markdown-toc@1.2.0 README.md)
+        pattern="(<!-- TABLE_OF_CONTENTS_START -->)[\\S\\s]*(<!-- TABLE_OF_CONTENTS_END -->)"
+        replacement=$'$1\n'"${table_of_contents}"$'\n$2'
+        npx replace "$pattern" "$replacement" README.md
+
+        git add README.md
+        if git diff --staged --quiet
+        then
+          echo "No changes to commit"
+        else
+          git config --global user.name 'FreePhoenix888'
+          git config --global user.email 'freephoenix888@gmail.com'
+          git commit -m 'docs: update README.md'
+          git push origin main
+        fi
+        
+        npx typedoc ./src/main.ts --out ./docs
