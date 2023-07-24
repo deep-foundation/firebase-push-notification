@@ -6,6 +6,17 @@ Provides links for working with [`@firebase/messaging`](https://www.npmjs.com/pa
 
 # Table Of Contents
 <!-- TABLE_OF_CONTENTS_START -->
+- [Table Of Contents](#table-of-contents)
+- [Usage](#usage)
+  * [Setup](#setup)
+    + [Service Account](#service-account)
+    + [Web Push Certificate](#web-push-certificate)
+    + [Device](#device)
+  * [Push Notification](#push-notification)
+  * [Notify](#notify)
+  * [Client](#client)
+- [Library](#library)
+  * [Library Usage](#library-usage)
 <!-- TABLE_OF_CONTENTS_END -->
 
 # Usage
