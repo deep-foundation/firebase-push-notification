@@ -12,6 +12,4 @@ export {PACKAGE_NAME} from './package-name'
 export {PushNotification} from './push-notification'
 export {registerDevice, type RegisterDeviceParam} from './register-device'
 export {requestPermissions, type RequestPermissionsResult} from './request-permissions'
-import * as pushNotificationJsonSchema from './schema.json';
-export { pushNotificationJsonSchema };
 export {checkPermissions, type CheckPermissionsResult} from './check-permissions'
