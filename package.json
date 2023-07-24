@@ -15,7 +15,7 @@
     "clean-build": "fse remove dist && npm run build",
     "npm-pull": "npm-pull",
     "npm-release": "npm-release",
-    "generate-schema": "ts-node-esm --project='./tsconfig.json' ./automation/generate-schema.ts --interface-file-path=\"./src/push-notification.ts\" --interface-name=\"NotificationPayload\" --output-json-file-path=\"./src/schema.json\""
+    "generate-package-class": "generate-package-class"
   },
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
