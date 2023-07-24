@@ -1,7 +1,17 @@
 {
   "name": "@deep-foundation/firebase-push-notification",
   "keywords": [
-    "deep-package"
+    "deep-package",
+    "firebase",
+    "deep",
+    "deep-foundation",
+    "firebase-cloud-messaging",
+    "push-notification",
+    "notification",
+    "firebase-push-notification",
+    "firebase-notification",
+    "links",
+    "associative"
   ],
   "version": "16.0.1",
   "description": "Provides links for working with @firebase/messaging",
