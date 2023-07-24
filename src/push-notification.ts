@@ -5,5 +5,6 @@
 /**
  * Push notification
  */
-export type { NotificationPayload as PushNotification } from '@firebase/messaging';
+import type { NotificationPayload } from '@firebase/messaging';
+export type PushNotification = Omit<NotificationPayload, 'icon' | 'image'>;
 
