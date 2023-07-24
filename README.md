@@ -2,7 +2,7 @@
 [![Gitpod](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/deep-foundation/firebase-push-notification) 
 [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label&color=purple)](https://discord.gg/deep-foundation)
 
-Provides links for working with [`@firebase/messaging`](https://www.npmjs.com/package/@firebase/messaging)
+Provides links for working with [`@firebase/messaging`](https://www.npmjs.com/package/@firebase/messaging) and typescript library for comfortable using of this deep package using typescript
 
 # Table Of Contents
 <!-- TABLE_OF_CONTENTS_START -->
