@@ -25,7 +25,7 @@ jobs:
         then
           echo "No changes to commit"
         else
-          git commit -m 'docs: update ./src/package.ts'
+          git commit -m 'Generate new package class'
           git push origin main
         fi
 
