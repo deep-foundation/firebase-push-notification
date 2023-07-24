@@ -8,15 +8,15 @@ Provides links for working with [`@firebase/messaging`](https://www.npmjs.com/pa
 <!-- TABLE_OF_CONTENTS_START -->
 - [Table Of Contents](#table-of-contents)
 - [Usage](#usage)
-  * [Setup](#setup)
-    + [Service Account](#service-account)
-    + [Web Push Certificate](#web-push-certificate)
-    + [Device](#device)
-  * [Push Notification](#push-notification)
-  * [Notify](#notify)
-  * [Client](#client)
+  - [Setup](#setup)
+    - [Service Account](#service-account)
+    - [Web Push Certificate](#web-push-certificate)
+    - [Device](#device)
+  - [Push Notification](#push-notification)
+  - [Notify](#notify)
+  - [Client](#client)
 - [Library](#library)
-  * [Library Usage](#library-usage)
+  - [Library Usage](#library-usage)
 <!-- TABLE_OF_CONTENTS_END -->
 
 # Usage
@@ -50,7 +50,11 @@ You can use `SyncTextFile` from [`@deep-foundation/core`](https://www.npmjs.com/
 ## Client
 To receive messages on Client read [Firebase Cloud Messaging Documentation](https://firebase.google.com/docs/cloud-messaging)
 
+# Library
+## Library Usage
+See [Documentation] for examples and API
 
+[Documentation]: https://deep-foundation.github.io/firebase-push-notification/
 [`ServiceAccount`]: https://deep-foundation.github.io/firebase-push-notification/classes/Package.html#ServiceAccount
 [`UsesServiceAccount`]: https://deep-foundation.github.io/firebase-push-notification/classes/Package.html#UsesServiceAccount
 [`WebPushCertificate`]: https://deep-foundation.github.io/firebase-push-notification/classes/Package.html#WebPushCertificate
@@ -63,9 +67,3 @@ To receive messages on Client read [Firebase Cloud Messaging Documentation](http
 [`PushNotificationImageUrl`]: https://deep-foundation.github.io/firebase-push-notification/classes/Package.html#PushNotificationImageUrl
 [`PushNotificationIconUrl`]: https://deep-foundation.github.io/firebase-push-notification/classes/Package.html#PushNotificationIconUrl
 [`Notify`]: https://deep-foundation.github.io/firebase-push-notification/classes/Package.html#Notify
-
-# Library
-## Library Usage
-See [Documentation] for examples and API
-
-[Documentation]: https://deep-foundation.github.io/firebase-push-notification/
