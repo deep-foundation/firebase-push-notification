@@ -2,16 +2,15 @@ import {
   DeepClient,
   SerialOperation,
 } from '@deep-foundation/deeplinks/imports/client';
-import { LinkName } from './link-name';
-import { PACKAGE_NAME } from './package-name';
 import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql';
 import { PushNotification } from './push-notification';
+import { Package } from './package';
 
 /**
-  * Gets serial operations to insert {@link LinkName.PushNotification}
+  * Gets serial operations to insert {@link Package.PushNotification}
   * 
   * @example
-  * #### Insert {@link LinkName.PushNotification}
+  * #### Insert {@link Package.PushNotification}
  ```ts
  const {serialOperations, linkIds} = await getPushNotificationInsertSerialOperations({
    deep
@@ -20,7 +19,7 @@ import { PushNotification } from './push-notification';
    operations: serialOperations
  })
  ```
-   * #### Insert {@link LinkName.PushNotification} with reserved link id
+   * #### Insert {@link Package.PushNotification} with reserved link id
   ```ts
   const reservedLinkIds = await deep.reserve(2);
   const pushNotificationLinkId = reservedLinkIds.pop();
@@ -51,6 +50,7 @@ export async function getPushNotificationInsertSerialOperations(
     containValue,
     containerLinkId,
   } = param;
+  const $package = new Package({deep});
   const reservedLinkIds = await getReservedLinkIds();
   const { containLinkId, pushNotificationLinkId } = reservedLinkIds;
   const typeLinkIds = await getTypeLinkIds();
@@ -138,7 +138,7 @@ export async function getPushNotificationInsertSerialOperations(
         (await deep.id('@deep-foundation/core', 'Contain')),
       pushNotificationTypeLinkId:
         param.typeLinkIds?.pushNotificationTypeLinkId ||
-        (await deep.id(PACKAGE_NAME, LinkName[LinkName.PushNotification])),
+        await $package.PushNotification.id(),
     };
     return result;
   }

@@ -2,15 +2,14 @@ import {
   DeepClient,
   SerialOperation,
 } from '@deep-foundation/deeplinks/imports/client';
-import { LinkName } from './link-name';
-import { PACKAGE_NAME } from './package-name';
 import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql';
+import { Package } from './package';
 
 /**
-  * Gets serial operations to insert {@link LinkName.WebPushCertificate}
+  * Gets serial operations to insert {@link Package.WebPushCertificate}
   * 
   * @example
-  * #### Insert {@link LinkName.WebPushCertificate}
+  * #### Insert {@link Package.WebPushCertificate}
  ```ts
  const {serialOperations, linkIds} = await getWebPushCertificateInsertSerialOperations({
    deep
@@ -19,7 +18,7 @@ import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql';
    operations: serialOperations
  })
  ```
-   * #### Insert {@link LinkName.WebPushCertificate} with reserved link id
+   * #### Insert {@link Package.WebPushCertificate} with reserved link id
   ```ts
   const reservedLinkIds = await deep.reserve(2);
   const webPushCertificateLinkId = reservedLinkIds.pop();
@@ -51,6 +50,7 @@ export async function getWebPushCertificateInsertSerialOperations(
     valueForContainForUsesWebPushCertificate,
     shouldMakeActive = false
   } = param;
+  const $package = new Package({deep});
   const containerLinkId = param.containerLinkId !== null ? param.containerLinkId ?? deep.linkId : null;
   const reservedLinkIds = await getReservedLinkIds();
   const { containForWebPushCertificateLinkId: containLinkId, webPushCertificateLinkId, usesWebPushCertificateLinkId,containForUsesWebPushCertificateLinkId } = reservedLinkIds;
@@ -188,10 +188,10 @@ export async function getWebPushCertificateInsertSerialOperations(
         (await deep.id('@deep-foundation/core', 'Contain')),
       webPushCertificateTypeLinkId:
         param.typeLinkIds?.webPushCertificateTypeLinkId ||
-        (await deep.id(PACKAGE_NAME, LinkName[LinkName.WebPushCertificate])),
+        await $package.WebPushCertificate.id(),
       usesWebPushCertificateTypeLinkId:
         param.typeLinkIds?.usesWebPushCertificateTypeLinkId ||
-        (await deep.id(PACKAGE_NAME, LinkName[LinkName.UsesWebPushCertificate])),
+        await $package.UsesWebPushCertificate.id(),
     };
     return result;
   }
@@ -267,7 +267,7 @@ export interface GetWebPushCertificateInsertSerialOperationsParam {
    */
   valueForContainForUsesWebPushCertificate?: string | undefined;
   /**
-   * If true, the link will be made active by creating a {@link LinkName.UsesServiceAccount} link pointing to it
+   * If true, the link will be made active by creating a {@link Package.UsesServiceAccount} link pointing to it
    * 
    * @defaultValue false
    */

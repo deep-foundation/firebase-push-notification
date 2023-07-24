@@ -2,15 +2,14 @@ import {
   DeepClient,
   SerialOperation,
 } from '@deep-foundation/deeplinks/imports/client';
-import { LinkName } from './link-name';
-import { PACKAGE_NAME } from './package-name';
 import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql';
+import { Package } from './package';
 
 /**
-  * Gets serial operations to insert {@link LinkName.DeviceRegistrationToken}
+  * Gets serial operations to insert {@link Package.DeviceRegistrationToken}
   * 
   * @example
-  * #### Insert {@link LinkName.DeviceRegistrationToken}
+  * #### Insert {@link Package.DeviceRegistrationToken}
  ```ts
  const {serialOperations, linkIds} = await getDeviceRegistrationTokenInsertSerialOperations({
    deep
@@ -19,7 +18,7 @@ import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql';
    operations: serialOperations
  })
  ```
-   * #### Insert {@link LinkName.DeviceRegistrationToken} with reserved link id
+   * #### Insert {@link Package.DeviceRegistrationToken} with reserved link id
   ```ts
   const reservedLinkIds = await deep.reserve(2);
   const deviceRegistrationTokenLinkId = reservedLinkIds.pop();
@@ -50,6 +49,7 @@ export async function getDeviceRegistrationTokenInsertSerialOperations(
     containValue,
     containerLinkId,
   } = param;
+  const $package = new Package({deep});
   const reservedLinkIds = await getReservedLinkIds();
   const { containLinkId, deviceRegistrationTokenLinkId } = reservedLinkIds;
   const typeLinkIds = await getTypeLinkIds();
@@ -137,7 +137,7 @@ export async function getDeviceRegistrationTokenInsertSerialOperations(
         (await deep.id('@deep-foundation/core', 'Contain')),
       deviceRegistrationTokenTypeLinkId:
         param.typeLinkIds?.deviceRegistrationTokenTypeLinkId ||
-        (await deep.id(PACKAGE_NAME, LinkName[LinkName.DeviceRegistrationToken])),
+        await $package.DeviceRegistrationToken.id(),
     };
     return result;
   }

@@ -1,8 +1,6 @@
 import { DeepClient } from '@deep-foundation/deeplinks/imports/client';
-import { PACKAGE_NAME } from './package-name';
 import { PushNotification } from './push-notification';
-import { LinkName } from './link-name';
-
+import { Package } from './package';
 /**
  * Gets push notification from deep
  * 
@@ -21,36 +19,10 @@ export async function getPushNotification({
   deep,
   pushNotificationLinkId,
 }: GetPushNotificationParam): Promise<GetPushNotificationResult> {
-  const titleTypeLinkId = await deep.id(
-    PACKAGE_NAME,
-    LinkName[
-      LinkName.PushNotificationTitle
-    ]
-  );
-  const bodyTypeLinkId = await deep.id(
-    PACKAGE_NAME,
-    LinkName[
-      LinkName.PushNotificationBody
-    ]
-  );
-  const imageUrlTypeLinkId = await deep.id(
-    PACKAGE_NAME,
-    LinkName[
-      LinkName.PushNotificationImageUrl
-    ]
-  );
-  const iconUrlTypeLinkId = await deep.id(
-    PACKAGE_NAME,
-    LinkName[
-      LinkName.PushNotificationIconUrl
-    ]
-  );
-  const pushNotificationTreeLinkId = await deep.id(
-    PACKAGE_NAME,
-    LinkName[
-      LinkName.PushNotificationTree
-    ]
-  );
+  const $package = new Package({ deep });
+  const titleTypeLinkId = await $package.PushNotificationTitle.id();
+  const bodyTypeLinkId = await $package.PushNotificationBody.id();
+  const pushNotificationTreeLinkId = await $package.PushNotificationTree.id();
 
   const { data: linksDownToParentPushNotificationMp } = await deep.select(
     {
@@ -82,18 +54,9 @@ export async function getPushNotification({
     throw new Error(`A link with type ##${bodyTypeLinkId} is not found`);
   }
 
-  const linkWithImageUrl = linksDownToParentPushNotificationMp.find(
-    (link) => link.type_id === imageUrlTypeLinkId
-  );
-  const linkWithIconUrl = linksDownToParentPushNotificationMp.find(
-    (link) => link.type_id === iconUrlTypeLinkId
-  );
-
   return {
     title: linkWithTitle?.to.value.value,
     body: linkWithBody.to.value.value,
-    image: linkWithImageUrl?.to.value?.value,
-    icon: linkWithIconUrl?.to.value?.value,
   };
 }
 

@@ -2,15 +2,14 @@ import {
   DeepClient,
   SerialOperation,
 } from '@deep-foundation/deeplinks/imports/client';
-import { LinkName } from './link-name';
-import { PACKAGE_NAME } from './package-name';
 import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql';
+import { Package } from './package';
 
 /**
-  * Gets serial operations to insert {@link LinkName.ServiceAccount}
+  * Gets serial operations to insert {@link Package.ServiceAccount}
   * 
   * @example
-  * #### Insert {@link LinkName.ServiceAccount}
+  * #### Insert {@link Package.ServiceAccount}
  ```ts
  const {serialOperations, linkIds} = await getServiceAccountInsertSerialOperations({
    deep
@@ -19,7 +18,7 @@ import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql';
    operations: serialOperations
  })
  ```
-   * #### Insert {@link LinkName.ServiceAccount} with reserved link id
+   * #### Insert {@link Package.ServiceAccount} with reserved link id
   ```ts
   const reservedLinkIds = await deep.reserve(2);
   const serviceAccountLinkId = reservedLinkIds.pop();
@@ -51,6 +50,7 @@ export async function getServiceAccountInsertSerialOperations(
     valueForContainForUsesServiceAccount,
     shouldMakeActive = false
   } = param;
+  const $package = new Package({deep});
   const containerLinkId = param.containerLinkId !== null ? param.containerLinkId ?? deep.linkId : null;
   const reservedLinkIds = await getReservedLinkIds();
   const { containForServiceAccountLinkId, serviceAccountLinkId, usesServiceAccountLinkId,containForUsesServiceAccountLinkId } = reservedLinkIds;
@@ -188,10 +188,10 @@ export async function getServiceAccountInsertSerialOperations(
         (await deep.id('@deep-foundation/core', 'Contain')),
       serviceAccountTypeLinkId:
         param.typeLinkIds?.serviceAccountTypeLinkId ||
-        (await deep.id(PACKAGE_NAME, LinkName[LinkName.ServiceAccount])),
+        await $package.ServiceAccount.id(),
         usesServiceAccountTypeLinkId:
         param.typeLinkIds?.usesServiceAccountTypeLinkId ||
-        (await deep.id(PACKAGE_NAME, LinkName[LinkName.UsesServiceAccount])),
+        await $package.UsesServiceAccount.id(),
     };
     return result;
   }
@@ -253,21 +253,21 @@ export interface GetServiceAccountInsertSerialOperationsParam {
    */
   containerLinkId?: number | undefined | null;
   /**
-   * Value for the contain link for {@link LinkName.ServiceAccount}
+   * Value for the contain link for {@link Package.ServiceAccount}
    *
    * @remarks
    * If {@link GetServiceAccountInsertSerialOperationsParam.containerLinkId} is null, this will be ignored
    */
   valueForContainForServiceAccount?: string | undefined;
   /**
-   * Value for the contain link for {@link LinkName.UsesServiceAccount}
+   * Value for the contain link for {@link Package.UsesServiceAccount}
    *
    * @remarks
    * If {@link GetServiceAccountInsertSerialOperationsParam.containerLinkId} is null, this will be ignored
    */
   valueForContainForUsesServiceAccount?: string | undefined;
   /**
-   * If true, the link will be made active by creating a {@link LinkName.UsesServiceAccount} link pointing to it
+   * If true, the link will be made active by creating a {@link Package.UsesServiceAccount} link pointing to it
    * 
    * @defaultValue false
    */

@@ -2,17 +2,15 @@ import {
    DeepClient,
    SerialOperation,
  } from '@deep-foundation/deeplinks/imports/client';
- import { LinkName } from './link-name';
- import { PACKAGE_NAME } from './package-name';
  import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql';
 import { MutationInputValue } from '@deep-foundation/deeplinks/imports/client_types';
 import { Link } from '@deep-foundation/deeplinks/imports/minilinks';
  
  /**
-   * Gets serial operations to update {@link LinkName.DeviceRegistrationToken}
+   * Gets serial operations to update {@link Package.DeviceRegistrationToken}
    * 
    * @example
-   * #### Update {@link LinkName.DeviceRegistrationToken}
+   * #### Update {@link Package.DeviceRegistrationToken}
   ```ts
   const {serialOperations, linkIds} = await getDeviceRegistrationTokenValueUpdateSerialOperations({
     deep,

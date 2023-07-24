@@ -3,10 +3,9 @@ import { PushNotifications } from '@capacitor/push-notifications';
 import { DeepClient } from '@deep-foundation/deeplinks/imports/client';
 import { BoolExpLink } from '@deep-foundation/deeplinks/imports/client_types';
 import { getToken, Messaging, onMessage } from '@firebase/messaging';
-import { PACKAGE_NAME } from './package-name';
-import { LinkName } from './link-name';
 import { getDeviceRegistrationTokenInsertSerialOperations } from './get-device-registration-token-insert-serial-operations';
 import createDebugMessage from 'debug';
+import { Package } from './package';
 
 /**
  * Registers device
@@ -73,18 +72,9 @@ export async function registerDevice({
 }
 
 async function getPushCertificateLink({ deep }: { deep: DeepClient }) {
-  const webPushCertificateTypeLinkId = await deep.id(
-    PACKAGE_NAME,
-    LinkName[
-      LinkName.WebPushCertificate
-    ]
-  );
-  const usesWebPushCertificateTypeLinkId = await deep.id(
-    PACKAGE_NAME,
-    LinkName[
-      LinkName.UsesWebPushCertificate
-    ]
-  );
+  const $package = new Package({ deep });
+  const webPushCertificateTypeLinkId = await $package.WebPushCertificate.id();
+  const usesWebPushCertificateTypeLinkId = await $package.UsesWebPushCertificate.id();
   const containTypeLinkId = await deep.id('@deep-foundation/core', 'Contain');
   const selectData: BoolExpLink = {
     _or: [

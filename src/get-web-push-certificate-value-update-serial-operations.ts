@@ -2,17 +2,15 @@ import {
    DeepClient,
    SerialOperation,
  } from '@deep-foundation/deeplinks/imports/client';
- import { LinkName } from './link-name';
- import { PACKAGE_NAME } from './package-name';
  import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql';
 import { MutationInputValue } from '@deep-foundation/deeplinks/imports/client_types';
 import { Link } from '@deep-foundation/deeplinks/imports/minilinks';
  
  /**
-   * Gets serial operations to update {@link LinkName.WebPushCertificate}
+   * Gets serial operations to update {@link Package.WebPushCertificate}
    * 
    * @example
-   * #### Update {@link LinkName.WebPushCertificate}
+   * #### Update {@link Package.WebPushCertificate}
   ```ts
   const {serialOperations, linkIds} = await getWebPushCertificateValueUpdateSerialOperations({
     deep,

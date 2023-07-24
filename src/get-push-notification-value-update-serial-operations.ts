@@ -2,18 +2,16 @@ import {
    DeepClient,
    SerialOperation,
  } from '@deep-foundation/deeplinks/imports/client';
- import { LinkName } from './link-name';
- import { PACKAGE_NAME } from './package-name';
  import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql';
 import { MutationInputValue } from '@deep-foundation/deeplinks/imports/client_types';
 import { Link } from '@deep-foundation/deeplinks/imports/minilinks';
 import { PushNotification } from './push-notification';
  
  /**
-   * Gets serial operations to update {@link LinkName.PushNotification}
+   * Gets serial operations to update {@link Package.PushNotification}
    * 
    * @example
-   * #### Update {@link LinkName.PushNotification}
+   * #### Update {@link Package.PushNotification}
   ```ts
   const {serialOperations, linkIds} = await getPushNotificationValueUpdateSerialOperations({
     deep,
