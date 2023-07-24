@@ -1,4 +1,3 @@
-export {LinkName} from './link-name'
 export {getPushNotification, type GetPushNotificationParam, type  GetPushNotificationResult} from './get-push-notification'
 export {getDeviceRegistrationTokenInsertSerialOperations,type GetDeviceRegistrationTokenInsertSerialOperationsParam,type GetDeviceRegistrationTokenInsertSerialOperationsResult} from './get-device-registration-token-insert-serial-operations'
 export {getDeviceRegistrationTokenValueUpdateSerialOperations, type GetDeviceRegistrationTokenValueUpdateSerialOperationsParam} from './get-device-registration-token-value-update-serial-operations'
@@ -8,7 +7,6 @@ export {getServiceAccountInsertSerialOperations, type GetServiceAccountInsertSer
 export {getServiceAccountValueUpdateSerialOperations, type GetServiceAccountValueUpdateSerialOperationsParam} from './get-service-account-value-update-serial-operations'
 export {getWebPushCertificateInsertSerialOperations, type GetWebPushCertificateInsertSerialOperationsParam, type GetWebPushCertificateInsertSerialOperationsResult} from './get-web-push-certificate-insert-serial-operations'
 export {getWebPushCertificateValueUpdateSerialOperations, type GetWebPushCertificateValueUpdateSerialOperationsParam} from './get-web-push-certificate-value-update-serial-operations'
-export {PACKAGE_NAME} from './package-name'
 export {PushNotification} from './push-notification'
 export {registerDevice, type RegisterDeviceParam} from './register-device'
 export {requestPermissions, type RequestPermissionsResult} from './request-permissions'
