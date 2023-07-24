@@ -13,7 +13,7 @@
     "links",
     "associative"
   ],
-  "version": "16.0.2",
+  "version": "16.0.3",
   "description": "Provides links for working with @firebase/messaging",
   "repository": {
     "type": "git",
