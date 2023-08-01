@@ -72,6 +72,33 @@ const deviceRegistrationTokenTypeLinkId = package["DeviceRegistrationToken"].idL
 const pushNotificationNotifyInsertHandlerCodeTypeLinkId = package["PushNotificationNotifyInsertHandlerCode"].idLocal();
 const pushNotificationTreeTypeLinkId = package["PushNotificationTree"].idLocal();
 ```
+#### Use name field to get the name of the link
+```ts
+const package = new Package({deep});
+const pushNotificationNotifyInsertHandler = package["PushNotificationNotifyInsertHandler"].name;
+const typeOfValueOfPushNotificationBody = package["TypeOfValueOfPushNotificationBody"].name;
+const pushNotificationTitle = package["PushNotificationTitle"].name;
+const typeOfValueOfPushNotificationTitle = package["TypeOfValueOfPushNotificationTitle"].name;
+const notify = package["Notify"].name;
+const notified = package["Notified"].name;
+const handlePushNotificationNotifyInsert = package["HandlePushNotificationNotifyInsert"].name;
+const treeIncludeFromCurrentPushNotificationBody = package["TreeIncludeFromCurrentPushNotificationBody"].name;
+const treeIncludeFromCurrentPushNotificationTitle = package["TreeIncludeFromCurrentPushNotificationTitle"].name;
+const treeIncludeNodePushNotification = package["TreeIncludeNodePushNotification"].name;
+const handleUpdateOfPushNotification = package["HandleUpdateOfPushNotification"].name;
+const serviceAccount = package["ServiceAccount"].name;
+const typeOfValueOfServiceAccount = package["TypeOfValueOfServiceAccount"].name;
+const usesServiceAccount = package["UsesServiceAccount"].name;
+const pushNotification = package["PushNotification"].name;
+const pushNotificationBody = package["PushNotificationBody"].name;
+const typeOfValueOfPushNotification = package["TypeOfValueOfPushNotification"].name;
+const webPushCertificate = package["WebPushCertificate"].name;
+const usesWebPushCertificate = package["UsesWebPushCertificate"].name;
+const typeOfValueOfWebPushCertificate = package["TypeOfValueOfWebPushCertificate"].name;
+const deviceRegistrationToken = package["DeviceRegistrationToken"].name;
+const pushNotificationNotifyInsertHandlerCode = package["PushNotificationNotifyInsertHandlerCode"].name;
+const pushNotificationTree = package["PushNotificationTree"].name;
+```
 */
 export class Package extends BasePackage {
 
@@ -95,6 +122,11 @@ export class Package extends BasePackage {
       const package = new Package({deep});
       const pushNotificationNotifyInsertHandlerTypeLinkId = await package["PushNotificationNotifyInsertHandler"].localId();
       ```
+      #### Use name field to get the name of the PushNotificationNotifyInsertHandler link
+      ```ts
+      const package = new Package({deep});
+      const pushNotificationNotifyInsertHandler = await package["PushNotificationNotifyInsertHandler"].name;
+      ```
       */
       public "PushNotificationNotifyInsertHandler" = this.createEntity("PushNotificationNotifyInsertHandler");
       /**
@@ -108,6 +140,11 @@ export class Package extends BasePackage {
       ```ts
       const package = new Package({deep});
       const typeOfValueOfPushNotificationBodyTypeLinkId = await package["TypeOfValueOfPushNotificationBody"].localId();
+      ```
+      #### Use name field to get the name of the TypeOfValueOfPushNotificationBody link
+      ```ts
+      const package = new Package({deep});
+      const typeOfValueOfPushNotificationBody = await package["TypeOfValueOfPushNotificationBody"].name;
       ```
       */
       public "TypeOfValueOfPushNotificationBody" = this.createEntity("TypeOfValueOfPushNotificationBody");
@@ -123,6 +160,11 @@ export class Package extends BasePackage {
       const package = new Package({deep});
       const pushNotificationTitleTypeLinkId = await package["PushNotificationTitle"].localId();
       ```
+      #### Use name field to get the name of the PushNotificationTitle link
+      ```ts
+      const package = new Package({deep});
+      const pushNotificationTitle = await package["PushNotificationTitle"].name;
+      ```
       */
       public "PushNotificationTitle" = this.createEntity("PushNotificationTitle");
       /**
@@ -136,6 +178,11 @@ export class Package extends BasePackage {
       ```ts
       const package = new Package({deep});
       const typeOfValueOfPushNotificationTitleTypeLinkId = await package["TypeOfValueOfPushNotificationTitle"].localId();
+      ```
+      #### Use name field to get the name of the TypeOfValueOfPushNotificationTitle link
+      ```ts
+      const package = new Package({deep});
+      const typeOfValueOfPushNotificationTitle = await package["TypeOfValueOfPushNotificationTitle"].name;
       ```
       */
       public "TypeOfValueOfPushNotificationTitle" = this.createEntity("TypeOfValueOfPushNotificationTitle");
@@ -151,6 +198,11 @@ export class Package extends BasePackage {
       const package = new Package({deep});
       const notifyTypeLinkId = await package["Notify"].localId();
       ```
+      #### Use name field to get the name of the Notify link
+      ```ts
+      const package = new Package({deep});
+      const notify = await package["Notify"].name;
+      ```
       */
       public "Notify" = this.createEntity("Notify");
       /**
@@ -164,6 +216,11 @@ export class Package extends BasePackage {
       ```ts
       const package = new Package({deep});
       const notifiedTypeLinkId = await package["Notified"].localId();
+      ```
+      #### Use name field to get the name of the Notified link
+      ```ts
+      const package = new Package({deep});
+      const notified = await package["Notified"].name;
       ```
       */
       public "Notified" = this.createEntity("Notified");
@@ -179,6 +236,11 @@ export class Package extends BasePackage {
       const package = new Package({deep});
       const handlePushNotificationNotifyInsertTypeLinkId = await package["HandlePushNotificationNotifyInsert"].localId();
       ```
+      #### Use name field to get the name of the HandlePushNotificationNotifyInsert link
+      ```ts
+      const package = new Package({deep});
+      const handlePushNotificationNotifyInsert = await package["HandlePushNotificationNotifyInsert"].name;
+      ```
       */
       public "HandlePushNotificationNotifyInsert" = this.createEntity("HandlePushNotificationNotifyInsert");
       /**
@@ -192,6 +254,11 @@ export class Package extends BasePackage {
       ```ts
       const package = new Package({deep});
       const treeIncludeFromCurrentPushNotificationBodyTypeLinkId = await package["TreeIncludeFromCurrentPushNotificationBody"].localId();
+      ```
+      #### Use name field to get the name of the TreeIncludeFromCurrentPushNotificationBody link
+      ```ts
+      const package = new Package({deep});
+      const treeIncludeFromCurrentPushNotificationBody = await package["TreeIncludeFromCurrentPushNotificationBody"].name;
       ```
       */
       public "TreeIncludeFromCurrentPushNotificationBody" = this.createEntity("TreeIncludeFromCurrentPushNotificationBody");
@@ -207,6 +274,11 @@ export class Package extends BasePackage {
       const package = new Package({deep});
       const treeIncludeFromCurrentPushNotificationTitleTypeLinkId = await package["TreeIncludeFromCurrentPushNotificationTitle"].localId();
       ```
+      #### Use name field to get the name of the TreeIncludeFromCurrentPushNotificationTitle link
+      ```ts
+      const package = new Package({deep});
+      const treeIncludeFromCurrentPushNotificationTitle = await package["TreeIncludeFromCurrentPushNotificationTitle"].name;
+      ```
       */
       public "TreeIncludeFromCurrentPushNotificationTitle" = this.createEntity("TreeIncludeFromCurrentPushNotificationTitle");
       /**
@@ -220,6 +292,11 @@ export class Package extends BasePackage {
       ```ts
       const package = new Package({deep});
       const treeIncludeNodePushNotificationTypeLinkId = await package["TreeIncludeNodePushNotification"].localId();
+      ```
+      #### Use name field to get the name of the TreeIncludeNodePushNotification link
+      ```ts
+      const package = new Package({deep});
+      const treeIncludeNodePushNotification = await package["TreeIncludeNodePushNotification"].name;
       ```
       */
       public "TreeIncludeNodePushNotification" = this.createEntity("TreeIncludeNodePushNotification");
@@ -235,6 +312,11 @@ export class Package extends BasePackage {
       const package = new Package({deep});
       const handleUpdateOfPushNotificationTypeLinkId = await package["HandleUpdateOfPushNotification"].localId();
       ```
+      #### Use name field to get the name of the HandleUpdateOfPushNotification link
+      ```ts
+      const package = new Package({deep});
+      const handleUpdateOfPushNotification = await package["HandleUpdateOfPushNotification"].name;
+      ```
       */
       public "HandleUpdateOfPushNotification" = this.createEntity("HandleUpdateOfPushNotification");
       /**
@@ -248,6 +330,11 @@ export class Package extends BasePackage {
       ```ts
       const package = new Package({deep});
       const serviceAccountTypeLinkId = await package["ServiceAccount"].localId();
+      ```
+      #### Use name field to get the name of the ServiceAccount link
+      ```ts
+      const package = new Package({deep});
+      const serviceAccount = await package["ServiceAccount"].name;
       ```
       */
       public "ServiceAccount" = this.createEntity("ServiceAccount");
@@ -263,6 +350,11 @@ export class Package extends BasePackage {
       const package = new Package({deep});
       const typeOfValueOfServiceAccountTypeLinkId = await package["TypeOfValueOfServiceAccount"].localId();
       ```
+      #### Use name field to get the name of the TypeOfValueOfServiceAccount link
+      ```ts
+      const package = new Package({deep});
+      const typeOfValueOfServiceAccount = await package["TypeOfValueOfServiceAccount"].name;
+      ```
       */
       public "TypeOfValueOfServiceAccount" = this.createEntity("TypeOfValueOfServiceAccount");
       /**
@@ -276,6 +368,11 @@ export class Package extends BasePackage {
       ```ts
       const package = new Package({deep});
       const usesServiceAccountTypeLinkId = await package["UsesServiceAccount"].localId();
+      ```
+      #### Use name field to get the name of the UsesServiceAccount link
+      ```ts
+      const package = new Package({deep});
+      const usesServiceAccount = await package["UsesServiceAccount"].name;
       ```
       */
       public "UsesServiceAccount" = this.createEntity("UsesServiceAccount");
@@ -291,6 +388,11 @@ export class Package extends BasePackage {
       const package = new Package({deep});
       const pushNotificationTypeLinkId = await package["PushNotification"].localId();
       ```
+      #### Use name field to get the name of the PushNotification link
+      ```ts
+      const package = new Package({deep});
+      const pushNotification = await package["PushNotification"].name;
+      ```
       */
       public "PushNotification" = this.createEntity("PushNotification");
       /**
@@ -304,6 +406,11 @@ export class Package extends BasePackage {
       ```ts
       const package = new Package({deep});
       const pushNotificationBodyTypeLinkId = await package["PushNotificationBody"].localId();
+      ```
+      #### Use name field to get the name of the PushNotificationBody link
+      ```ts
+      const package = new Package({deep});
+      const pushNotificationBody = await package["PushNotificationBody"].name;
       ```
       */
       public "PushNotificationBody" = this.createEntity("PushNotificationBody");
@@ -319,6 +426,11 @@ export class Package extends BasePackage {
       const package = new Package({deep});
       const typeOfValueOfPushNotificationTypeLinkId = await package["TypeOfValueOfPushNotification"].localId();
       ```
+      #### Use name field to get the name of the TypeOfValueOfPushNotification link
+      ```ts
+      const package = new Package({deep});
+      const typeOfValueOfPushNotification = await package["TypeOfValueOfPushNotification"].name;
+      ```
       */
       public "TypeOfValueOfPushNotification" = this.createEntity("TypeOfValueOfPushNotification");
       /**
@@ -332,6 +444,11 @@ export class Package extends BasePackage {
       ```ts
       const package = new Package({deep});
       const webPushCertificateTypeLinkId = await package["WebPushCertificate"].localId();
+      ```
+      #### Use name field to get the name of the WebPushCertificate link
+      ```ts
+      const package = new Package({deep});
+      const webPushCertificate = await package["WebPushCertificate"].name;
       ```
       */
       public "WebPushCertificate" = this.createEntity("WebPushCertificate");
@@ -347,6 +464,11 @@ export class Package extends BasePackage {
       const package = new Package({deep});
       const usesWebPushCertificateTypeLinkId = await package["UsesWebPushCertificate"].localId();
       ```
+      #### Use name field to get the name of the UsesWebPushCertificate link
+      ```ts
+      const package = new Package({deep});
+      const usesWebPushCertificate = await package["UsesWebPushCertificate"].name;
+      ```
       */
       public "UsesWebPushCertificate" = this.createEntity("UsesWebPushCertificate");
       /**
@@ -360,6 +482,11 @@ export class Package extends BasePackage {
       ```ts
       const package = new Package({deep});
       const typeOfValueOfWebPushCertificateTypeLinkId = await package["TypeOfValueOfWebPushCertificate"].localId();
+      ```
+      #### Use name field to get the name of the TypeOfValueOfWebPushCertificate link
+      ```ts
+      const package = new Package({deep});
+      const typeOfValueOfWebPushCertificate = await package["TypeOfValueOfWebPushCertificate"].name;
       ```
       */
       public "TypeOfValueOfWebPushCertificate" = this.createEntity("TypeOfValueOfWebPushCertificate");
@@ -375,6 +502,11 @@ export class Package extends BasePackage {
       const package = new Package({deep});
       const deviceRegistrationTokenTypeLinkId = await package["DeviceRegistrationToken"].localId();
       ```
+      #### Use name field to get the name of the DeviceRegistrationToken link
+      ```ts
+      const package = new Package({deep});
+      const deviceRegistrationToken = await package["DeviceRegistrationToken"].name;
+      ```
       */
       public "DeviceRegistrationToken" = this.createEntity("DeviceRegistrationToken");
       /**
@@ -389,6 +521,11 @@ export class Package extends BasePackage {
       const package = new Package({deep});
       const pushNotificationNotifyInsertHandlerCodeTypeLinkId = await package["PushNotificationNotifyInsertHandlerCode"].localId();
       ```
+      #### Use name field to get the name of the PushNotificationNotifyInsertHandlerCode link
+      ```ts
+      const package = new Package({deep});
+      const pushNotificationNotifyInsertHandlerCode = await package["PushNotificationNotifyInsertHandlerCode"].name;
+      ```
       */
       public "PushNotificationNotifyInsertHandlerCode" = this.createEntity("PushNotificationNotifyInsertHandlerCode");
       /**
@@ -402,6 +539,11 @@ export class Package extends BasePackage {
       ```ts
       const package = new Package({deep});
       const pushNotificationTreeTypeLinkId = await package["PushNotificationTree"].localId();
+      ```
+      #### Use name field to get the name of the PushNotificationTree link
+      ```ts
+      const package = new Package({deep});
+      const pushNotificationTree = await package["PushNotificationTree"].name;
       ```
       */
       public "PushNotificationTree" = this.createEntity("PushNotificationTree");
