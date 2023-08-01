@@ -21,11 +21,13 @@
   },
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "clean-build": "fse remove dist && npm run build",
+    "library:build:clean": "fse remove dist && npm run library:build:dirty",
+    "library:build:dirty": "ts-node --esm ./automation/library/build.ts",
     "npm-pull": "npm-pull",
     "npm-release": "npm-release",
-    "generate-package-class": "generate-package-class"
+    "library:build:generate-package-class": "generate-package-class",
+    "documentation:generate": "ts-node --esm ./automation/documentation/generate.ts",
+    "library:documentation:generate": "typedoc ./src/main.ts"
   },
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
@@ -41,7 +43,7 @@
   },
   "devDependencies": {
     "@atao60/fse-cli": "^0.1.7",
-    "@deep-foundation/npm-automation": "^10.0.18",
+    "@deep-foundation/npm-automation": "^17.1.9",
     "@freephoenix888/deep-map-object": "^3.0.1",
     "@types/debug": "^4.1.8",
     "@types/fs-extra": "^11.0.1",

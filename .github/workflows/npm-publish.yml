@@ -11,42 +11,18 @@ on:
 
 jobs:
   main:
-    uses: deep-foundation/workflows/.github/workflows/npm-publish.yml@npm-publish-1.1.0
+    uses: deep-foundation/workflows/.github/workflows/npm-publish.yml@npm-publish-3.0.0
     secrets:
       npm-token: ${{ secrets.NPM_TOKEN }}
     with:
       build-command: |
-        git config --global user.name 'FreePhoenix888'
-        git config --global user.email 'freephoenix888@gmail.com'
-
-        npx --yes --package @deep-foundation/npm-automation@10.0.18 generate-package-class
-        git add ./src/package.ts
-        if git diff --staged --quiet
-        then
-          echo "No changes to commit"
-        else
-          git commit -m 'Generate new package class'
-          git push origin main
-        fi
-
-        npm run build
+        git config --global user.email "freephoenix888@gmail.com"
+        git config --global user.name "freephoenix888"
+        npm run library:build:dirty
       test-command: "echo 'Tests are temporarily disabled'"
       should-generate-documentation: true
       generate-documentation-command: |
-        table_of_contents=$(npx markdown-toc@1.2.0 README.md)
-        pattern="(<!-- TABLE_OF_CONTENTS_START -->)[\\S\\s]*(<!-- TABLE_OF_CONTENTS_END -->)"
-        replacement=$'$1\n'"${table_of_contents}"$'\n$2'
-        npx replace "$pattern" "$replacement" README.md
-
-        git add README.md
-        if git diff --staged --quiet
-        then
-          echo "No changes to commit"
-        else
-          git config --global user.name 'FreePhoenix888'
-          git config --global user.email 'freephoenix888@gmail.com'
-          git commit -m 'docs: update README.md'
-          git push origin main
-        fi
+        git config --global user.email "freephoenix888@gmail.com"
+        git config --global user.name "freephoenix888"
+        npm run documentation:generate
         
-        npx typedoc@0.24.8 ./src/main.ts
