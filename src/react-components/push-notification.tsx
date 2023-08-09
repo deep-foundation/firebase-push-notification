@@ -1,4 +1,4 @@
-import { Card, CardHeader, Heading, CardBody, Text } from "@chakra-ui/react";
+import { Card, CardHeader, Heading, CardBody, Text, CardProps } from "@chakra-ui/react";
 import { PushNotification } from "../push-notification";
 
 /**
@@ -8,7 +8,7 @@ import { PushNotification } from "../push-notification";
  */
 export function PushNotification(param: PushNotificationOptions) {
   const {PushNotification} = param;
-  return <Card>
+  return <Card {...param.cardProps}>
     <CardHeader>
       <Heading>
         {
@@ -31,4 +31,5 @@ export interface PushNotificationOptions {
    * All PushNotification information
    */
   PushNotification: PushNotification
+  cardProps?: CardProps
  }
