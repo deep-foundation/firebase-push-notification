@@ -3,7 +3,7 @@ import {
    SerialOperation,
  } from '@deep-foundation/deeplinks/imports/client.js';
  import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql/index.js';
-import { MutationInputValue } from '@deep-foundation/deeplinks/imports/client.js_types';
+import { MutationInputValue } from '@deep-foundation/deeplinks/imports/client_types.js';
 import { Link } from '@deep-foundation/deeplinks/imports/minilinks';
 import { PushNotification } from './push-notification';
  
