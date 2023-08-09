@@ -7,7 +7,7 @@ import { PushNotification } from "../push-notification";
  * @returns A `Card` component containing PushNotification model as a `Heading` in the `CardHeader` and PushNotification name as a `Text` in the `CardBody`.
  */
 export function PushNotification(param: PushNotificationOptions) {
-  const {PushNotification} = param;
+  const {pushNotification: PushNotification} = param;
   return <Card {...param.cardProps}>
     <CardHeader>
       <Heading>
@@ -30,6 +30,6 @@ export interface PushNotificationOptions {
   /**
    * All PushNotification information
    */
-  PushNotification: PushNotification
+  pushNotification: PushNotification
   cardProps?: CardProps
  }
