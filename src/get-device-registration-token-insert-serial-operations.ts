@@ -1,9 +1,9 @@
 import {
   DeepClient,
   SerialOperation,
-} from '@deep-foundation/deeplinks/imports/client';
-import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql';
-import { Package } from './package';
+} from '@deep-foundation/deeplinks/imports/client.js';
+import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql/index.js';
+import { Package } from './package.js';
 
 /**
   * Gets serial operations to insert {@link Package.DeviceRegistrationToken}

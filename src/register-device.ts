@@ -1,11 +1,11 @@
 import { Device } from '@capacitor/device';
 import { PushNotifications } from '@capacitor/push-notifications';
-import { DeepClient } from '@deep-foundation/deeplinks/imports/client';
-import { BoolExpLink } from '@deep-foundation/deeplinks/imports/client_types';
+import { DeepClient } from '@deep-foundation/deeplinks/imports/client.js';
+import { BoolExpLink } from '@deep-foundation/deeplinks/imports/client.js_types';
 import { getToken, Messaging, onMessage } from '@firebase/messaging';
 import { getDeviceRegistrationTokenInsertSerialOperations } from './get-device-registration-token-insert-serial-operations';
 import createDebugMessage from 'debug';
-import { Package } from './package';
+import { Package } from './package.js';
 
 /**
  * Registers device

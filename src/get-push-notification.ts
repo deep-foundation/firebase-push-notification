@@ -1,6 +1,6 @@
-import { DeepClient } from '@deep-foundation/deeplinks/imports/client';
+import { DeepClient } from '@deep-foundation/deeplinks/imports/client.js';
 import { PushNotification } from './push-notification';
-import { Package } from './package';
+import { Package } from './package.js';
 /**
  * Gets push notification from deep
  * 
