@@ -13,7 +13,7 @@
     "links",
     "associative"
   ],
-  "version": "16.2.0",
+  "version": "17.0.0",
   "description": "Provides links for working with [`@firebase/messaging`](https://www.npmjs.com/package/@firebase/messaging) and typescript library for comfortable using of this deep package using typescript",
   "repository": {
     "type": "git",
