@@ -3,7 +3,7 @@ import {
   SerialOperation,
 } from '@deep-foundation/deeplinks/imports/client.js';
 import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql/index.js';
-import { PushNotification } from './push-notification';
+import { PushNotification } from './push-notification.js';
 import { Package } from './package.js';
 
 /**

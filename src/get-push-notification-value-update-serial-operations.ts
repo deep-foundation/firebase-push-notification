@@ -5,7 +5,7 @@ import {
  import { createSerialOperation } from '@deep-foundation/deeplinks/imports/gql/index.js';
 import { MutationInputValue } from '@deep-foundation/deeplinks/imports/client_types.js';
 import { Link } from '@deep-foundation/deeplinks/imports/minilinks';
-import { PushNotification } from './push-notification';
+import { PushNotification } from './push-notification.js';
  
  /**
    * Gets serial operations to update {@link Package.PushNotification}
