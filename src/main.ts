@@ -7,7 +7,7 @@ export {getServiceAccountInsertSerialOperations, type GetServiceAccountInsertSer
 export {getServiceAccountValueUpdateSerialOperations, type GetServiceAccountValueUpdateSerialOperationsParam} from './get-service-account-value-update-serial-operations.js'
 export {getWebPushCertificateInsertSerialOperations, type GetWebPushCertificateInsertSerialOperationsParam, type GetWebPushCertificateInsertSerialOperationsResult} from './get-web-push-certificate-insert-serial-operations.js'
 export {getWebPushCertificateValueUpdateSerialOperations, type GetWebPushCertificateValueUpdateSerialOperationsParam} from './get-web-push-certificate-value-update-serial-operations.js'
-export {PushNotification, PushNotification as PushNotificationInfo} from './push-notification.js'
+export {PushNotification as PushNotificationInfo} from './push-notification.js'
 export {registerDevice, type RegisterDeviceParam} from './register-device.js'
 export {requestPermissions, type RequestPermissionsResult} from './request-permissions.js'
 export {checkPermissions, type CheckPermissionsResult} from './check-permissions.js'
