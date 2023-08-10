@@ -95,7 +95,7 @@ async function getPushCertificateLink({ deep }: { deep: DeepClient }) {
   let webPushCertificateLink;
   if (data.length === 0) {
     throw new Error(
-      `Select with data ${JSON.stringify(selectData)} returned empty result`
+      `Select with data ${JSON.stringify(selectData)} returned empty result. Neither WebPushCertificate or UsesWebPushCertificate link is found`
     );
   }
   const usesWebPushCertificateLinks = data.filter(
