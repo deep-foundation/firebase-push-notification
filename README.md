@@ -43,8 +43,8 @@ It is recommended to use [registerDevice](https://deep-foundation.github.io/fire
 - Update its value to object like that contains `title` and `body` fields:
   ```json
   {
-    title: "My Title",
-    body: "My Body"
+    "title": "My Title",
+    "body": "My Body"
   }
   ```
 ## Notify
