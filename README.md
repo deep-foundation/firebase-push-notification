@@ -2,7 +2,7 @@
 [![Gitpod](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/deep-foundation/firebase-push-notification) 
 [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label&color=purple)](https://discord.gg/deep-foundation)
 
-Provides links for working with [`@firebase/messaging`](https://www.npmjs.com/package/@firebase/messaging) and typescript library for comfortable using of this deep package using typescript
+A deep package that provides links for working with [`@firebase/messaging`](https://www.npmjs.com/package/@firebase/messaging) and typescript library for comfortable using of this deep package using typescript
 
 # Table Of Contents
 <!-- TABLE_OF_CONTENTS_START -->
@@ -31,7 +31,7 @@ You can find it in firebase console in settings of your project
 ### Web Push Certificate
 
 - Insert [`WebPushCertificate`] with string value  
-You can find it in firebase console in settings of your project
+You can find it in firebase console in settings of your project. You can use this url: https://console.firebase.google.com/project/PROJECT_ID/settings/serviceaccounts/adminsdk where you should change `PROJECT_ID` to your project id
 - (optional) Insert [`UsesWebPushCertificate`] from `User` to [`WebPushCertificate`] to make it active 
 ### Device
 - Insert [`Device`] 
