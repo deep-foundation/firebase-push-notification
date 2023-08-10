@@ -20,44 +20,49 @@ export async function getPushNotification({
   pushNotificationLinkId,
 }: GetPushNotificationParam): Promise<GetPushNotificationResult> {
   const $package = new Package({ deep });
-  const titleTypeLinkId = await $package.PushNotificationTitle.id();
-  const bodyTypeLinkId = await $package.PushNotificationBody.id();
-  const pushNotificationTreeLinkId = await $package.PushNotificationTree.id();
+  // const titleTypeLinkId = await $package.PushNotificationTitle.id();
+  // const bodyTypeLinkId = await $package.PushNotificationBody.id();
+  // const pushNotificationTreeLinkId = await $package.PushNotificationTree.id();
 
-  const { data: linksDownToParentPushNotificationMp } = await deep.select(
-    {
-      up: {
-        parent_id: { _eq: pushNotificationLinkId },
-        tree_id: { _eq: pushNotificationTreeLinkId },
-      },
-    },
-    {
-      returning: `${deep.selectReturning}
-    to {
-      ${deep.selectReturning}
-    }
-    `,
-    }
-  );
+  // const { data: linksDownToParentPushNotificationMp } = await deep.select(
+  //   {
+  //     up: {
+  //       parent_id: { _eq: pushNotificationLinkId },
+  //       tree_id: { _eq: pushNotificationTreeLinkId },
+  //     },
+  //   },
+  //   {
+  //     returning: `${deep.selectReturning}
+  //   to {
+  //     ${deep.selectReturning}
+  //   }
+  //   `,
+  //   }
+  // );
 
-  const linkWithTitle = linksDownToParentPushNotificationMp.find(
-    (link) => link.type_id === titleTypeLinkId
-  );
-  if (!linkWithTitle) {
-    throw new Error(`A link with type ##${titleTypeLinkId} is not found`);
-  }
+  // const linkWithTitle = linksDownToParentPushNotificationMp.find(
+  //   (link) => link.type_id === titleTypeLinkId
+  // );
+  // if (!linkWithTitle) {
+  //   throw new Error(`A link with type ##${titleTypeLinkId} is not found`);
+  // }
 
-  const linkWithBody = linksDownToParentPushNotificationMp.find(
-    (link) => link.type_id === bodyTypeLinkId
-  );
-  if (!linkWithBody) {
-    throw new Error(`A link with type ##${bodyTypeLinkId} is not found`);
-  }
+  // const linkWithBody = linksDownToParentPushNotificationMp.find(
+  //   (link) => link.type_id === bodyTypeLinkId
+  // );
+  // if (!linkWithBody) {
+  //   throw new Error(`A link with type ##${bodyTypeLinkId} is not found`);
+  // }
 
+  // return {
+  //   title: linkWithTitle?.to.value.value,
+  //   body: linkWithBody.to.value.value,
+  // };
+  const {data: [link]} = await deep.select(pushNotificationLinkId);
   return {
-    title: linkWithTitle?.to.value.value,
-    body: linkWithBody.to.value.value,
-  };
+    title: link.value.value.title,
+    body: link.value.value.body,
+  }
 }
 
 export interface GetPushNotificationParam {
