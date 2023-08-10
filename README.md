@@ -40,10 +40,13 @@ This type is located in the [`@deep-foundation/capacitor-device`](https://www.np
 It is recommended to use [registerDevice](https://deep-foundation.github.io/firebase-push-notification/functions/registerDevice.html) with [insertDeviceRegistrationToken](https://deep-foundation.github.io/firebase-push-notification/functions/insertDeviceRegistrationToken.html)
 ## Push Notification
 - Insert [`PushNotification`]
-- Insert any link with string value that contains title for yout push notification  
-You can use `SyncTextFile` from [`@deep-foundation/core`](https://www.npmjs.com/package/@deep-foundation/core) to do it.
-- Insert [`PushNotification`] from [`PushNotificationTitle`] to `SyncTextFile` that contains title for push notification  
-- Do the above two steps for [`PushNotificationBody`] and optionally for [`PushNotificationImageUrl`], [`PushNotificationIconUrl`]  
+- Update its value to object like that contains `title` and `body` fields:
+  ```json
+  {
+    title: "My Title",
+    body: "My Body"
+  }
+  ```
 ## Notify
 - Insert [`Notify`] from [`PushNotification`] to [`Device`]  
 - See push notification on your device :)
