@@ -14,7 +14,7 @@
     "associative"
   ],
   "version": "18.2.0",
-  "description": "Provides links for working with [`@firebase/messaging`](https://www.npmjs.com/package/@firebase/messaging) and typescript library for comfortable using of this deep package using typescript",
+  "description": "Provides links for working with @firebase/messaging and typescript library to simplify integration with this deep package",
   "repository": {
     "type": "git",
     "url": "https://github.com/deep-foundation/firebase-push-notification"
