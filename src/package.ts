@@ -19,85 +19,91 @@ const {name: packageName} = package;
 #### Use id method to get the id of the link
 ```ts
 const package = new Package({deep});
+const pushNotificationTreeTypeLinkId = await package["PushNotificationTree"].id();
+const pushNotificationNotifyInsertHandlerCodeGeneratedTypeLinkId = await package["PushNotificationNotifyInsertHandlerCodeGenerated"].id();
+const pushNotificationNotifyInsertHandlerCodeTypeLinkId = await package["PushNotificationNotifyInsertHandlerCode"].id();
+const pushNotificationNotifyInsertHandlerCodeGeneratedFromTypeLinkId = await package["PushNotificationNotifyInsertHandlerCodeGeneratedFrom"].id();
 const pushNotificationNotifyInsertHandlerTypeLinkId = await package["PushNotificationNotifyInsertHandler"].id();
-const typeOfValueOfPushNotificationBodyTypeLinkId = await package["TypeOfValueOfPushNotificationBody"].id();
-const pushNotificationTitleTypeLinkId = await package["PushNotificationTitle"].id();
-const typeOfValueOfPushNotificationTitleTypeLinkId = await package["TypeOfValueOfPushNotificationTitle"].id();
-const notifyTypeLinkId = await package["Notify"].id();
-const notifiedTypeLinkId = await package["Notified"].id();
-const handlePushNotificationNotifyInsertTypeLinkId = await package["HandlePushNotificationNotifyInsert"].id();
-const treeIncludeFromCurrentPushNotificationBodyTypeLinkId = await package["TreeIncludeFromCurrentPushNotificationBody"].id();
-const treeIncludeFromCurrentPushNotificationTitleTypeLinkId = await package["TreeIncludeFromCurrentPushNotificationTitle"].id();
-const treeIncludeNodePushNotificationTypeLinkId = await package["TreeIncludeNodePushNotification"].id();
-const handleUpdateOfPushNotificationTypeLinkId = await package["HandleUpdateOfPushNotification"].id();
 const serviceAccountTypeLinkId = await package["ServiceAccount"].id();
 const typeOfValueOfServiceAccountTypeLinkId = await package["TypeOfValueOfServiceAccount"].id();
 const usesServiceAccountTypeLinkId = await package["UsesServiceAccount"].id();
-const pushNotificationTypeLinkId = await package["PushNotification"].id();
-const pushNotificationBodyTypeLinkId = await package["PushNotificationBody"].id();
-const typeOfValueOfPushNotificationTypeLinkId = await package["TypeOfValueOfPushNotification"].id();
 const webPushCertificateTypeLinkId = await package["WebPushCertificate"].id();
-const usesWebPushCertificateTypeLinkId = await package["UsesWebPushCertificate"].id();
 const typeOfValueOfWebPushCertificateTypeLinkId = await package["TypeOfValueOfWebPushCertificate"].id();
+const usesWebPushCertificateTypeLinkId = await package["UsesWebPushCertificate"].id();
 const deviceRegistrationTokenTypeLinkId = await package["DeviceRegistrationToken"].id();
-const pushNotificationNotifyInsertHandlerCodeTypeLinkId = await package["PushNotificationNotifyInsertHandlerCode"].id();
-const pushNotificationTreeTypeLinkId = await package["PushNotificationTree"].id();
+const treeIncludeFromCurrentPushNotificationBodyTypeLinkId = await package["TreeIncludeFromCurrentPushNotificationBody"].id();
+const pushNotificationBodyTypeLinkId = await package["PushNotificationBody"].id();
+const typeOfValueOfPushNotificationBodyTypeLinkId = await package["TypeOfValueOfPushNotificationBody"].id();
+const pushNotificationTypeLinkId = await package["PushNotification"].id();
+const typeOfValueOfPushNotificationTypeLinkId = await package["TypeOfValueOfPushNotification"].id();
+const pushNotificationTitleTypeLinkId = await package["PushNotificationTitle"].id();
+const typeOfValueOfPushNotificationTitleTypeLinkId = await package["TypeOfValueOfPushNotificationTitle"].id();
+const treeIncludeFromCurrentPushNotificationTitleTypeLinkId = await package["TreeIncludeFromCurrentPushNotificationTitle"].id();
+const notifyTypeLinkId = await package["Notify"].id();
+const handlePushNotificationNotifyInsertTypeLinkId = await package["HandlePushNotificationNotifyInsert"].id();
+const notifiedTypeLinkId = await package["Notified"].id();
+const treeIncludeNodePushNotificationTypeLinkId = await package["TreeIncludeNodePushNotification"].id();
+const handleUpdateOfPushNotificationTypeLinkId = await package["HandleUpdateOfPushNotification"].id();
 ```
 
 #### Use idLocal method to get the local id of the link
 ```ts
 const package = new Package({deep});
 await package.applyMinilinks();
+const pushNotificationTreeTypeLinkId = package["PushNotificationTree"].idLocal();
+const pushNotificationNotifyInsertHandlerCodeGeneratedTypeLinkId = package["PushNotificationNotifyInsertHandlerCodeGenerated"].idLocal();
+const pushNotificationNotifyInsertHandlerCodeTypeLinkId = package["PushNotificationNotifyInsertHandlerCode"].idLocal();
+const pushNotificationNotifyInsertHandlerCodeGeneratedFromTypeLinkId = package["PushNotificationNotifyInsertHandlerCodeGeneratedFrom"].idLocal();
 const pushNotificationNotifyInsertHandlerTypeLinkId = package["PushNotificationNotifyInsertHandler"].idLocal();
-const typeOfValueOfPushNotificationBodyTypeLinkId = package["TypeOfValueOfPushNotificationBody"].idLocal();
-const pushNotificationTitleTypeLinkId = package["PushNotificationTitle"].idLocal();
-const typeOfValueOfPushNotificationTitleTypeLinkId = package["TypeOfValueOfPushNotificationTitle"].idLocal();
-const notifyTypeLinkId = package["Notify"].idLocal();
-const notifiedTypeLinkId = package["Notified"].idLocal();
-const handlePushNotificationNotifyInsertTypeLinkId = package["HandlePushNotificationNotifyInsert"].idLocal();
-const treeIncludeFromCurrentPushNotificationBodyTypeLinkId = package["TreeIncludeFromCurrentPushNotificationBody"].idLocal();
-const treeIncludeFromCurrentPushNotificationTitleTypeLinkId = package["TreeIncludeFromCurrentPushNotificationTitle"].idLocal();
-const treeIncludeNodePushNotificationTypeLinkId = package["TreeIncludeNodePushNotification"].idLocal();
-const handleUpdateOfPushNotificationTypeLinkId = package["HandleUpdateOfPushNotification"].idLocal();
 const serviceAccountTypeLinkId = package["ServiceAccount"].idLocal();
 const typeOfValueOfServiceAccountTypeLinkId = package["TypeOfValueOfServiceAccount"].idLocal();
 const usesServiceAccountTypeLinkId = package["UsesServiceAccount"].idLocal();
-const pushNotificationTypeLinkId = package["PushNotification"].idLocal();
-const pushNotificationBodyTypeLinkId = package["PushNotificationBody"].idLocal();
-const typeOfValueOfPushNotificationTypeLinkId = package["TypeOfValueOfPushNotification"].idLocal();
 const webPushCertificateTypeLinkId = package["WebPushCertificate"].idLocal();
-const usesWebPushCertificateTypeLinkId = package["UsesWebPushCertificate"].idLocal();
 const typeOfValueOfWebPushCertificateTypeLinkId = package["TypeOfValueOfWebPushCertificate"].idLocal();
+const usesWebPushCertificateTypeLinkId = package["UsesWebPushCertificate"].idLocal();
 const deviceRegistrationTokenTypeLinkId = package["DeviceRegistrationToken"].idLocal();
-const pushNotificationNotifyInsertHandlerCodeTypeLinkId = package["PushNotificationNotifyInsertHandlerCode"].idLocal();
-const pushNotificationTreeTypeLinkId = package["PushNotificationTree"].idLocal();
+const treeIncludeFromCurrentPushNotificationBodyTypeLinkId = package["TreeIncludeFromCurrentPushNotificationBody"].idLocal();
+const pushNotificationBodyTypeLinkId = package["PushNotificationBody"].idLocal();
+const typeOfValueOfPushNotificationBodyTypeLinkId = package["TypeOfValueOfPushNotificationBody"].idLocal();
+const pushNotificationTypeLinkId = package["PushNotification"].idLocal();
+const typeOfValueOfPushNotificationTypeLinkId = package["TypeOfValueOfPushNotification"].idLocal();
+const pushNotificationTitleTypeLinkId = package["PushNotificationTitle"].idLocal();
+const typeOfValueOfPushNotificationTitleTypeLinkId = package["TypeOfValueOfPushNotificationTitle"].idLocal();
+const treeIncludeFromCurrentPushNotificationTitleTypeLinkId = package["TreeIncludeFromCurrentPushNotificationTitle"].idLocal();
+const notifyTypeLinkId = package["Notify"].idLocal();
+const handlePushNotificationNotifyInsertTypeLinkId = package["HandlePushNotificationNotifyInsert"].idLocal();
+const notifiedTypeLinkId = package["Notified"].idLocal();
+const treeIncludeNodePushNotificationTypeLinkId = package["TreeIncludeNodePushNotification"].idLocal();
+const handleUpdateOfPushNotificationTypeLinkId = package["HandleUpdateOfPushNotification"].idLocal();
 ```
 #### Use name field to get the name of the link
 ```ts
 const package = new Package({deep});
+const pushNotificationTree = package["PushNotificationTree"].name;
+const pushNotificationNotifyInsertHandlerCodeGenerated = package["PushNotificationNotifyInsertHandlerCodeGenerated"].name;
+const pushNotificationNotifyInsertHandlerCode = package["PushNotificationNotifyInsertHandlerCode"].name;
+const pushNotificationNotifyInsertHandlerCodeGeneratedFrom = package["PushNotificationNotifyInsertHandlerCodeGeneratedFrom"].name;
 const pushNotificationNotifyInsertHandler = package["PushNotificationNotifyInsertHandler"].name;
-const typeOfValueOfPushNotificationBody = package["TypeOfValueOfPushNotificationBody"].name;
-const pushNotificationTitle = package["PushNotificationTitle"].name;
-const typeOfValueOfPushNotificationTitle = package["TypeOfValueOfPushNotificationTitle"].name;
-const notify = package["Notify"].name;
-const notified = package["Notified"].name;
-const handlePushNotificationNotifyInsert = package["HandlePushNotificationNotifyInsert"].name;
-const treeIncludeFromCurrentPushNotificationBody = package["TreeIncludeFromCurrentPushNotificationBody"].name;
-const treeIncludeFromCurrentPushNotificationTitle = package["TreeIncludeFromCurrentPushNotificationTitle"].name;
-const treeIncludeNodePushNotification = package["TreeIncludeNodePushNotification"].name;
-const handleUpdateOfPushNotification = package["HandleUpdateOfPushNotification"].name;
 const serviceAccount = package["ServiceAccount"].name;
 const typeOfValueOfServiceAccount = package["TypeOfValueOfServiceAccount"].name;
 const usesServiceAccount = package["UsesServiceAccount"].name;
-const pushNotification = package["PushNotification"].name;
-const pushNotificationBody = package["PushNotificationBody"].name;
-const typeOfValueOfPushNotification = package["TypeOfValueOfPushNotification"].name;
 const webPushCertificate = package["WebPushCertificate"].name;
-const usesWebPushCertificate = package["UsesWebPushCertificate"].name;
 const typeOfValueOfWebPushCertificate = package["TypeOfValueOfWebPushCertificate"].name;
+const usesWebPushCertificate = package["UsesWebPushCertificate"].name;
 const deviceRegistrationToken = package["DeviceRegistrationToken"].name;
-const pushNotificationNotifyInsertHandlerCode = package["PushNotificationNotifyInsertHandlerCode"].name;
-const pushNotificationTree = package["PushNotificationTree"].name;
+const treeIncludeFromCurrentPushNotificationBody = package["TreeIncludeFromCurrentPushNotificationBody"].name;
+const pushNotificationBody = package["PushNotificationBody"].name;
+const typeOfValueOfPushNotificationBody = package["TypeOfValueOfPushNotificationBody"].name;
+const pushNotification = package["PushNotification"].name;
+const typeOfValueOfPushNotification = package["TypeOfValueOfPushNotification"].name;
+const pushNotificationTitle = package["PushNotificationTitle"].name;
+const typeOfValueOfPushNotificationTitle = package["TypeOfValueOfPushNotificationTitle"].name;
+const treeIncludeFromCurrentPushNotificationTitle = package["TreeIncludeFromCurrentPushNotificationTitle"].name;
+const notify = package["Notify"].name;
+const handlePushNotificationNotifyInsert = package["HandlePushNotificationNotifyInsert"].name;
+const notified = package["Notified"].name;
+const treeIncludeNodePushNotification = package["TreeIncludeNodePushNotification"].name;
+const handleUpdateOfPushNotification = package["HandleUpdateOfPushNotification"].name;
 ```
 */
 export class Package extends BasePackage {
@@ -110,6 +116,82 @@ export class Package extends BasePackage {
   }
 
 
+      /**
+      @example
+      #### Use id method to get the id of the PushNotificationTree link
+      ```ts
+      const package = new Package({deep});
+      const pushNotificationTreeTypeLinkId = await package["PushNotificationTree"].id();
+      ```
+      #### Use localId method to get the local id of the PushNotificationTree link
+      ```ts
+      const package = new Package({deep});
+      const pushNotificationTreeTypeLinkId = await package["PushNotificationTree"].localId();
+      ```
+      #### Use name field to get the name of the PushNotificationTree link
+      ```ts
+      const package = new Package({deep});
+      const pushNotificationTree = await package["PushNotificationTree"].name;
+      ```
+      */
+      public "PushNotificationTree" = this.createEntity("PushNotificationTree");
+      /**
+      @example
+      #### Use id method to get the id of the PushNotificationNotifyInsertHandlerCodeGenerated link
+      ```ts
+      const package = new Package({deep});
+      const pushNotificationNotifyInsertHandlerCodeGeneratedTypeLinkId = await package["PushNotificationNotifyInsertHandlerCodeGenerated"].id();
+      ```
+      #### Use localId method to get the local id of the PushNotificationNotifyInsertHandlerCodeGenerated link
+      ```ts
+      const package = new Package({deep});
+      const pushNotificationNotifyInsertHandlerCodeGeneratedTypeLinkId = await package["PushNotificationNotifyInsertHandlerCodeGenerated"].localId();
+      ```
+      #### Use name field to get the name of the PushNotificationNotifyInsertHandlerCodeGenerated link
+      ```ts
+      const package = new Package({deep});
+      const pushNotificationNotifyInsertHandlerCodeGenerated = await package["PushNotificationNotifyInsertHandlerCodeGenerated"].name;
+      ```
+      */
+      public "PushNotificationNotifyInsertHandlerCodeGenerated" = this.createEntity("PushNotificationNotifyInsertHandlerCodeGenerated");
+      /**
+      @example
+      #### Use id method to get the id of the PushNotificationNotifyInsertHandlerCode link
+      ```ts
+      const package = new Package({deep});
+      const pushNotificationNotifyInsertHandlerCodeTypeLinkId = await package["PushNotificationNotifyInsertHandlerCode"].id();
+      ```
+      #### Use localId method to get the local id of the PushNotificationNotifyInsertHandlerCode link
+      ```ts
+      const package = new Package({deep});
+      const pushNotificationNotifyInsertHandlerCodeTypeLinkId = await package["PushNotificationNotifyInsertHandlerCode"].localId();
+      ```
+      #### Use name field to get the name of the PushNotificationNotifyInsertHandlerCode link
+      ```ts
+      const package = new Package({deep});
+      const pushNotificationNotifyInsertHandlerCode = await package["PushNotificationNotifyInsertHandlerCode"].name;
+      ```
+      */
+      public "PushNotificationNotifyInsertHandlerCode" = this.createEntity("PushNotificationNotifyInsertHandlerCode");
+      /**
+      @example
+      #### Use id method to get the id of the PushNotificationNotifyInsertHandlerCodeGeneratedFrom link
+      ```ts
+      const package = new Package({deep});
+      const pushNotificationNotifyInsertHandlerCodeGeneratedFromTypeLinkId = await package["PushNotificationNotifyInsertHandlerCodeGeneratedFrom"].id();
+      ```
+      #### Use localId method to get the local id of the PushNotificationNotifyInsertHandlerCodeGeneratedFrom link
+      ```ts
+      const package = new Package({deep});
+      const pushNotificationNotifyInsertHandlerCodeGeneratedFromTypeLinkId = await package["PushNotificationNotifyInsertHandlerCodeGeneratedFrom"].localId();
+      ```
+      #### Use name field to get the name of the PushNotificationNotifyInsertHandlerCodeGeneratedFrom link
+      ```ts
+      const package = new Package({deep});
+      const pushNotificationNotifyInsertHandlerCodeGeneratedFrom = await package["PushNotificationNotifyInsertHandlerCodeGeneratedFrom"].name;
+      ```
+      */
+      public "PushNotificationNotifyInsertHandlerCodeGeneratedFrom" = this.createEntity("PushNotificationNotifyInsertHandlerCodeGeneratedFrom");
       /**
       @example
       #### Use id method to get the id of the PushNotificationNotifyInsertHandler link
@@ -129,196 +211,6 @@ export class Package extends BasePackage {
       ```
       */
       public "PushNotificationNotifyInsertHandler" = this.createEntity("PushNotificationNotifyInsertHandler");
-      /**
-      @example
-      #### Use id method to get the id of the TypeOfValueOfPushNotificationBody link
-      ```ts
-      const package = new Package({deep});
-      const typeOfValueOfPushNotificationBodyTypeLinkId = await package["TypeOfValueOfPushNotificationBody"].id();
-      ```
-      #### Use localId method to get the local id of the TypeOfValueOfPushNotificationBody link
-      ```ts
-      const package = new Package({deep});
-      const typeOfValueOfPushNotificationBodyTypeLinkId = await package["TypeOfValueOfPushNotificationBody"].localId();
-      ```
-      #### Use name field to get the name of the TypeOfValueOfPushNotificationBody link
-      ```ts
-      const package = new Package({deep});
-      const typeOfValueOfPushNotificationBody = await package["TypeOfValueOfPushNotificationBody"].name;
-      ```
-      */
-      public "TypeOfValueOfPushNotificationBody" = this.createEntity("TypeOfValueOfPushNotificationBody");
-      /**
-      @example
-      #### Use id method to get the id of the PushNotificationTitle link
-      ```ts
-      const package = new Package({deep});
-      const pushNotificationTitleTypeLinkId = await package["PushNotificationTitle"].id();
-      ```
-      #### Use localId method to get the local id of the PushNotificationTitle link
-      ```ts
-      const package = new Package({deep});
-      const pushNotificationTitleTypeLinkId = await package["PushNotificationTitle"].localId();
-      ```
-      #### Use name field to get the name of the PushNotificationTitle link
-      ```ts
-      const package = new Package({deep});
-      const pushNotificationTitle = await package["PushNotificationTitle"].name;
-      ```
-      */
-      public "PushNotificationTitle" = this.createEntity("PushNotificationTitle");
-      /**
-      @example
-      #### Use id method to get the id of the TypeOfValueOfPushNotificationTitle link
-      ```ts
-      const package = new Package({deep});
-      const typeOfValueOfPushNotificationTitleTypeLinkId = await package["TypeOfValueOfPushNotificationTitle"].id();
-      ```
-      #### Use localId method to get the local id of the TypeOfValueOfPushNotificationTitle link
-      ```ts
-      const package = new Package({deep});
-      const typeOfValueOfPushNotificationTitleTypeLinkId = await package["TypeOfValueOfPushNotificationTitle"].localId();
-      ```
-      #### Use name field to get the name of the TypeOfValueOfPushNotificationTitle link
-      ```ts
-      const package = new Package({deep});
-      const typeOfValueOfPushNotificationTitle = await package["TypeOfValueOfPushNotificationTitle"].name;
-      ```
-      */
-      public "TypeOfValueOfPushNotificationTitle" = this.createEntity("TypeOfValueOfPushNotificationTitle");
-      /**
-      @example
-      #### Use id method to get the id of the Notify link
-      ```ts
-      const package = new Package({deep});
-      const notifyTypeLinkId = await package["Notify"].id();
-      ```
-      #### Use localId method to get the local id of the Notify link
-      ```ts
-      const package = new Package({deep});
-      const notifyTypeLinkId = await package["Notify"].localId();
-      ```
-      #### Use name field to get the name of the Notify link
-      ```ts
-      const package = new Package({deep});
-      const notify = await package["Notify"].name;
-      ```
-      */
-      public "Notify" = this.createEntity("Notify");
-      /**
-      @example
-      #### Use id method to get the id of the Notified link
-      ```ts
-      const package = new Package({deep});
-      const notifiedTypeLinkId = await package["Notified"].id();
-      ```
-      #### Use localId method to get the local id of the Notified link
-      ```ts
-      const package = new Package({deep});
-      const notifiedTypeLinkId = await package["Notified"].localId();
-      ```
-      #### Use name field to get the name of the Notified link
-      ```ts
-      const package = new Package({deep});
-      const notified = await package["Notified"].name;
-      ```
-      */
-      public "Notified" = this.createEntity("Notified");
-      /**
-      @example
-      #### Use id method to get the id of the HandlePushNotificationNotifyInsert link
-      ```ts
-      const package = new Package({deep});
-      const handlePushNotificationNotifyInsertTypeLinkId = await package["HandlePushNotificationNotifyInsert"].id();
-      ```
-      #### Use localId method to get the local id of the HandlePushNotificationNotifyInsert link
-      ```ts
-      const package = new Package({deep});
-      const handlePushNotificationNotifyInsertTypeLinkId = await package["HandlePushNotificationNotifyInsert"].localId();
-      ```
-      #### Use name field to get the name of the HandlePushNotificationNotifyInsert link
-      ```ts
-      const package = new Package({deep});
-      const handlePushNotificationNotifyInsert = await package["HandlePushNotificationNotifyInsert"].name;
-      ```
-      */
-      public "HandlePushNotificationNotifyInsert" = this.createEntity("HandlePushNotificationNotifyInsert");
-      /**
-      @example
-      #### Use id method to get the id of the TreeIncludeFromCurrentPushNotificationBody link
-      ```ts
-      const package = new Package({deep});
-      const treeIncludeFromCurrentPushNotificationBodyTypeLinkId = await package["TreeIncludeFromCurrentPushNotificationBody"].id();
-      ```
-      #### Use localId method to get the local id of the TreeIncludeFromCurrentPushNotificationBody link
-      ```ts
-      const package = new Package({deep});
-      const treeIncludeFromCurrentPushNotificationBodyTypeLinkId = await package["TreeIncludeFromCurrentPushNotificationBody"].localId();
-      ```
-      #### Use name field to get the name of the TreeIncludeFromCurrentPushNotificationBody link
-      ```ts
-      const package = new Package({deep});
-      const treeIncludeFromCurrentPushNotificationBody = await package["TreeIncludeFromCurrentPushNotificationBody"].name;
-      ```
-      */
-      public "TreeIncludeFromCurrentPushNotificationBody" = this.createEntity("TreeIncludeFromCurrentPushNotificationBody");
-      /**
-      @example
-      #### Use id method to get the id of the TreeIncludeFromCurrentPushNotificationTitle link
-      ```ts
-      const package = new Package({deep});
-      const treeIncludeFromCurrentPushNotificationTitleTypeLinkId = await package["TreeIncludeFromCurrentPushNotificationTitle"].id();
-      ```
-      #### Use localId method to get the local id of the TreeIncludeFromCurrentPushNotificationTitle link
-      ```ts
-      const package = new Package({deep});
-      const treeIncludeFromCurrentPushNotificationTitleTypeLinkId = await package["TreeIncludeFromCurrentPushNotificationTitle"].localId();
-      ```
-      #### Use name field to get the name of the TreeIncludeFromCurrentPushNotificationTitle link
-      ```ts
-      const package = new Package({deep});
-      const treeIncludeFromCurrentPushNotificationTitle = await package["TreeIncludeFromCurrentPushNotificationTitle"].name;
-      ```
-      */
-      public "TreeIncludeFromCurrentPushNotificationTitle" = this.createEntity("TreeIncludeFromCurrentPushNotificationTitle");
-      /**
-      @example
-      #### Use id method to get the id of the TreeIncludeNodePushNotification link
-      ```ts
-      const package = new Package({deep});
-      const treeIncludeNodePushNotificationTypeLinkId = await package["TreeIncludeNodePushNotification"].id();
-      ```
-      #### Use localId method to get the local id of the TreeIncludeNodePushNotification link
-      ```ts
-      const package = new Package({deep});
-      const treeIncludeNodePushNotificationTypeLinkId = await package["TreeIncludeNodePushNotification"].localId();
-      ```
-      #### Use name field to get the name of the TreeIncludeNodePushNotification link
-      ```ts
-      const package = new Package({deep});
-      const treeIncludeNodePushNotification = await package["TreeIncludeNodePushNotification"].name;
-      ```
-      */
-      public "TreeIncludeNodePushNotification" = this.createEntity("TreeIncludeNodePushNotification");
-      /**
-      @example
-      #### Use id method to get the id of the HandleUpdateOfPushNotification link
-      ```ts
-      const package = new Package({deep});
-      const handleUpdateOfPushNotificationTypeLinkId = await package["HandleUpdateOfPushNotification"].id();
-      ```
-      #### Use localId method to get the local id of the HandleUpdateOfPushNotification link
-      ```ts
-      const package = new Package({deep});
-      const handleUpdateOfPushNotificationTypeLinkId = await package["HandleUpdateOfPushNotification"].localId();
-      ```
-      #### Use name field to get the name of the HandleUpdateOfPushNotification link
-      ```ts
-      const package = new Package({deep});
-      const handleUpdateOfPushNotification = await package["HandleUpdateOfPushNotification"].name;
-      ```
-      */
-      public "HandleUpdateOfPushNotification" = this.createEntity("HandleUpdateOfPushNotification");
       /**
       @example
       #### Use id method to get the id of the ServiceAccount link
@@ -378,63 +270,6 @@ export class Package extends BasePackage {
       public "UsesServiceAccount" = this.createEntity("UsesServiceAccount");
       /**
       @example
-      #### Use id method to get the id of the PushNotification link
-      ```ts
-      const package = new Package({deep});
-      const pushNotificationTypeLinkId = await package["PushNotification"].id();
-      ```
-      #### Use localId method to get the local id of the PushNotification link
-      ```ts
-      const package = new Package({deep});
-      const pushNotificationTypeLinkId = await package["PushNotification"].localId();
-      ```
-      #### Use name field to get the name of the PushNotification link
-      ```ts
-      const package = new Package({deep});
-      const pushNotification = await package["PushNotification"].name;
-      ```
-      */
-      public "PushNotification" = this.createEntity("PushNotification");
-      /**
-      @example
-      #### Use id method to get the id of the PushNotificationBody link
-      ```ts
-      const package = new Package({deep});
-      const pushNotificationBodyTypeLinkId = await package["PushNotificationBody"].id();
-      ```
-      #### Use localId method to get the local id of the PushNotificationBody link
-      ```ts
-      const package = new Package({deep});
-      const pushNotificationBodyTypeLinkId = await package["PushNotificationBody"].localId();
-      ```
-      #### Use name field to get the name of the PushNotificationBody link
-      ```ts
-      const package = new Package({deep});
-      const pushNotificationBody = await package["PushNotificationBody"].name;
-      ```
-      */
-      public "PushNotificationBody" = this.createEntity("PushNotificationBody");
-      /**
-      @example
-      #### Use id method to get the id of the TypeOfValueOfPushNotification link
-      ```ts
-      const package = new Package({deep});
-      const typeOfValueOfPushNotificationTypeLinkId = await package["TypeOfValueOfPushNotification"].id();
-      ```
-      #### Use localId method to get the local id of the TypeOfValueOfPushNotification link
-      ```ts
-      const package = new Package({deep});
-      const typeOfValueOfPushNotificationTypeLinkId = await package["TypeOfValueOfPushNotification"].localId();
-      ```
-      #### Use name field to get the name of the TypeOfValueOfPushNotification link
-      ```ts
-      const package = new Package({deep});
-      const typeOfValueOfPushNotification = await package["TypeOfValueOfPushNotification"].name;
-      ```
-      */
-      public "TypeOfValueOfPushNotification" = this.createEntity("TypeOfValueOfPushNotification");
-      /**
-      @example
       #### Use id method to get the id of the WebPushCertificate link
       ```ts
       const package = new Package({deep});
@@ -452,25 +287,6 @@ export class Package extends BasePackage {
       ```
       */
       public "WebPushCertificate" = this.createEntity("WebPushCertificate");
-      /**
-      @example
-      #### Use id method to get the id of the UsesWebPushCertificate link
-      ```ts
-      const package = new Package({deep});
-      const usesWebPushCertificateTypeLinkId = await package["UsesWebPushCertificate"].id();
-      ```
-      #### Use localId method to get the local id of the UsesWebPushCertificate link
-      ```ts
-      const package = new Package({deep});
-      const usesWebPushCertificateTypeLinkId = await package["UsesWebPushCertificate"].localId();
-      ```
-      #### Use name field to get the name of the UsesWebPushCertificate link
-      ```ts
-      const package = new Package({deep});
-      const usesWebPushCertificate = await package["UsesWebPushCertificate"].name;
-      ```
-      */
-      public "UsesWebPushCertificate" = this.createEntity("UsesWebPushCertificate");
       /**
       @example
       #### Use id method to get the id of the TypeOfValueOfWebPushCertificate link
@@ -492,6 +308,25 @@ export class Package extends BasePackage {
       public "TypeOfValueOfWebPushCertificate" = this.createEntity("TypeOfValueOfWebPushCertificate");
       /**
       @example
+      #### Use id method to get the id of the UsesWebPushCertificate link
+      ```ts
+      const package = new Package({deep});
+      const usesWebPushCertificateTypeLinkId = await package["UsesWebPushCertificate"].id();
+      ```
+      #### Use localId method to get the local id of the UsesWebPushCertificate link
+      ```ts
+      const package = new Package({deep});
+      const usesWebPushCertificateTypeLinkId = await package["UsesWebPushCertificate"].localId();
+      ```
+      #### Use name field to get the name of the UsesWebPushCertificate link
+      ```ts
+      const package = new Package({deep});
+      const usesWebPushCertificate = await package["UsesWebPushCertificate"].name;
+      ```
+      */
+      public "UsesWebPushCertificate" = this.createEntity("UsesWebPushCertificate");
+      /**
+      @example
       #### Use id method to get the id of the DeviceRegistrationToken link
       ```ts
       const package = new Package({deep});
@@ -511,42 +346,251 @@ export class Package extends BasePackage {
       public "DeviceRegistrationToken" = this.createEntity("DeviceRegistrationToken");
       /**
       @example
-      #### Use id method to get the id of the PushNotificationNotifyInsertHandlerCode link
+      #### Use id method to get the id of the TreeIncludeFromCurrentPushNotificationBody link
       ```ts
       const package = new Package({deep});
-      const pushNotificationNotifyInsertHandlerCodeTypeLinkId = await package["PushNotificationNotifyInsertHandlerCode"].id();
+      const treeIncludeFromCurrentPushNotificationBodyTypeLinkId = await package["TreeIncludeFromCurrentPushNotificationBody"].id();
       ```
-      #### Use localId method to get the local id of the PushNotificationNotifyInsertHandlerCode link
+      #### Use localId method to get the local id of the TreeIncludeFromCurrentPushNotificationBody link
       ```ts
       const package = new Package({deep});
-      const pushNotificationNotifyInsertHandlerCodeTypeLinkId = await package["PushNotificationNotifyInsertHandlerCode"].localId();
+      const treeIncludeFromCurrentPushNotificationBodyTypeLinkId = await package["TreeIncludeFromCurrentPushNotificationBody"].localId();
       ```
-      #### Use name field to get the name of the PushNotificationNotifyInsertHandlerCode link
+      #### Use name field to get the name of the TreeIncludeFromCurrentPushNotificationBody link
       ```ts
       const package = new Package({deep});
-      const pushNotificationNotifyInsertHandlerCode = await package["PushNotificationNotifyInsertHandlerCode"].name;
+      const treeIncludeFromCurrentPushNotificationBody = await package["TreeIncludeFromCurrentPushNotificationBody"].name;
       ```
       */
-      public "PushNotificationNotifyInsertHandlerCode" = this.createEntity("PushNotificationNotifyInsertHandlerCode");
+      public "TreeIncludeFromCurrentPushNotificationBody" = this.createEntity("TreeIncludeFromCurrentPushNotificationBody");
       /**
       @example
-      #### Use id method to get the id of the PushNotificationTree link
+      #### Use id method to get the id of the PushNotificationBody link
       ```ts
       const package = new Package({deep});
-      const pushNotificationTreeTypeLinkId = await package["PushNotificationTree"].id();
+      const pushNotificationBodyTypeLinkId = await package["PushNotificationBody"].id();
       ```
-      #### Use localId method to get the local id of the PushNotificationTree link
+      #### Use localId method to get the local id of the PushNotificationBody link
       ```ts
       const package = new Package({deep});
-      const pushNotificationTreeTypeLinkId = await package["PushNotificationTree"].localId();
+      const pushNotificationBodyTypeLinkId = await package["PushNotificationBody"].localId();
       ```
-      #### Use name field to get the name of the PushNotificationTree link
+      #### Use name field to get the name of the PushNotificationBody link
       ```ts
       const package = new Package({deep});
-      const pushNotificationTree = await package["PushNotificationTree"].name;
+      const pushNotificationBody = await package["PushNotificationBody"].name;
       ```
       */
-      public "PushNotificationTree" = this.createEntity("PushNotificationTree");
+      public "PushNotificationBody" = this.createEntity("PushNotificationBody");
+      /**
+      @example
+      #### Use id method to get the id of the TypeOfValueOfPushNotificationBody link
+      ```ts
+      const package = new Package({deep});
+      const typeOfValueOfPushNotificationBodyTypeLinkId = await package["TypeOfValueOfPushNotificationBody"].id();
+      ```
+      #### Use localId method to get the local id of the TypeOfValueOfPushNotificationBody link
+      ```ts
+      const package = new Package({deep});
+      const typeOfValueOfPushNotificationBodyTypeLinkId = await package["TypeOfValueOfPushNotificationBody"].localId();
+      ```
+      #### Use name field to get the name of the TypeOfValueOfPushNotificationBody link
+      ```ts
+      const package = new Package({deep});
+      const typeOfValueOfPushNotificationBody = await package["TypeOfValueOfPushNotificationBody"].name;
+      ```
+      */
+      public "TypeOfValueOfPushNotificationBody" = this.createEntity("TypeOfValueOfPushNotificationBody");
+      /**
+      @example
+      #### Use id method to get the id of the PushNotification link
+      ```ts
+      const package = new Package({deep});
+      const pushNotificationTypeLinkId = await package["PushNotification"].id();
+      ```
+      #### Use localId method to get the local id of the PushNotification link
+      ```ts
+      const package = new Package({deep});
+      const pushNotificationTypeLinkId = await package["PushNotification"].localId();
+      ```
+      #### Use name field to get the name of the PushNotification link
+      ```ts
+      const package = new Package({deep});
+      const pushNotification = await package["PushNotification"].name;
+      ```
+      */
+      public "PushNotification" = this.createEntity("PushNotification");
+      /**
+      @example
+      #### Use id method to get the id of the TypeOfValueOfPushNotification link
+      ```ts
+      const package = new Package({deep});
+      const typeOfValueOfPushNotificationTypeLinkId = await package["TypeOfValueOfPushNotification"].id();
+      ```
+      #### Use localId method to get the local id of the TypeOfValueOfPushNotification link
+      ```ts
+      const package = new Package({deep});
+      const typeOfValueOfPushNotificationTypeLinkId = await package["TypeOfValueOfPushNotification"].localId();
+      ```
+      #### Use name field to get the name of the TypeOfValueOfPushNotification link
+      ```ts
+      const package = new Package({deep});
+      const typeOfValueOfPushNotification = await package["TypeOfValueOfPushNotification"].name;
+      ```
+      */
+      public "TypeOfValueOfPushNotification" = this.createEntity("TypeOfValueOfPushNotification");
+      /**
+      @example
+      #### Use id method to get the id of the PushNotificationTitle link
+      ```ts
+      const package = new Package({deep});
+      const pushNotificationTitleTypeLinkId = await package["PushNotificationTitle"].id();
+      ```
+      #### Use localId method to get the local id of the PushNotificationTitle link
+      ```ts
+      const package = new Package({deep});
+      const pushNotificationTitleTypeLinkId = await package["PushNotificationTitle"].localId();
+      ```
+      #### Use name field to get the name of the PushNotificationTitle link
+      ```ts
+      const package = new Package({deep});
+      const pushNotificationTitle = await package["PushNotificationTitle"].name;
+      ```
+      */
+      public "PushNotificationTitle" = this.createEntity("PushNotificationTitle");
+      /**
+      @example
+      #### Use id method to get the id of the TypeOfValueOfPushNotificationTitle link
+      ```ts
+      const package = new Package({deep});
+      const typeOfValueOfPushNotificationTitleTypeLinkId = await package["TypeOfValueOfPushNotificationTitle"].id();
+      ```
+      #### Use localId method to get the local id of the TypeOfValueOfPushNotificationTitle link
+      ```ts
+      const package = new Package({deep});
+      const typeOfValueOfPushNotificationTitleTypeLinkId = await package["TypeOfValueOfPushNotificationTitle"].localId();
+      ```
+      #### Use name field to get the name of the TypeOfValueOfPushNotificationTitle link
+      ```ts
+      const package = new Package({deep});
+      const typeOfValueOfPushNotificationTitle = await package["TypeOfValueOfPushNotificationTitle"].name;
+      ```
+      */
+      public "TypeOfValueOfPushNotificationTitle" = this.createEntity("TypeOfValueOfPushNotificationTitle");
+      /**
+      @example
+      #### Use id method to get the id of the TreeIncludeFromCurrentPushNotificationTitle link
+      ```ts
+      const package = new Package({deep});
+      const treeIncludeFromCurrentPushNotificationTitleTypeLinkId = await package["TreeIncludeFromCurrentPushNotificationTitle"].id();
+      ```
+      #### Use localId method to get the local id of the TreeIncludeFromCurrentPushNotificationTitle link
+      ```ts
+      const package = new Package({deep});
+      const treeIncludeFromCurrentPushNotificationTitleTypeLinkId = await package["TreeIncludeFromCurrentPushNotificationTitle"].localId();
+      ```
+      #### Use name field to get the name of the TreeIncludeFromCurrentPushNotificationTitle link
+      ```ts
+      const package = new Package({deep});
+      const treeIncludeFromCurrentPushNotificationTitle = await package["TreeIncludeFromCurrentPushNotificationTitle"].name;
+      ```
+      */
+      public "TreeIncludeFromCurrentPushNotificationTitle" = this.createEntity("TreeIncludeFromCurrentPushNotificationTitle");
+      /**
+      @example
+      #### Use id method to get the id of the Notify link
+      ```ts
+      const package = new Package({deep});
+      const notifyTypeLinkId = await package["Notify"].id();
+      ```
+      #### Use localId method to get the local id of the Notify link
+      ```ts
+      const package = new Package({deep});
+      const notifyTypeLinkId = await package["Notify"].localId();
+      ```
+      #### Use name field to get the name of the Notify link
+      ```ts
+      const package = new Package({deep});
+      const notify = await package["Notify"].name;
+      ```
+      */
+      public "Notify" = this.createEntity("Notify");
+      /**
+      @example
+      #### Use id method to get the id of the HandlePushNotificationNotifyInsert link
+      ```ts
+      const package = new Package({deep});
+      const handlePushNotificationNotifyInsertTypeLinkId = await package["HandlePushNotificationNotifyInsert"].id();
+      ```
+      #### Use localId method to get the local id of the HandlePushNotificationNotifyInsert link
+      ```ts
+      const package = new Package({deep});
+      const handlePushNotificationNotifyInsertTypeLinkId = await package["HandlePushNotificationNotifyInsert"].localId();
+      ```
+      #### Use name field to get the name of the HandlePushNotificationNotifyInsert link
+      ```ts
+      const package = new Package({deep});
+      const handlePushNotificationNotifyInsert = await package["HandlePushNotificationNotifyInsert"].name;
+      ```
+      */
+      public "HandlePushNotificationNotifyInsert" = this.createEntity("HandlePushNotificationNotifyInsert");
+      /**
+      @example
+      #### Use id method to get the id of the Notified link
+      ```ts
+      const package = new Package({deep});
+      const notifiedTypeLinkId = await package["Notified"].id();
+      ```
+      #### Use localId method to get the local id of the Notified link
+      ```ts
+      const package = new Package({deep});
+      const notifiedTypeLinkId = await package["Notified"].localId();
+      ```
+      #### Use name field to get the name of the Notified link
+      ```ts
+      const package = new Package({deep});
+      const notified = await package["Notified"].name;
+      ```
+      */
+      public "Notified" = this.createEntity("Notified");
+      /**
+      @example
+      #### Use id method to get the id of the TreeIncludeNodePushNotification link
+      ```ts
+      const package = new Package({deep});
+      const treeIncludeNodePushNotificationTypeLinkId = await package["TreeIncludeNodePushNotification"].id();
+      ```
+      #### Use localId method to get the local id of the TreeIncludeNodePushNotification link
+      ```ts
+      const package = new Package({deep});
+      const treeIncludeNodePushNotificationTypeLinkId = await package["TreeIncludeNodePushNotification"].localId();
+      ```
+      #### Use name field to get the name of the TreeIncludeNodePushNotification link
+      ```ts
+      const package = new Package({deep});
+      const treeIncludeNodePushNotification = await package["TreeIncludeNodePushNotification"].name;
+      ```
+      */
+      public "TreeIncludeNodePushNotification" = this.createEntity("TreeIncludeNodePushNotification");
+      /**
+      @example
+      #### Use id method to get the id of the HandleUpdateOfPushNotification link
+      ```ts
+      const package = new Package({deep});
+      const handleUpdateOfPushNotificationTypeLinkId = await package["HandleUpdateOfPushNotification"].id();
+      ```
+      #### Use localId method to get the local id of the HandleUpdateOfPushNotification link
+      ```ts
+      const package = new Package({deep});
+      const handleUpdateOfPushNotificationTypeLinkId = await package["HandleUpdateOfPushNotification"].localId();
+      ```
+      #### Use name field to get the name of the HandleUpdateOfPushNotification link
+      ```ts
+      const package = new Package({deep});
+      const handleUpdateOfPushNotification = await package["HandleUpdateOfPushNotification"].name;
+      ```
+      */
+      public "HandleUpdateOfPushNotification" = this.createEntity("HandleUpdateOfPushNotification");
 
 }
 
