@@ -13,7 +13,7 @@
     "links",
     "associative"
   ],
-  "version": "18.2.2-dev.0",
+  "version": "18.2.2-dev.1",
   "description": "Provides links for working with @firebase/messaging and typescript library to simplify integration with this deep package",
   "repository": {
     "type": "git",
