@@ -13,7 +13,7 @@
     "links",
     "associative"
   ],
-  "version": "18.2.2-dev.2",
+  "version": "18.2.2-dev.3",
   "description": "Provides links for working with @firebase/messaging and typescript library to simplify integration with this deep package",
   "repository": {
     "type": "git",
@@ -36,11 +36,11 @@
     "./deep.json"
   ],
   "dependencies": {
-    "@deep-foundation/capacitor-device": "~17.1.0",
-    "@deep-foundation/core": "^0.0.2",
+    "@deep-foundation/capacitor-device": "~20.0.3-dev.3",
+    "@deep-foundation/core": "~0.0.2",
     "@deep-foundation/notification": "~1.0.1",
-    "@deep-foundation/tsx": "^0.0.5",
-    "@freephoenix888/object-to-links-async-converter": "^0.0.10"
+    "@deep-foundation/object-to-links-async-converter": "~0.0.1-dev.5",
+    "@deep-foundation/tsx": "~0.0.5"
   },
   "devDependencies": {
     "@atao60/fse-cli": "^0.1.7",
