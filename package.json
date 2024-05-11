@@ -27,7 +27,7 @@
     "npm-release": "npm-release",
     "library:build:generate-package-class": "generate-package-class",
     "documentation:generate": "ts-node --esm ./automation/documentation/generate.js",
-    "library:documentation:generate": "typedoc ./src/main.ts"
+    "library:documentation:generate": "typedoc ./src/main.js"
   },
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
