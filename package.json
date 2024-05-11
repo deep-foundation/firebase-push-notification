@@ -22,7 +22,7 @@
   "type": "module",
   "scripts": {
     "library:build:clean": "fse remove dist && npm run library:build:dirty",
-    "library:build:dirty": "ts-node --esm ./automation/library/build.js",
+    "library:build:dirty": "node --esm ./automation/library/build.js",
     "npm-pull": "npm-pull",
     "npm-release": "npm-release",
     "library:build:generate-package-class": "generate-package-class",
